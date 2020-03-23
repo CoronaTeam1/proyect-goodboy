@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 
 import Header from './components/elements/headerMain'
 import Carousel from './components/elements/indexCarousel'

@@ -4,7 +4,7 @@
 }
 
 .index-header h1{
-  font-weight: 200;
+  font-weight: 100;
   padding: 20px;
 }
 
@@ -15,8 +15,8 @@
 
 .container-image{
   margin: auto;
-  width: 40%;
-
+  width:40%;
+  height:150px;
   overflow:hidden;
   border-radius: 50%;
 }
