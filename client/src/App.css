@@ -1,8 +1,18 @@
-.main-header{
+.index-header{
   margin-top: 60px;
   text-align: center;
 }
 
-.main-header h1{
+.index-header h1{
   font-weight: 200;
+  padding: 20px;
+}
+
+.index-carousel{
+  padding: 200px;
+}
+
+.index-button button{
+  background-color: rgb(90, 175, 108);
+  border: none;
 }

@@ -1,16 +1,20 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+
+import Header from './components/elements/headerMain'
+import Carousel from './components/elements/indexCarousel'
+import Button from './components/elements/indexButton'
+
+
 import "./App.css";
 
 function App() {
   return (
     <Container>
       <Row>
-        <Col md={8} className="main-header">
-          <h1>Bienvenido!</h1>
-          <img src="#" alt="Logo" />
-        </Col>
-        
+      <Header />
+      <Carousel /> 
+      <Button />
       </Row>
     </Container>
   );
