@@ -1,5 +1,4 @@
 import React from "react";
-
 import { Col, Button } from "react-bootstrap";
 
 const indexButton = () => (
