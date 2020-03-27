@@ -1,12 +1,12 @@
 import React from "react";
+import { Grid } from "@material-ui/core";
 
-import { Col } from "react-bootstrap";
 
 const Header = () => (
-  <Col md={8} className="index-header">
+  <Grid item xs={12} className="index-header">
     <h1>Bienvenido!</h1>
     <img src="#" alt="Logo" />
-  </Col>
+  </Grid>
 );
 
 export default Header;

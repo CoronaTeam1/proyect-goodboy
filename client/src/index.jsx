@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { createStore } from "redux";
-import reducer from './redux/reducer/reducer'
-import 'bootstrap/dist/css/bootstrap.min.css';  
+import reducer from './redux/reducer/reducer' 
 import './index.css';
 
 import App from './App';
