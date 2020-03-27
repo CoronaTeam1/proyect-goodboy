@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Grid } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./components/elements/headerMain";
-import Carousel from "./components/elements/indexCarousel";
+import Carousel from "./components/elements/Carousel/Carousel";
 import Button from "./components/elements/Button/Button";
 
 import "./App.css";
