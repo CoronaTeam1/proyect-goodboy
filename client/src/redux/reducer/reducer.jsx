@@ -9,6 +9,8 @@ export default function (state = initialState, action) {
         case "PREV":
             state.slice > 0 && (prev = state.slice - 1)
             return { ...state, slice: prev }
+        case "CLEAN":
+            return { ...state, slice: 0}
         default:
             return state
 

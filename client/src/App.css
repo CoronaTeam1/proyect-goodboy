@@ -14,35 +14,43 @@
 }
 
 
-.margin{}
+.margin{
+}
 .padding{}
 .border{}
 .none{}
-.center{}
+.center{
+  margin: auto
+}
 
 /* ANIMACIONES */ 
-
-.fade-enter .btn {
-  opacity: 0;
-  transform: translateX(-100%);
-}
-
-.fade-enter-active .btn {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.fade-exit .btn {
-  opacity: 1;
-  transform: translateX(0%);
-}
-
-.fade-exit-active .btn {
+.my-node-enter {
   opacity: 0;
   transform: translateX(100%);
+
 }
 
-.fade-enter-active .btn,
-.fade-exit-active .btn {
-  transition: opacity 500ms, transform 500ms;
+.my-node-enter-active {
+ transform: translateX(0%);
+ transition: transform 1000ms ease-in-out,
+ opacity 1000ms;
+  opacity: 1;
+
+
+}
+
+.my-node-exit {
+  opacity:0;
+ transform: translateX(100%);
+
+
+}
+
+.my-node-exit-active {
+    transform: translateX(0%);
+    transition: transform 1000ms ease-in-out,
+    opacity 1000ms;
+     opacity: 1;
+
+
 }
