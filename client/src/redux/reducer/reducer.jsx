@@ -1,16 +1,18 @@
-const initialState = {slice: 0, usuario: "", perro: ""}
-let next, prev
+const initialState = { count: 0, usuario: "", perro: "" }
 
 export default function (state = initialState, action) {
     switch (action.type) {
-        case "NEXT":
-            state.slice < 2 && (next = state.slice + 1)
-            return {...state, slice: next}
-        case "PREV":
-            state.slice > 0 && (prev = state.slice - 1)
-            return { ...state, slice: prev }
-        case "CLEAN":
-            return { ...state, slice: 0}
+        case "more":
+            let newValue = state.count + action.payload
+            return { ...state, count: newValue }
+        case "less":
+            let value = state.count - action.payload
+            return { ...state, count: value }
+        case 'register-dog':
+            return {
+                ...state,
+                [action.field]: action.value
+            }
         default:
             return state
 
