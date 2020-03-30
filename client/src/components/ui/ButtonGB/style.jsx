@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles({
-  button: {
+  buttonGB: {
     color: "white",
     padding: "10px 120px"
   },
