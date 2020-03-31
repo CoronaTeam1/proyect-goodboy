@@ -1,42 +1,42 @@
 import React, { useReducer, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { makeStyles, FormControl, TextField, Input, InputLabel, Button, Avatar } from '@material-ui/core'
 // import REGISTER_DOG from '../../../redux/actions/actions'
 
-const initialState = {
-    dogname: '',
-    dogage: '',
-    dogbreed: ''
-}
-
 const REGISTER_DOG = 'REGISTER_DOG'
-const reducer = (state, action) => {
-    if (action.type === REGISTER_DOG) {
-        return {
-            ...state,
-            [action.field]: action.value,
-        }
-    } else {
-        return state
-    }
-}
+
+
 
 const RegisterDog = () => {
 
-    const [state, dispatch] = useReducer(reducer, initialState)
+    //useSelector para extraer datos de la store de Redux
+    const [dogname, setDogname] = useState("")
+    const [dogage, setDogage] = useState("")
+    const [dogbreed, setDogbreed] = useState("")
+
+    const dispatch = useDispatch();
+
+
+    const handleChangeName = e => {
+        setDogname(e.target.value)
+
+    }
+    const handleChangeAge = e => {
+        setDogage(e.target.value)
+    }
+
+    const handleChangeBreed = e => {
+        setDogbreed(e.target.value)
+    }
 
     const handleSubmit = e => {
-        const { dogname, dogage, dogbreed } = state
         e.preventDefault();
-        console.log(`${dogname}, ${dogage}, ${dogbreed}`)
-    }
-
-    const handleChangeInput = e => {
         dispatch({
             type: REGISTER_DOG,
-            field: e.target.id,
-            value: e.target.value
+            payload: { dogname, dogage, dogbreed }
         })
     }
+
 
     return (
         <>
@@ -54,8 +54,8 @@ const RegisterDog = () => {
                         placeholder="Luna"
                         fullWidth
                         margin="normal"
-                        value={state.dogname}
-                        onChange={handleChangeInput}
+                        value={dogname}
+                        onChange={handleChangeName}
                     />
                 </FormControl>
                 <InputLabel htmlFor='dogage'>¿Cuál es el edad de tu perro?</InputLabel>
@@ -66,9 +66,8 @@ const RegisterDog = () => {
                         placeholder="1 mes"
                         fullWidth
                         margin="normal"
-                        value={state.doage}
-                        onChange={handleChangeInput}
-
+                        value={dogage}
+                        onChange={handleChangeAge}
                     />
                 </FormControl>
                 <InputLabel htmlFor='dogbreed'>¿Cuál es la raza de tu perro?</InputLabel>
@@ -79,13 +78,16 @@ const RegisterDog = () => {
                         placeholder="Akita inui"
                         fullWidth
                         margin="normal"
-                        value={state.dogbreed}
-                        onChange={handleChangeInput}
+                        value={dogbreed}
+                        onChange={handleChangeBreed}
                     />
                 </FormControl>
                 <Button type='submit' variant="contained" color="primary">
                     Secondary
                 </Button>
+                <h1>{useSelector(state => state.dogName)} </h1>
+                <p>{useSelector(state => state.dogAge)} </p>
+                <p>{useSelector(state => state.dogBreed)} </p>
             </form>
         </>
     )
