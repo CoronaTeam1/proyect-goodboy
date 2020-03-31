@@ -1,3 +1,33 @@
+/* COLORES
+color: #6AC3AE
+color: #83CFBD
+color: #F7956D
+color: #FEB69A
+color: #4D4D4D
+color: #ABADAD
+color: #F0F0F0  */
+
+/* ESTILOS GENERALES */
+body {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-size: 35pt;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 23pt;
+  font-weight: 500;
+}
+
+p{
+  font-size: 14pt;
+  font-weight: 400;
+}
+
+
 .index-header{
   margin-top: 60px;
   text-align: center;
