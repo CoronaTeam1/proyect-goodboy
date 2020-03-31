@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
-import style from './style'
+import style from './Style'
 
 const ButtonGB = (props) => {
   const styleClass = style()
