@@ -27,6 +27,14 @@ const Carousel = () => {
   useSelector(state => state.slice) === 3 && dispatch({ type: "CLEAN" });
   setInterval(() => dispatch({ type: "NEXT" }), 4000);
 
+  const index = slice => {
+    switch (slice){
+      case 0: return "primero";
+      case 1: return "segundo";
+      case 2: return "tercero";
+    }
+  }
+
   return (
     <Grid
       container
@@ -36,6 +44,7 @@ const Carousel = () => {
       className="index-carousel"
     >
       <Slice {...data[useSelector(state => state.slice)]} />
+      <h2>{index(useSelector(state => state.slice))}</h2>
     </Grid>
   );
 };
