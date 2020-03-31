@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Grid } from "@material-ui/core";
 
 import RegisterDog from './components/elements/RegisterDog/RegisterDog'
-import "./App.css";
 import Onboarding from "./components/elements/OnBoarding/OnBoarding";
+import "./App.css";
 
 function App() {
   return (

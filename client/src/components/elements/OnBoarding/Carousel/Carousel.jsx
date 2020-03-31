@@ -1,51 +1,80 @@
 import React, { useState, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import Slice from "./Slice";
-import { useDispatch, useSelector } from "react-redux";
+import style from "./Style";
 
 const Carousel = () => {
+
+  const styleClass = style();
+
   const data = [
     {
-      url: "../../../../images/index-dog1.jpeg",
-      text: "lorenanandgsdgsdgdsjg dgsdgsidg sdig sdg sdgs",
+      url: "../../../../../images/dog1.svg",
+      text:
+        "Registrate para ver nuestras lecciones y comienza a educar a tu perro.",
       hidden: false
     },
     {
-      url: "../../../../images/index-dog2.jpg",
-      text: "faefaedjosngsjdngdjsngdm sd gs dgsdgdsgfns",
+      url: "../../../../../images/dog2.svg",
+      text:
+        "Ten acceso a el clicker excelente herramienta para obtener resultados óptimos en adiestramiento en positivo. Responde a la base científica del “estímulo – respuesta”.",
       hidden: true
     },
     {
-      url: "../../../../images/index-dog3.jpg",
-      text: "loafe sdgsdgsdg sdgsdgsdgdsgdsgds gsdgdsfafenans",
+      url: "../../../../../images/dog3.svg",
+      text:
+        "Ponemos a tu disposición un paquete de lecciones de adiestramiento, con videos de nuestros mejores adiestradores",
       hidden: false
+    },
+    {
+      url: "../../../../../images/dog4.svg",
+      text: "Supera las lecciones y sigue el progreso de tu mascota.",
+      hidden: true
     }
   ];
 
-  const dispatch = useDispatch();
+  const [slice, setSlice] = useState(0);
 
-  useSelector(state => state.slice) === 3 && dispatch({ type: "CLEAN" });
-  setInterval(() => dispatch({ type: "NEXT" }), 4000);
+  useEffect(() => {
+    let id = setInterval(() => {
+      slice < 3 ? setSlice(slice + 1) : setSlice(0);
+    }, 4000);
+    return () => clearInterval(id);
+  });
+
+  const navegation = type => {
+    type === "prev" && slice > 0 && setSlice(slice - 1);
+    type === "next" && slice < 3 && setSlice(slice + 1);
+  };
 
   const index = slice => {
-    switch (slice){
-      case 0: return "primero";
-      case 1: return "segundo";
-      case 2: return "tercero";
+    switch (slice) {
+      case 0:
+        return "../../../../../images/marker1.png";
+      case 1:
+        return "../../../../../images/marker2.png";
+      case 2:
+        return "../../../../../images/marker3.png";
+      case 3:
+        return "../../../../../images/marker4.png";
     }
-  }
+  };
 
   return (
-    <Grid
-      container
-      row
-      justify="space-between"
-      alignItems="center"
-      className="index-carousel"
-    >
-      <Slice {...data[useSelector(state => state.slice)]} />
-      <h2>{index(useSelector(state => state.slice))}</h2>
-    </Grid>
+    <>
+      <Grid
+        container
+        row
+        justify="space-between"
+        alignItems="center"
+        className="index-carousel"
+      >
+        {slice !== 0 && (<div onClick={() => navegation("prev")}><img src="../../../../../images/prev.svg" /></div>)}
+        <Slice {...data[slice]} />
+        {slice !== 3 && (<div onClick={() => navegation("next")}><img src="../../../../../images/next.svg" /></div>)}
+      </Grid>
+      <img src={index(slice)} className={styleClass.marker}/>
+    </>
   );
 };
 export default Carousel;

@@ -11,7 +11,7 @@ const styleClass = style();
           <div className={styleClass.containerImage}>
             <img src={url} alt="dog index" className={styleClass.image} />
           </div>
-          <p>{text}</p>
+          <p className={styleClass.p}>{text}</p>
         </Grid>
       </CSSTransition>
   );

@@ -10,7 +10,17 @@ containerImage:{
 },
 
 image:{
-  width:"100%",
-  height:"auto"
+
+},
+marker:{
+      width: "20%",
+      paddingBottom: "20px"
+},
+p: {
+fontFamily: "AvenirNext-Regular",
+fontSize: "15px",
+color: "#343434",
+lineHeight: "20px",
 }
 })
+

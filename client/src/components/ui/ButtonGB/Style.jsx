@@ -6,7 +6,7 @@ export default makeStyles({
     padding: "10px 120px"
   },
   card: {
-    backgroundColor: "rgb(90, 175, 108)",
+    backgroundColor: "#6AC3AE",
     border: "none"
   }
 });
