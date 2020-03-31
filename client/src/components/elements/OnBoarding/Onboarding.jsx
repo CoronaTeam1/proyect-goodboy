@@ -1,5 +1,5 @@
-import React from "react";
-import { Grid } from "@material-ui/core";
+import React from "./node_modules/react";
+import { Grid } from "./node_modules/@material-ui/core";
 import Carousel from "./Carousel/Carousel";
 import ButtonGB from "../../ui/ButtonGB/Button";
 

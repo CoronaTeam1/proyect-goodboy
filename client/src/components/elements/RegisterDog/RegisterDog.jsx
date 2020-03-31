@@ -1,6 +1,6 @@
-import React, { useReducer, useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
-import { makeStyles, FormControl, TextField, Input, InputLabel, Button, Avatar } from '@material-ui/core'
+import React, { useReducer, useState } from './node_modules/react';
+import { useDispatch, useSelector } from "./node_modules/react-redux";
+import { makeStyles, FormControl, TextField, Input, InputLabel, Button, Avatar } from './node_modules/@material-ui/core'
 // import REGISTER_DOG from '../../../redux/actions/actions'
 
 const REGISTER_DOG = 'REGISTER_DOG'
