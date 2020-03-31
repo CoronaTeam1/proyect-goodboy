@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { Container, Grid } from "@material-ui/core";
-// import { useDispatch, useSelector } from "react-redux";
+
 import RegisterDog from './components/elements/registerDog/registerDog'
 import "./App.css";
 import Onboarding from "./components/elements/Onboarding/Onboarding";
