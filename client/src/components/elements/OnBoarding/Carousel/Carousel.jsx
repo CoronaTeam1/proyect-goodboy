@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "./node_modules/react";
-import { Grid } from "./node_modules/@material-ui/core";
+import React, { useState, useEffect } from "react";
+import { Grid } from "@material-ui/core";
 import Slice from "./Slice";
-import { useDispatch, useSelector } from "./node_modules/react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Carousel = () => {
   const data = [

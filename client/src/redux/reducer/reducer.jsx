@@ -8,8 +8,9 @@ export default function (state = initialState, action) {
             let value = state.count - action.payload
             return { ...state, count: value }
         case 'REGISTER_DOG':
+            console.log(action)
             return {
-                ...state, dogName: action.payload.dogname, dogAge: action.payload.dogage, dogBreed: action.payload.dogbreed
+                ...state, [action.field]: action.value
             }
         default:
             return state

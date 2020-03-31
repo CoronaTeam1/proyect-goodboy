@@ -1,4 +1,4 @@
-import { makeStyles } from "./node_modules/@material-ui/styles";
+import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles({
 containerImage:{
