@@ -91,3 +91,13 @@ p{
 
 
 }
+.MuiToggleButtonGroup-root {
+  border-radius: 50px
+}
+
+.MuiToggleButtonGroup-grouped:not(:first-child){
+  /* border-left: 10px solid red; */
+}
+.MuiToggleButton-root.Mui-selected:hover {
+  background-color: red;
+}

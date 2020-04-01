@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import { Grid, Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 
+import style from './Style'
+
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 
-import style from './Style'
+import '../../../../src/App.css'
+
+
 const REGISTER_DOG = "REGISTER_DOG";
 
 const ToggleButtons = () => {
