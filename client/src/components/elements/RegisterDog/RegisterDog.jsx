@@ -13,10 +13,12 @@ import {
 const REGISTER_DOG = "REGISTER_DOG";
 
 const RegisterDog = () => {
+
+
   const userDog = {
-    name: useSelector(state => state.name),
-    age: useSelector(state => state.age),
-    breed: useSelector(state => state.breed)
+    name: useSelector(state => state.dogName),
+    age: useSelector(state => state.dogAge),
+    breed: useSelector(state => state.dogBreed)
   };
 
   const dispatch = useDispatch();
@@ -48,7 +50,7 @@ const RegisterDog = () => {
         </InputLabel>
         <FormControl fullWidth>
           <Input
-            id="name"
+            id="dogName"
             style={{ margin: 8 }}
             placeholder="Luna"
             fullWidth
@@ -60,7 +62,7 @@ const RegisterDog = () => {
         <InputLabel htmlFor="dogage">¿Cuál es el edad de tu perro?</InputLabel>
         <FormControl fullWidth>
           <Input
-            id="age"
+            id="dogAge"
             style={{ margin: 8 }}
             placeholder="1 mes"
             fullWidth
@@ -74,7 +76,7 @@ const RegisterDog = () => {
         </InputLabel>
         <FormControl fullWidth>
           <Input
-            id="breed"
+            id="dogBreed"
             style={{ margin: 8 }}
             placeholder="Akita inui"
             fullWidth
