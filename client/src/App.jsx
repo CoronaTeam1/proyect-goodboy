@@ -5,6 +5,7 @@ import { Container, Grid } from "@material-ui/core";
 
 import RegisterDog from './components/elements/RegisterDog/RegisterDog'
 import OnBoarding from "./components/elements/OnBoarding/Onboarding";
+import Home from './components/elements/Home/Home'
 import "./App.css";
 
 function App() {
@@ -19,6 +20,10 @@ function App() {
 
             <Route path='/register-dog'>
               <RegisterDog />
+            </Route>
+
+            <Route path='/home'>
+              <Home />
             </Route>
 
           </Grid>
