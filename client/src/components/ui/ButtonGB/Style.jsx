@@ -9,15 +9,14 @@ export default makeStyles({
     backgroundColor: "#6AC3AE",
     border: "none"
   },
-  groupToogleButtons: {
-    borderRadius: "5px",
-    backgroundColor: "#6AC3AE",
+  // groupToogleButtons: {
+  //   borderRadius: "40px",
+  //   backgroundColor: "#6AC3AE",
+  // },
+  // ToggleButtons: {
+  //   // backgroundColor: "#6AC3AE",
+  //   color: "white!important",
+  //   padding: "5px 5px",
+  // },
 
-  },
-  ToggleButtons: {
-    // backgroundColor: "6AC3AE",
-    color: "6AC3AE",
-    // padding: "5px 5px",
-    borderRadius: "10px"
-  }
 });
