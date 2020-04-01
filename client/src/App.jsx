@@ -6,6 +6,8 @@ import { Container, Grid } from "@material-ui/core";
 import RegisterDog from './components/elements/RegisterDog/RegisterDog'
 import OnBoarding from "./components/elements/OnBoarding/Onboarding";
 import "./App.css";
+// import { useDispatch, useSelector } from "react-redux";
+import AuthIndex from "./components/elements/Auth/AuthIndex";
 
 function App() {
   return (
@@ -21,9 +23,13 @@ function App() {
               <RegisterDog />
             </Route>
 
-          </Grid>
-        </Container>
-      </Switch>
+              <Route path='/auth'>
+                <AuthIndex/>
+              </Route>
+              
+            </Grid>
+          </Container>
+        </Switch>
     </Router>
   );
 }
