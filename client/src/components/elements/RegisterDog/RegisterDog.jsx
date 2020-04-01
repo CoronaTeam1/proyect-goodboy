@@ -7,10 +7,12 @@ import {
   Input,
   InputLabel,
   Button,
-  Avatar
+  Avatar,
+  Grid
 } from "@material-ui/core";
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
+import style from "./Style";
 
 
 
@@ -18,14 +20,15 @@ const REGISTER_DOG = "REGISTER_DOG";
 
 const RegisterDog = () => {
 
+  const styleClass = style();
 
   const userDog = {
     name: useSelector(state => state.name),
     age: useSelector(state => state.age),
     breed: useSelector(state => state.breed),
-    genre: useSelector(state => state.genre)
+    genre: useSelector(state => state.genre),
+    photo: useSelector(state => state.photo)
   };
-  console.log(userDog)
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -41,13 +44,32 @@ const RegisterDog = () => {
     console.log("hemos registrado tu perro ", userDog);
     userDog.name = "";
   };
+  console.log(userDog)
 
   return (
-    <>
-      <h1>Tu perro</h1>
 
-      <p>Aqui la imagen</p>
-      <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" alt="Perro" />
+    <>
+
+      <h2>Tu perro</h2>
+      <p>{userDog.name}</p>
+      {/* AL SUBIR LA FOTO DE CLOUDINARY, DEBE MOSTRARSE, SINO SE MUESTRA EL "SUBIR FOTO" */}
+      {
+        userDog.photo ?
+          (
+            <Grid xs={4} className="slice center">
+              <img src='../../../../../images/dog4.svg' alt="dog index" className={styleClass.image} />
+            </Grid>
+          )
+          :
+          (
+            <Grid xs={4} className="slice center">
+              <img src='../../../../../images/new.png' alt="dog index" className={styleClass.image} />
+            </Grid>
+          )
+      }
+
+
+
 
       <ToggleButtons />
 
@@ -57,7 +79,7 @@ const RegisterDog = () => {
         </InputLabel>
         <FormControl fullWidth>
           <Input
-            id="dogName"
+            id="name"
             style={{ margin: 8 }}
             placeholder="Luna"
             fullWidth
@@ -70,7 +92,7 @@ const RegisterDog = () => {
         <InputLabel htmlFor="dogage">¿Cuál es el edad de tu perro?</InputLabel>
         <FormControl fullWidth>
           <Input
-            id="dogAge"
+            id="age"
             style={{ margin: 8 }}
             placeholder="1 mes"
             fullWidth
@@ -84,7 +106,7 @@ const RegisterDog = () => {
         </InputLabel>
         <FormControl fullWidth>
           <Input
-            id="dogBreed"
+            id="breed"
             style={{ margin: 8 }}
             placeholder="Akita inui"
             fullWidth
@@ -94,7 +116,7 @@ const RegisterDog = () => {
           />
         </FormControl>
 
-        <ButtonGB type="submit" text="Continuar"></ButtonGB>
+        <ButtonGB className={styleClass.padding30px} type="submit" text="Continuar"></ButtonGB>
       </form>
     </>
   );
