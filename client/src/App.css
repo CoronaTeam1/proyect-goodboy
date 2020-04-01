@@ -90,13 +90,27 @@ p{
 
 
 }
-.MuiToggleButtonGroup-root {
-  border-radius: 50px
-}
 
+/* TOGGLE BUTTON DE REGISTER DOG */
 .MuiToggleButtonGroup-grouped:not(:first-child){
-  /* border-left: 10px solid red; */
+color: #6AC3AE;
+border-color: #6AC3AE
+}
+.MuiToggleButtonGroup-grouped:not(:last-child){
+color: #6AC3AE;
+border-color: #6AC3AE
+
 }
 .MuiToggleButton-root.Mui-selected:hover {
-  background-color: red;
+  background-color: #6AC3AE;
+  color:white
+}  
+.MuiToggleButtonGroup-groupedSizeSmall {
+  border-radius: 20px;
+  padding: 0px 13px
 }
+.MuiToggleButton-root {
+  text-transform: none;
+  font-size: 0.95rem;
+}
+

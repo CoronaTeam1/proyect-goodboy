@@ -2,16 +2,17 @@ import React, { useState } from "react";
 import { Grid, Button } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 
-import style from './Style'
 
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 
-import '../../../../src/App.css'
 
+
+import style from './Style'
 
 const REGISTER_DOG = "REGISTER_DOG";
 
 const ToggleButtons = () => {
+    const styleClass = style()
 
     const [alignment, setAlignment] = useState('');
 
@@ -27,30 +28,29 @@ const ToggleButtons = () => {
         });
     };
 
-    const styleClass = style()
 
 
     return (
 
-        <Grid item xs={12} >
-            <div>
-                <ToggleButtonGroup
-                    value={alignment}
-                    exclusive
-                    onChange={handleAlignment}
-                    aria-label="text alignment"
-                    size="small"
-                    className={styleClass.groupToogleButtons}
-                >
-                    <ToggleButton className={styleClass.ToggleButtons} value="macho" >
-                        Macho
+        // <Grid item xs={12} >
+        <div>
+            <ToggleButtonGroup
+                className={styleClass.groupToogleButtons}
+                value={alignment}
+                exclusive
+                onChange={handleAlignment}
+                aria-label="text alignment"
+                size="small"
+            >
+                <ToggleButton className={styleClass.ToggleButtons} value="macho" >
+                    Macho
                     </ToggleButton>
-                    <ToggleButton className={styleClass.ToggleButtons} value="hembra">
-                        Hembra
+                <ToggleButton className={styleClass.ToggleButtons} value="hembra">
+                    Hembra
                     </ToggleButton>
-                </ToggleButtonGroup>
-            </div>
-        </Grid>
+            </ToggleButtonGroup>
+        </div>
+        // </Grid>
     )
 }
 
