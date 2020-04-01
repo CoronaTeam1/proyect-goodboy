@@ -9,6 +9,10 @@ import {
   Button,
   Avatar
 } from "@material-ui/core";
+import ButtonGB from '../../ui/ButtonGB/Button'
+import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
+
+
 
 const REGISTER_DOG = "REGISTER_DOG";
 
@@ -16,11 +20,12 @@ const RegisterDog = () => {
 
 
   const userDog = {
-    name: useSelector(state => state.dogName),
-    age: useSelector(state => state.dogAge),
-    breed: useSelector(state => state.dogBreed)
+    name: useSelector(state => state.name),
+    age: useSelector(state => state.age),
+    breed: useSelector(state => state.breed),
+    genre: useSelector(state => state.genre)
   };
-
+  console.log(userDog)
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -44,6 +49,8 @@ const RegisterDog = () => {
       <p>Aqui la imagen</p>
       <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" alt="Perro" />
 
+      <ToggleButtons />
+
       <form onSubmit={handleSubmit} noValidate autoComplete="off">
         <InputLabel htmlFor="dogname">
           ¿Cuál es el nombre de tu perro?
@@ -57,6 +64,7 @@ const RegisterDog = () => {
             margin="normal"
             value={userDog.name}
             onChange={handleChange}
+            padding="25px"
           />
         </FormControl>
         <InputLabel htmlFor="dogage">¿Cuál es el edad de tu perro?</InputLabel>
@@ -85,9 +93,8 @@ const RegisterDog = () => {
             onChange={handleChange}
           />
         </FormControl>
-        <Button type="submit" variant="contained" color="primary">
-          Secondary
-        </Button>
+
+        <ButtonGB type="submit" text="Continuar"></ButtonGB>
       </form>
     </>
   );
