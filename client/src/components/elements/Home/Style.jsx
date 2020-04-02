@@ -12,9 +12,8 @@ export default makeStyles(theme => ({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    height: "100%",
+    height: "80%",
     backgroundColor: "transparent",
-    boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     textAlign: "center"
   },
@@ -34,19 +33,26 @@ export default makeStyles(theme => ({
   clicker: {
     marginTop: "160px"
   },
-  header: {
+  navs: {
     textAlign: "center",
     backgroundColor: "#6AC3AE",
     color: "#FFFFFF",
-    paddingLeft: "115px",
+    paddingLeft: "25px",
     paddingRight: "115px",
     marginTop: "-35px",
     marginLeft: "-110px",
     width: "100%",
     padding: "2px"
   },
-  init:{
+  init: {
+    paddingLeft: "160px",
     fontSize: "30px",
     marginTop: "50px"
+  },
+  footer: {
+    margin: "10px -65px 0px 100px"
+  },
+  main:{
+    paddingBottom: "30px"
   }
 }));

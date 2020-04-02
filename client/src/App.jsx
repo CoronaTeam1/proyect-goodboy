@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Container, Grid } from "@material-ui/core";
 
 import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
-import OnBoarding from "./components/elements/OnBoarding/Onboarding";
+import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
 import "./App.css";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
@@ -13,7 +13,6 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Container>
           <Grid
             container
             direction="column"
@@ -36,7 +35,6 @@ function App() {
               <Home />
             </Route>
           </Grid>
-        </Container>
       </Switch>
     </Router>
   );
