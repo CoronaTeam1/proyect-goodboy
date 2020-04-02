@@ -44,7 +44,13 @@ const RegisterDog = () => {
       value: e.target.value
     });
   };
-
+  const handleChangeImg = e => {
+    dispatch({
+      type: REGISTER_DOG,
+      field: e.target.id,
+      value: e.target.files[0]
+    });
+  };
   const handleSubmit = e => {
     e.preventDefault();
     console.log("handleSubmit")
@@ -78,7 +84,7 @@ const RegisterDog = () => {
         userDog.photo ?
           (
             <Grid xs={4} className="slice center">
-              <img src='../../../../../images/dog4.svg' alt="dog index" />
+              <img src={userDog.photo.name} alt="dog index" />
             </Grid>
           )
           :
@@ -88,11 +94,13 @@ const RegisterDog = () => {
                 accept="image/*"
                 className={styleClass.input}
                 style={{ display: 'none' }}
-                id="photo-file"
+                id="photo"
                 multiple
                 type="file"
+                value={userDog.photo}
+                onChange={handleChangeImg}
               />
-              <label htmlFor="photo-file">
+              <label htmlFor="photo">
                 <Button variant="raised" component="span">
                   <img src='../../../../../images/new.png' alt="dog index" />
                 </Button>

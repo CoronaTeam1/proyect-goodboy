@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const registerDogSchema = new Schema({
+const DogSchema = new Schema({
     name: String,
     age: Number,
     breed: String,
@@ -14,5 +14,5 @@ const registerDogSchema = new Schema({
     }
 });
 
-const RegisterDog = mongoose.model('RegisterDog', registerDogSchema);
-module.exports = RegisterDog;
+const Dog = mongoose.model('Dog', DogSchema);
+module.exports = Dog;

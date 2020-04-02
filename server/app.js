@@ -16,6 +16,7 @@ require('./configs/session.config')(app)
 
 
 // Base URLS
+app.use('/api/registerdog', require('./routes/registerdog.routes'))
 app.use('/api/auth', require('./routes/auth.routes'))
 
 
