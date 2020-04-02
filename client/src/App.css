@@ -49,14 +49,20 @@ p{
   height: 450px
 }
 
-
-.margin{
+.flex{
+  display:flex;
+  justify-content: space-between;
+}
+.no-margin{
+      /* margin-bottom: 0; */
+      margin-top: 0;
 }
 .padding{}
 .border{}
 .none{}
 .center{
-  margin: auto
+  margin: auto;
+  text-align:center
 }
 
 /* ANIMACIONES */ 
