@@ -1,5 +1,5 @@
 import React from 'react'
-import './ChoserBtnStyle.css'
+import './ChoserBtnStyle.jsx'
 
 const ChoserBtn = ({text}) => {
 
@@ -8,7 +8,6 @@ const ChoserBtn = ({text}) => {
 
     }
 
-    return <div className="choserBtn" onClick={handleClick}>{text}</div>
-    
+    return <div className="choserBtn" onClick={handleClick}>{text}</div>    
 }
 export default ChoserBtn
