@@ -13,7 +13,7 @@ import {
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
 import style from "./Style";
-
+import RegisterDogServ from '../../../services/registerdog.services'
 
 
 const REGISTER_DOG = "REGISTER_DOG";
@@ -29,6 +29,12 @@ const RegisterDog = () => {
     genre: useSelector(state => state.genre),
     photo: useSelector(state => state.photo)
   };
+  const [submitted, setSubmitted] = useState(false)
+
+
+  console.log(userDog)
+
+
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -41,10 +47,25 @@ const RegisterDog = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("hemos registrado tu perro ", userDog);
-    userDog.name = "";
+    console.log("handleSubmit")
+    registerDogBack();
+    // userDog.name = "";
   };
-  console.log(userDog)
+
+  const registerDogBack = () => {
+    console.log("entra", userDog)
+    // const { name, age, breed, genre, photo } = userDog
+
+    RegisterDogServ.createDog(userDog)
+      .then(response => {
+        console.log('Tus datos están en el back', response)
+        // setSubmitted(true)
+
+      })
+      .catch(error => console.log(error))
+
+  }
+
 
   return (
 
@@ -57,16 +78,29 @@ const RegisterDog = () => {
         userDog.photo ?
           (
             <Grid xs={4} className="slice center">
-              <img src='../../../../../images/dog4.svg' alt="dog index" className={styleClass.image} />
+              <img src='../../../../../images/dog4.svg' alt="dog index" />
             </Grid>
           )
           :
           (
-            <Grid xs={4} className="slice center">
-              <img src='../../../../../images/new.png' alt="dog index" className={styleClass.image} />
-            </Grid>
+            <>
+              <input
+                accept="image/*"
+                className={styleClass.input}
+                style={{ display: 'none' }}
+                id="photo-file"
+                multiple
+                type="file"
+              />
+              <label htmlFor="photo-file">
+                <Button variant="raised" component="span">
+                  <img src='../../../../../images/new.png' alt="dog index" />
+                </Button>
+              </label>
+            </>
           )
       }
+
 
 
 
@@ -115,8 +149,8 @@ const RegisterDog = () => {
             onChange={handleChange}
           />
         </FormControl>
-
-        <ButtonGB className={styleClass.padding30px} type="submit" text="Continuar"></ButtonGB>
+        {/* <button type="submit">ENVIAR</button> */}
+        <ButtonGB className={styleClass.padding30px} text="Continuar"></ButtonGB>
       </form>
     </>
   );

@@ -5,10 +5,10 @@ import style from './Style'
 
 const ButtonGB = (props) => {
   const styleClass = style()
-  console.log(styleClass)
+
   return (
     <Grid item xs={12} className={styleClass.card} >
-      <Button className={styleClass.buttonGB}>
+      <Button type='submit' className={styleClass.buttonGB}>
         {props.text}
       </Button>
     </Grid >
