@@ -14,7 +14,7 @@ import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
 import style from "./Style";
 import RegisterDogServ from '../../../services/registerdog.services'
-
+import FilesServices from '../../../services/files.services'
 
 const REGISTER_DOG = "REGISTER_DOG";
 
@@ -44,13 +44,30 @@ const RegisterDog = () => {
       value: e.target.value
     });
   };
-  const handleChangeImg = e => {
-    dispatch({
-      type: REGISTER_DOG,
-      field: e.target.id,
-      value: e.target.files[0]
-    });
+
+  const handleFileUpload = e => {
+    console.log(e.target.files[0])
+
+    const uploadData = new FormData()
+    uploadData.append("photo", e.target.files[0])
+
+    // const uploadData = URL.createObjectURL(e.target.files[0])
+
+    console.log(uploadData)
+    FilesServices.handleUpload(e.target.files[0])
+      .then(response => {
+        console.log("La URL de Cloudinary es: ", response.secure_url)
+        dispatch({
+          type: REGISTER_DOG,
+          field: e.target.id,
+          value: response.secure_url
+        });
+      })
+      .catch(error => console.log(error))
+
   };
+
+
   const handleSubmit = e => {
     e.preventDefault();
     console.log("handleSubmit")
@@ -90,21 +107,24 @@ const RegisterDog = () => {
           :
           (
             <>
-              <input
-                accept="image/*"
-                className={styleClass.input}
-                style={{ display: 'none' }}
-                id="photo"
-                multiple
-                type="file"
-                value={userDog.photo}
-                onChange={handleChangeImg}
-              />
-              <label htmlFor="photo">
-                <Button variant="raised" component="span">
-                  <img src='../../../../../images/new.png' alt="dog index" />
-                </Button>
-              </label>
+              <form onSubmit={handleSubmit} noValidate autoComplete="off">
+
+                <input
+                  accept="image/*"
+                  className={styleClass.input}
+                  style={{ display: 'none' }}
+                  id="photo"
+                  multiple
+                  type="file"
+                  value={userDog.photo}
+                  onChange={handleFileUpload}
+                />
+                <label htmlFor="photo">
+                  <Button variant="raised" component="span">
+                    <img src='../../../../../images/new.png' alt="dog index" />
+                  </Button>
+                </label>
+              </form>
             </>
           )
       }
@@ -158,7 +178,9 @@ const RegisterDog = () => {
           />
         </FormControl>
         {/* <button type="submit">ENVIAR</button> */}
-        <ButtonGB className={styleClass.padding30px} text="Continuar"></ButtonGB>
+        <div className={styleClass.padding30px}>
+          <ButtonGB text="Continuar"></ButtonGB>
+        </div>
       </form>
     </>
   );

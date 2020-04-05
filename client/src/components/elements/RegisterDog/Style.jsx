@@ -24,7 +24,7 @@ export default makeStyles({
         lineHeight: "20px"
     },
     padding30px: {
-        padding: '30px',
+        paddingTop: '30px',
     }
 
 });
