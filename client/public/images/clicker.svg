@@ -1,0 +1,34 @@
+
+<svg width="89px" height="89px" viewBox="0 0 89 89" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <filter x="-30.3%" y="-30.3%" width="160.6%" height="160.6%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="explicacion_clicker" transform="translate(-143.000000, -631.000000)">
+            <g id="clicker" transform="translate(52.000000, 126.000000)">
+                <g transform="translate(100.000000, 512.000000)" id="Group-3">
+                    <g filter="url(#filter-1)">
+                        <g id="Group-8">
+                            <circle id="Oval" fill="#FFFFFF" cx="35.5" cy="35.5" r="35.5"></circle>
+                            <g id="Group-7" transform="translate(10.000000, 10.000000)">
+                                <circle id="Oval" fill="#FEB69A" cx="26" cy="26" r="26"></circle>
+                                <rect id="Rectangle" stroke="#FFFFFF" stroke-width="0.96" x="17.48" y="16.48" width="16.04" height="23.44" rx="8"></rect>
+                                <circle id="Oval" stroke="#FFFFFF" stroke-width="0.96" fill="#FFFFFF" cx="25.5" cy="23.5" r="3.02"></circle>
+                                <path d="M23.8116504,16.8985943 L23.4684504,16.5227738 C23.3628504,16.4225551 23.3892504,16.2722269 23.4948504,16.1720081 C25.7652504,14.2678513 27.0588504,11.5619443 27.0588504,8.68065442 C27.0588504,5.72420046 25.7124504,2.94312936 23.3364504,1.03897257 C23.2836504,1.01391787 23.2044504,0.938753787 23.0988504,0.863589703 C22.9932504,0.788425619 22.9668504,0.638097452 23.0460504,0.537878673 L23.3364504,0.111948865 C23.4156504,-0.013324608 23.6004504,-0.0383793026 23.7060504,0.0618394758 C23.8380504,0.162058254 23.9700504,0.262277033 23.9700504,0.262277033 C26.6100504,2.36687138 28.1148504,5.42354412 28.1148504,8.68065442 C28.1148504,11.8375459 26.6892504,14.8441093 24.2076504,16.9487036 C24.0756504,17.0238677 23.9172504,17.0238677 23.8116504,16.8985943 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero" transform="translate(25.557425, 8.500000) rotate(-90.000000) translate(-25.557425, -8.500000) "></path>
+                                <path d="M24.3892504,16.9137288 L24.0724504,16.524506 C23.9932504,16.4272003 23.9932504,16.2812418 24.1252504,16.1839361 C25.7884504,14.8946355 26.7388504,13.0215008 26.7388504,11.0024075 C26.7388504,8.98331425 25.7884504,7.11017952 24.0988504,5.82087899 C23.9932504,5.74789972 23.9668504,5.57761474 24.0460504,5.48030904 L24.3628504,5.09108624 C24.4420504,4.99378054 24.6268504,4.96945411 24.7324504,5.04243339 C26.6860504,6.55067174 27.7948504,8.69139715 27.7948504,11.0024075 C27.7948504,13.3134179 26.6860504,15.4541433 24.7588504,16.9380552 C24.6532504,17.0353609 24.4948504,17.0110345 24.3892504,16.9137288 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero" transform="translate(25.897425, 11.000000) rotate(-90.000000) translate(-25.897425, -11.000000) "></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
