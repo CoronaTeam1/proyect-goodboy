@@ -35,7 +35,7 @@ const ToggleButtons = () => {
         // <Grid item xs={12} >
         <div>
             <ToggleButtonGroup
-                className={styleClass.groupToogleButtons}
+                className={styleClass.padding30px}
                 value={alignment}
                 exclusive
                 onChange={handleAlignment}

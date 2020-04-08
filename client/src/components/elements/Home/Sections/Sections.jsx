@@ -1,8 +1,8 @@
 import React from "react";
 
-const Section = ({ url, title }) => {
+const Section = ({ url, title, event }) => {
   return (
-    <div>
+    <div onClick={() => event()}>
       <img src={url} alt={title} />
     </div>
   );

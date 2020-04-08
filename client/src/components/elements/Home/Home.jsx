@@ -10,14 +10,15 @@ import style from "./Style";
 const TransitionsModal = () => {
   const styleClass = style();
   const [open, setOpen] = useState(true);
+  const [section, setSection] = useState("index");
 
   const handleClose = () => {
     setOpen(false);
   };
 
-  const audio = new Audio("../../../../sound/clicker.mp3")
+  const audio = new Audio("../../../../sound/clicker.mp3");
 
-
+  console.log(section)
   return (
     <div>
       <Modal
@@ -66,12 +67,82 @@ const TransitionsModal = () => {
         </div>
       </Grid>
       <Grid className={styleClass.main}>
-        <Section url="../../../../images/section1.svg" title="Lecciones" />
-        <Section url="../../../../images/section2.svg" title="Tips crianza" />
-        <Section
-          url="../../../../images/section3.svg"
-          title="Biblioteca razas"
-        />
+        {section === "index" && (
+          <>
+            <Section
+              url="../../../../images/section1.svg"
+              title="Lecciones"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section2.svg"
+              title="Tips crianza"
+              event={() => setSection("tips")}
+            />
+            <Section
+              url="../../../../images/section3.svg"
+              title="Biblioteca razas"
+              event={() => setSection("breed")}
+            />
+          </>
+        )}
+        {section === "learn" && (
+          <>
+            <Section
+              url="../../../../images/sectionInit.svg"
+              title="Inicio"
+              event={() => setSection("init")}
+            />
+            <Section
+              url="../../../../images/sectionBasic.svg"
+              title="Básicas"
+              event={() => setSection("basic")}
+            />
+            <Section
+              url="../../../../images/sectionAdvance.svg"
+              title="Avanzadas"
+              event={() => setSection("advance")}
+            />
+          </>
+        )}
+        {section === "tips" && (
+          <>
+            <Section
+              url="../../../../images/section1.svg"
+              title="Lecciones"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section2.svg"
+              title="Tips crianza"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section3.svg"
+              title="Biblioteca razas"
+              event={() => setSection("learn")}
+            />
+          </>
+        )}
+        {section === "breed" && (
+          <>
+            <Section
+              url="../../../../images/section1.svg"
+              title="Lecciones"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section2.svg"
+              title="Tips crianza"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section3.svg"
+              title="Biblioteca razas"
+              event={() => setSection("learn")}
+            />
+          </>
+        )}
         <div className="center" onClick={() => audio.play()}>
           <img src="../../../../images/clicker.svg" alt="clicker" />
         </div>
