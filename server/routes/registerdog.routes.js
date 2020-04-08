@@ -6,17 +6,14 @@ const router = express.Router();
 router.post('/', (req, res, next) => {
   console.log(req.body)
   console.log(req.file)
-  const { name, age, genre, breed } = req.body;
+  const { name, age, genre, breed, photo } = req.body;
   const newdog = {
     name,
     age,
     genre,
     breed,
-    photo: req.file.url
+    photo,
   }
-  // const imgPath = req.file.url;
-  // const imgName = req.file.originalname;
-  // const newMovie = new Movie({ title, description, imgPath, imgName })
 
   Dog.create(newdog)
     .then(newDog => res.json(newDog))
