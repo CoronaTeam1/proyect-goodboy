@@ -1,13 +1,19 @@
 import React from 'react'
-import './ChoserBtnStyle.jsx'
+import ChoserBtnStyle from './ChoserBtnStyle'
 
-const ChoserBtn = ({text}) => {
+const ChoserBtn = ({textBtn,setTerm,termState,term}) => {
 
+    const styleClass = ChoserBtnStyle();
 
     const handleClick = () => {
+        setTerm()
 
     }
 
-    return <div className="choserBtn" onClick={handleClick}>{text}</div>    
+    return <div 
+    className = {termState===term? styleClass.selectedChoserBtn : styleClass.choserBtn} 
+    onClick= {handleClick}>{textBtn}
+    
+    </div>    
 }
 export default ChoserBtn

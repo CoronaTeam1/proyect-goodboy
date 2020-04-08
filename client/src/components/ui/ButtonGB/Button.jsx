@@ -3,15 +3,14 @@ import { Grid } from "@material-ui/core";
 import Button from '@material-ui/core/Button';
 import style from './Style'
 
-const ButtonGB = (props) => {
+const ButtonGB = ({text}) => {
   const styleClass = style()
 
   return (
-    <Grid item xs={12} className={styleClass.card}>
-      <Button className={styleClass.buttonGB}>
-        {props.text}
+      <Button variant="contained" className={styleClass.buttonGB} disableElevation>
+        {text}
       </Button>
-    </Grid>
+    
   )
 }
 

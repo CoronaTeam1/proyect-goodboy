@@ -10,6 +10,7 @@ color: #F0F0F0  */
 /* ESTILOS GENERALES */
 body {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
+  margin:0px
 }
 
 h1 {
@@ -63,6 +64,15 @@ p{
 .center{
   margin: auto;
   text-align:center
+}
+.bold{
+  font-weight: bold;
+}
+.mt1{
+  margin-top: 1rem;
+}
+.mt2{
+  margin-top:2rem
 }
 
 /* ANIMACIONES */ 

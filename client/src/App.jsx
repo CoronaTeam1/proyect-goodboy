@@ -13,12 +13,12 @@ function App() {
   return (
     <Router>
       <Switch>
-          <Grid
+          {/* <Grid
             container
             direction="column"
             justify="space-between"
             alignItems="center"
-          >
+          > */}
             <Route exact path="/">
               <OnBoarding />
             </Route>
@@ -34,7 +34,7 @@ function App() {
             <Route path="/home">
               <Home />
             </Route>
-          </Grid>
+          {/* </Grid> */}
       </Switch>
     </Router>
   );

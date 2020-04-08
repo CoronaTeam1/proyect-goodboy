@@ -9,3 +9,7 @@ export const DECREMENT_COUNTER = {
 export const REGISTER_DOG = ({
     type: 'register-dog', payload: ''
 })
+
+export const REGISTER_USER = ({
+    type: 'register-user',payload: ''
+})
