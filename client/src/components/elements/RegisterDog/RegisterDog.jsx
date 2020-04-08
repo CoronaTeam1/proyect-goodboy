@@ -29,11 +29,6 @@ const RegisterDog = () => {
     genre: useSelector(state => state.genre),
     photo: useSelector(state => state.photo)
   };
-  const [submitted, setSubmitted] = useState(false)
-
-
-  console.log(userDog)
-
 
   const dispatch = useDispatch();
 
@@ -46,20 +41,15 @@ const RegisterDog = () => {
   };
 
   const handleFileUpload = e => {
-    console.log(e.target.files[0])
 
     const uploadData = new FormData()
-    uploadData.append("photo", e.target.files[0])
+    uploadData.append("imageUrl", e.target.files[0])
 
-    // const uploadData = URL.createObjectURL(e.target.files[0])
-
-    console.log(uploadData)
-    FilesServices.handleUpload(e.target.files[0])
+    FilesServices.handleUpload(uploadData)
       .then(response => {
-        console.log("La URL de Cloudinary es: ", response.secure_url)
         dispatch({
           type: REGISTER_DOG,
-          field: e.target.id,
+          field: "photo",
           value: response.secure_url
         });
       })
@@ -70,19 +60,15 @@ const RegisterDog = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log("handleSubmit")
     registerDogBack();
     // userDog.name = "";
   };
 
   const registerDogBack = () => {
-    console.log("entra", userDog)
-    // const { name, age, breed, genre, photo } = userDog
 
     RegisterDogServ.createDog(userDog)
       .then(response => {
         console.log('Tus datos están en el back', response)
-        // setSubmitted(true)
 
       })
       .catch(error => console.log(error))
@@ -96,46 +82,45 @@ const RegisterDog = () => {
 
       <h2>Tu perro</h2>
       <p>{userDog.name}</p>
-      {/* AL SUBIR LA FOTO DE CLOUDINARY, DEBE MOSTRARSE, SINO SE MUESTRA EL "SUBIR FOTO" */}
-      {
-        userDog.photo ?
-          (
-            <Grid xs={4} className="slice center">
-              <img src={userDog.photo.name} alt="dog index" />
-            </Grid>
-          )
-          :
-          (
-            <>
-              <form onSubmit={handleSubmit} noValidate autoComplete="off">
-
-                <input
-                  accept="image/*"
-                  className={styleClass.input}
-                  style={{ display: 'none' }}
-                  id="photo"
-                  multiple
-                  type="file"
-                  value={userDog.photo}
-                  onChange={handleFileUpload}
-                />
-                <label htmlFor="photo">
-                  <Button variant="raised" component="span">
-                    <img src='../../../../../images/new.png' alt="dog index" />
-                  </Button>
-                </label>
-              </form>
-            </>
-          )
-      }
-
-
-
-
-
-      <ToggleButtons />
-
       <form onSubmit={handleSubmit} noValidate autoComplete="off">
+
+        {
+          userDog.photo ?
+            (
+              <Grid xs={4} className="slice center">
+                <img src={userDog.photo} alt="dog index" className={styleClass.image} />
+              </Grid>
+            )
+            :
+            (
+              <>
+                <FormControl>
+                  <Input
+                    accept="image/*"
+                    className={styleClass.input}
+                    style={{ display: 'none' }}
+                    type="file"
+                    id="photo"
+                    name="imageUrl"
+                    multiple
+                    value={userDog.photo}
+                    onChange={handleFileUpload}
+                  />
+                  <label htmlFor="photo">
+                    <Button variant="raised" component="span">
+                      <img src='../../../../../images/new.png' alt="dog index" />
+                    </Button>
+                  </label>
+                </FormControl>
+              </>
+            )
+        }
+
+
+
+
+        <ToggleButtons />
+
         <InputLabel htmlFor="dogname">
           ¿Cuál es el nombre de tu perro?
         </InputLabel>
