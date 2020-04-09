@@ -8,6 +8,7 @@ import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
 import Breed from "./components/elements/Breeds/Breeds";
+import BreedsDetails from "./components/elements/Breeds/BreedsDetails";
 import "./App.css";
 
 function App() {
@@ -38,6 +39,9 @@ function App() {
 
         <Route path="/breed">
           <Breed />
+        </Route>
+        <Route path="/breed-details">
+          <BreedsDetails />
         </Route>
         {/* </Grid> */}
       </Switch>
