@@ -8,8 +8,10 @@ const User = require('../models/User.model')
 
 
 authRoutes.post('/signup', (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  console.log("----PAYLOAD EN DESTINO ---- ", req.body)
+  const name = req.body.name
+  const username = req.body.username
+  const password = req.body.password
 
   if (!username || !password) {
     res.status(400).json({
@@ -18,16 +20,14 @@ authRoutes.post('/signup', (req, res, next) => {
     return;
   }
 
-  if (password.length < 7) {
+  if (password.length < 3) {
     res.status(400).json({
       message: 'Please make your password at least 8 characters long for security purposes.'
     });
     return;
   }
 
-  User.findOne({
-    username
-  }, (err, foundUser) => {
+  User.findOne({username}, (err, foundUser) => {
 
     if (err) {
       res.status(500).json({
@@ -47,6 +47,7 @@ authRoutes.post('/signup', (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const aNewUser = new User({
+      name:name,
       username: username,
       password: hashPass
     });
@@ -102,7 +103,6 @@ authRoutes.post('/login', (req, res, next) => {
 });
 
 
-
 authRoutes.post('/logout', (req, res, next) => {
   req.logout();
   res.status(200).json({
@@ -113,6 +113,7 @@ authRoutes.post('/logout', (req, res, next) => {
 
 authRoutes.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated()) {
+    console.log("--Esto es lo que hay en req.user",req.user)
     res.status(200).json(req.user);
     return;
   }
@@ -120,7 +121,6 @@ authRoutes.get('/loggedin', (req, res, next) => {
     message: 'Unauthorized'
   });
 });
-
 
 
 module.exports = authRoutes;
