@@ -1,13 +1,10 @@
-import React, { useReducer, useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  makeStyles,
   FormControl,
-  TextField,
   Input,
   InputLabel,
   Button,
-  Avatar,
   Grid
 } from "@material-ui/core";
 import ButtonGB from '../../ui/ButtonGB/Button'

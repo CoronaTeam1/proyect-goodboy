@@ -8,4 +8,9 @@ import App from './App';
 
 const store = createStore(reducer)
 
-ReactDOM.render(<StylesProvider injectFirst><Provider store={store}><App /></Provider></StylesProvider>, document.getElementById('root'));
+ReactDOM.render(
+    <StylesProvider injectFirst>
+        <Provider store={store}>
+            <App />
+        </Provider>
+    </StylesProvider>, document.getElementById('root'));
