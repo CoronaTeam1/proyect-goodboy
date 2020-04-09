@@ -57,6 +57,8 @@ const Carousel = () => {
         return "../../../../../images/marker3.png";
       case 3:
         return "../../../../../images/marker4.png";
+      default:
+        break
     }
   };
 
@@ -69,11 +71,11 @@ const Carousel = () => {
         alignItems="center"
         className="index-carousel"
       >
-        {slice !== 0 && (<div onClick={() => navegation("prev")}><img src="../../../../../images/prev.svg" /></div>)}
+        {slice !== 0 && (<div onClick={() => navegation("prev")}><img src="../../../../../images/prev.svg" alt=""/></div>)}
         <Slice {...data[slice]} />
-        {slice !== 3 && (<div onClick={() => navegation("next")}><img src="../../../../../images/next.svg" /></div>)}
+        {slice !== 3 && (<div onClick={() => navegation("next")}><img src="../../../../../images/next.svg" alt=""/></div>)}
       </Grid>
-      <img src={index(slice)} className={styleClass.marker}/>
+      <img src={index(slice)} className={styleClass.marker} alt=""/>
     </>
   );
 };

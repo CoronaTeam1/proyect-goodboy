@@ -1,12 +1,15 @@
-import React, {useReducer, useState} from 'react'
+import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
 
 import FormStyle from './FormStyle'
 import '../../../../App.css'
 
-import { makeStyles, FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
+import {FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
+import authServ from '../../../../services/auth.services'
+
 
 import ButtonGB from '../../../ui/ButtonGB/Button'
 
@@ -25,7 +28,7 @@ const Form = ({termState}) => {
 
     const userRedux = {
         name: useSelector(state => state.name),
-        email: useSelector(state => state.email),
+        username: useSelector(state => state.username),
         password: useSelector(state => state.password),
         checkPassword: useSelector(state => state.checkPassword)
       };
@@ -46,12 +49,39 @@ const Form = ({termState}) => {
       };
     
       const handleSubmit = e => {
-        userRedux.password!==userRedux.checkPassword?setValues({ ...values, showError: true }):setValues({ ...values, showError: false });
 
-        console.log('WORK')
-        // console.log("hemos mandado a user a redux ", userRedux);
-        // values.name = "";
+        if(termState==='signup'){
+
+            if(userRedux.password!==userRedux.checkPassword){
+                setValues({ ...values, showError: true })
+            }else{
+                setValues({ ...values, showError: false })
+                console.log('WORK')
+                console.log("hemos mandado a user a redux ", userRedux)
+                registerUser()
+            }  
+        }else{
+            loginUser()
+
+            
+        }
+        
       };
+
+      const registerUser = () => {
+        authServ.registerUser(userRedux)
+            .then(response => {
+                console.log("He enviado esto al back", response)
+            })
+            .catch(err => console.log(err))
+      }
+
+      const loginUser = () => {
+          authServ.loginUser(userRedux).then(response => {
+              console.log("he enviado esto al back",response)
+          })
+          .catch(err => console.log(err))
+      }
 
       const handleClickShowPassword = () => {
         setValues({ ...values, showPassword: !values.showPassword });
@@ -85,11 +115,10 @@ const Form = ({termState}) => {
 
                     <FormControl fullWidth margin="normal">
                     <Input
-                        id="email"
-                        name="email"
+                        id="username"
+                        name="username"
                         placeholder="example@myemail.com"
-                        margin="normal"
-                        value={userRedux.email}
+                        value={userRedux.username}
                         onChange={handleChange}
                     />
                     </FormControl>
@@ -103,7 +132,6 @@ const Form = ({termState}) => {
                         name="password"
                         type={values.showPassword? 'text': 'password'}
                         placeholder=""
-                        margin="normal"
                         value={userRedux.password}
                         onChange={handleChange}
                         endAdornment={
@@ -143,12 +171,12 @@ const Form = ({termState}) => {
                         <ButtonGB  text="Registrate Ahora"/>
                     </div>
                     
-                    <p className={styleForm.socialLoginP}>También puedes registrarte con</p>
+                    {/* <p className={styleForm.socialLoginP}>También puedes registrarte con</p>
 
                     <div className={styleForm.socialLoginDiv}>
                         <div>Logo 1</div>
                         <div>Logo 2</div>
-                    </div>
+                    </div> */}
 
                 </form>
             </div>
@@ -162,8 +190,8 @@ const Form = ({termState}) => {
 
                     <FormControl fullWidth margin="normal">
                     <Input
-                        id="email"
-                        name="email"
+                        id="username"
+                        name="username"
                         placeholder="example@myemail.com"
                         margin="normal"
                         value={userRedux.email}
@@ -198,16 +226,16 @@ const Form = ({termState}) => {
                     />
                     </FormControl>
 
-                    <div className="mt2">
+                    <div className="mt2" onClick={handleSubmit}>
                         <ButtonGB type='submit' text="Inicia Sesión"/>
                     </div>
                     
-                    <p className={styleForm.socialLoginP}>También puedes iniciar sesión con</p>
+                    {/* <p className={styleForm.socialLoginP}>También puedes iniciar sesión con</p>
 
                     <div className={styleForm.socialLoginDiv}>
                         <div>Logo 1</div>
                         <div>Logo 2</div>
-                    </div>
+                    </div> */}
 
                 </form>
             </div>

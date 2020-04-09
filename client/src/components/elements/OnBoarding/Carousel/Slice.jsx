@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Grid } from "@material-ui/core";
 import style from "./Style";
-import { SwitchTransition, CSSTransition } from "react-transition-group";
+import {CSSTransition } from "react-transition-group";
 
 const Slice = ({ url, text, hidden }) => {
   const styleClass = style();
