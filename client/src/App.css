@@ -129,4 +129,8 @@ border-color: #6AC3AE
   text-transform: none;
   font-size: 0.95rem;
 }
+.MuiToggleButton-root.Mui-selected {
+  background-color: #6AC3AE;
+  color:white
+}
 
