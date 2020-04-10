@@ -17,7 +17,7 @@ const Breed = () => {
   };
 
   const [breed, setBreed] = useState();
-  const [index, setIndex] = useState(1);
+  const [index, setIndex] = useState(2);
   const [detailsBreed, setDetailsBreed] = useState("");
 
   console.log(detailsBreed);
@@ -29,6 +29,7 @@ const Breed = () => {
           breed.map((elm, idx) => (
             <>
               <h3 key={elm._id}>{elm.name}</h3>
+              <img src={elm.image} alt={elm.name}/>
               <button onClick={() => getDetailsBreed(elm)}>
                 Detalles raza
               </button>
