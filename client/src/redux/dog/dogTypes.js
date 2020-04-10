@@ -1,0 +1,1 @@
+export const REGISTER_DOG = 'REGISTER_DOG'

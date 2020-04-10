@@ -6,10 +6,10 @@ export const DECREMENT_COUNTER = {
     type: "less", payload: 1
 }
 
-export const REGISTER_DOG = ({
-    type: 'register-dog', payload: ''
-})
+// export const REGISTER_DOG = ({
+//     type: 'register-dog', payload: ''
+// })
 
-export const REGISTER_USER = ({
-    type: 'register-user',payload: ''
-})
+// export const REGISTER_USER = ({
+//     type: 'register-user',payload: ''
+// })
