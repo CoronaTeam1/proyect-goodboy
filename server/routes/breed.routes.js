@@ -2,21 +2,18 @@ const express = require('express')
 const router = express.Router()
 const cheerio = require('cheerio')
 const axios = require('axios').default
+const Breeds = require('../models/Breeds.model')
+const breedsAPIHandler = require('../services/breedsAPIHandler')
+const breedsAPI = new breedsAPIHandler()
+
 
 router.post('/', (req, res, next) => {
     const index = req.body.index
-    axios.create().get(`https://www.purina.es/perros/razas-de-perro/tipos-de-razas-de-perro?breed_name=&page=${index}`)
-        .then(response => {
-            const $ = cheerio.load(response.data);
-            arrNames = []
-            $('.result-animal-container').each((i, e) => {
-                const div = $(e).children()
-                const name = $(div).find('.results-view-name').text()
-                arrNames.push(name)
-            })
-            return arrNames
+    Breeds.find({
+            index: index
         })
-        .then(response => res.json(response))
+        .then(elm => elm.length ? elm : breedsAPI.getBreeds(index))
+        .then(response => console.log(response))
         .catch(err => console.log(err));
 })
 
@@ -43,7 +40,12 @@ router.post('/details', (req, res, next) => {
             //     console.log(h1)
             // })
 
-            return { title, image, description, info }
+            return {
+                title,
+                image,
+                description,
+                info
+            }
         })
         .then(response => res.json(response))
         .catch(error => console.log(error))
