@@ -1,41 +1,43 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  FormControl,
-  Input,
-  InputLabel,
-  Button,
-  Grid
-} from "@material-ui/core";
+import { registerDog } from '../../../redux'
+//Material UI
+import { FormControl,Input, InputLabel,Button, Grid} from "@material-ui/core";
+//Styles
+import style from "./Style";
+//Components
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
-import style from "./Style";
+//Services
 import RegisterDogServ from '../../../services/registerdog.services'
 import FilesServices from '../../../services/files.services'
 
-const REGISTER_DOG = "REGISTER_DOG";
+// const REGISTER_DOG = "REGISTER_DOG";
 
 const RegisterDog = () => {
 
   const styleClass = style();
 
-  const userDog = {
-    name: useSelector(state => state.name),
-    age: useSelector(state => state.age),
-    breed: useSelector(state => state.breed),
-    genre: useSelector(state => state.genre),
-    photo: useSelector(state => state.photo)
+  const userDog = { //Ahora es state.algo
+    name: useSelector(state => state.dog.name),
+    age: useSelector(state => state.dog.age),
+    breed: useSelector(state => state.dog.breed),
+    genre: useSelector(state => state.dog.genre),
+    photo: useSelector(state => state.dog.photo)
   };
 
   const dispatch = useDispatch();
 
   const handleChange = e => {
-    dispatch({
-      type: REGISTER_DOG,
-      field: e.target.id,
-      value: e.target.value
-    });
-  };
+    // dispatch({
+    //   type: REGISTER_DOG,
+    //   field: e.target.id,
+    //   value: e.target.value
+    // })
+
+    dispatch(registerDog(e.target.id,e.target.value))
+
+  }
 
   const handleFileUpload = e => {
 
@@ -43,13 +45,8 @@ const RegisterDog = () => {
     uploadData.append("imageUrl", e.target.files[0])
 
     FilesServices.handleUpload(uploadData)
-      .then(response => {
-        dispatch({
-          type: REGISTER_DOG,
-          field: "photo",
-          value: response.secure_url
-        });
-      })
+      // .then(response => {dispatch({type: REGISTER_DOG,field: "photo",value: response.secure_url})})
+      .then(response => dispatch(registerDog("photo",response.secure_url)))
       .catch(error => console.log(error))
 
   };

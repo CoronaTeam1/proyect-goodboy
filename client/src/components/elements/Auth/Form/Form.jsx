@@ -1,22 +1,26 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from '../../../../redux'
 
-import FormStyle from './FormStyle'
-import '../../../../App.css'
+import { useHistory } from "react-router-dom";
 
+//Material UI
 import {FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
+//Styles
+import FormStyle from './FormStyle'
+import '../../../../App.css'
+//Services
 import authServ from '../../../../services/auth.services'
-
-
+//Components
 import ButtonGB from '../../../ui/ButtonGB/Button'
 
-const REGISTER_USER = "REGISTER_USER";
+// const REGISTER_USER = "REGISTER_USER"; Esto no hace falta porque ya lo importamos en la linea 3
 
 const Form = ({termState}) => {
 
+    // ---- HOOKS ----
     const styleForm = FormStyle();
 
     const initialState = {
@@ -25,26 +29,30 @@ const Form = ({termState}) => {
       }
 
     const [values, setValues] = React.useState(initialState);
+    const history = useHistory()
+
+    //--- REDUX ---
 
     const userRedux = {
-        name: useSelector(state => state.name),
-        username: useSelector(state => state.username),
-        password: useSelector(state => state.password),
-        checkPassword: useSelector(state => state.checkPassword)
+        name: useSelector(state => state.user.name),
+        username: useSelector(state => state.user.username),
+        password: useSelector(state => state.user.password),
+        checkPassword: useSelector(state => state.user.checkPassword)
       };
-
-      console.log(values)
 
       const dispatch = useDispatch();
     
       const handleChange = e => {
-        //   setValues({ ...values, [e.target.name]: e.target.value });
-          
-        dispatch({
-          type: REGISTER_USER,
-          field: e.target.id,
-          value: e.target.value
-        });
+              
+        // dispatch({
+        //   type: REGISTER_USER,
+        //   field: e.target.name,
+        //   value: e.target.value
+        // });
+
+        dispatch(registerUser(e.target.name,e.target.value))
+
+        //Como ahora action es una funcion, mandamos en primera posicion el field, en segunda el value porque lo hemos definido asi
 
       };
     
@@ -57,29 +65,25 @@ const Form = ({termState}) => {
             }else{
                 setValues({ ...values, showError: false })
                 console.log('WORK')
-                console.log("hemos mandado a user a redux ", userRedux)
-                registerUser()
+                console.log("Esto es lo que hay en redux : ", userRedux)
+                registerUserBack()
             }  
         }else{
             loginUser()
-
-            
         }
         
       };
 
-      const registerUser = () => {
+      const registerUserBack = () => {
         authServ.registerUser(userRedux)
-            .then(response => {
-                console.log("He enviado esto al back", response)
-            })
+            .then(response => console.log("He enviado esto al back", response))
+            .then(x => history.push('/register-dog'))
             .catch(err => console.log(err))
       }
 
       const loginUser = () => {
-          authServ.loginUser(userRedux).then(response => {
-              console.log("he enviado esto al back",response)
-          })
+          authServ.loginUser(userRedux).then(response => console.log("he enviado esto al back",response))
+          .then(x => history.push('/home'))
           .catch(err => console.log(err))
       }
 
@@ -168,7 +172,7 @@ const Form = ({termState}) => {
                     <p className={styleForm.continueDiclaimer}>Al continuar aceptas los Términos y Política de privacidad</p>
                     
                     <div onClick={()=> handleSubmit()}>
-                        <ButtonGB  text="Registrate Ahora"/>
+                        <ButtonGB  text="Registrate Ahora" link={'/home'}/>
                     </div>
                     
                     {/* <p className={styleForm.socialLoginP}>También puedes registrarte con</p>
@@ -193,7 +197,6 @@ const Form = ({termState}) => {
                         id="username"
                         name="username"
                         placeholder="example@myemail.com"
-                        margin="normal"
                         value={userRedux.email}
                         onChange={handleChange}
                     />
@@ -208,7 +211,6 @@ const Form = ({termState}) => {
                         name="password"
                         type={values.showPassword? 'text': 'password'}
                         placeholder=""
-                        margin="normal"
                         value={userRedux.password}
                         onChange={handleChange}
                         endAdornment={
