@@ -20,11 +20,8 @@ router.post('/', (req, res, next) => {
 router.post('/details', (req, res, next) => {
     const breedName = req.body.breed
     breedName.description === undefined && breedsAPI.getDetails(breedName)
-        .then(response => response)
         .then(response => res.json(response))
         .catch(error => console.log(error))
-
-
 })
 
 

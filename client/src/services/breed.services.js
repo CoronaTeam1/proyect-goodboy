@@ -12,11 +12,10 @@ const getDetailsBreed = breed => axios
     .post('/breed/details', {
         breed
     })
-    .then(response => response.data)
+    .then(response => response.data.description)
     .catch(error => console.log(error))
 
 export default {
     getBreed,
     getDetailsBreed
 }
-

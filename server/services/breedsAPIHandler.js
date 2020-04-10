@@ -28,8 +28,21 @@ class BreedsAPIHandler {
             })
             .catch(err => console.log(err))
     }
-    getDetails(breedName) {
-        return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${breedName.name}`)
+    deleteSimbol(breedName) {
+        const simbol = 'ÁÃÀÄÂÉËÈÊÍÏÌÎÓÖÒÔÚÜÙÛÑÇáãàäâéëèêíïìîóöòôúüùûñç',
+            noSimbol = 'AAAAAEEEEIIIIOOOOUUUUNCaaaaaeeeeiiiioooouuuunc',
+            reg = new RegExp('[' + simbol + ']', 'ug');
+
+        return breedName.replace(
+                reg,
+                match => noSimbol.charAt(simbol.indexOf(match))
+            );
+
+    }
+    getDetails(breed) {
+        const breedName = breed.name.replace(/ /g, '-')
+        const nameUrl = this.deleteSimbol(breedName)
+        return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${nameUrl}`)
             .then(response => {
                 const $ = cheerio.load(response.data);
                 const title = $('h1').text().trim()
@@ -37,10 +50,13 @@ class BreedsAPIHandler {
                 const description = $('.col-md-offset-2 p').text().trim()
                 const info = $('.info').html().trim()
 
-                Breeds.findOneAndUpdate(breedName, description)
-                .then(elm => console.log(elm))
+                Breeds.findByIdAndUpdate(breed._id, {
+                        description
+                    })
+                    .then(() => console.log("Save in BD"))
+                    .catch(err => console.log(err))
                 return {
-                  
+                    description
                 }
             })
     }
