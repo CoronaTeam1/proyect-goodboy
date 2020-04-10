@@ -36,7 +36,7 @@ function App() {
           <Breed />
         </Route>
 
-        <Route path="/breed-details">
+        <Route path="/:breed">
           <BreedsDetails />
         </Route>
 
