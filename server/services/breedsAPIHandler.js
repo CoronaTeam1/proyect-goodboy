@@ -34,13 +34,13 @@ class BreedsAPIHandler {
             reg = new RegExp('[' + simbol + ']', 'ug');
 
         return breedName.replace(
-                reg,
-                match => noSimbol.charAt(simbol.indexOf(match))
-            );
+            reg,
+            match => noSimbol.charAt(simbol.indexOf(match))
+        );
 
     }
     getDetails(breed) {
-        const breedName = breed.name.replace(/ /g, '-')
+        const breedName = breed.replace(/ /g, '-')
         const nameUrl = this.deleteSimbol(breedName)
         return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${nameUrl}`)
             .then(response => {
@@ -51,8 +51,8 @@ class BreedsAPIHandler {
                 const info = $('.info').html().trim()
 
                 Breeds.findByIdAndUpdate(breed._id, {
-                        description
-                    })
+                    description
+                })
                     .then(() => console.log("Save in BD"))
                     .catch(err => console.log(err))
                 return {

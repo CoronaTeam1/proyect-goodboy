@@ -10,8 +10,8 @@ const breedsAPI = new breedsAPIHandler()
 router.post('/', (req, res, next) => {
     const index = req.body.index
     Breeds.find({
-            index: index
-        })
+        index: index
+    })
         .then(response => response.length ? response : breedsAPI.getBreeds(index))
         .then(response => res.json(response))
         .catch(err => console.log(err));
@@ -19,6 +19,7 @@ router.post('/', (req, res, next) => {
 
 router.post('/details', (req, res, next) => {
     const breedName = req.body.breed
+    console.log(breedName)
     breedName.description === undefined && breedsAPI.getDetails(breedName)
         .then(response => res.json(response))
         .catch(error => console.log(error))
