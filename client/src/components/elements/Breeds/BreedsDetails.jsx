@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import BreedsServices from "../../../services/breed.services";
 
-const breeds = new BreedsServices();
 
 const BreedDetails = () => {
 
 
   const getDetailsBreed = breed => {
-    breeds.getDetailsBreed(breed).then(details => setDetailsBreed(details)).catch(err => setDetailsBreed([err]))
+    BreedsServices.getDetailsBreed(breed).then(details => setDetailsBreed(details)).catch(err => setDetailsBreed([err]))
   }
 
   const [detailsBreed, setDetailsBreed] = useState('')

@@ -26,8 +26,27 @@ class BreedsAPIHandler {
                 }))
                 return arrNames
             })
-            .catch(err=> console.log(err))
+            .catch(err => console.log(err))
     }
+    getDetails(breedName) {
+        return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${breedName.name}`)
+            .then(response => {
+                const $ = cheerio.load(response.data);
+                const title = $('h1').text().trim()
+                const image = $('.breed-box-image').children().html()
+                const description = $('.col-md-offset-2 p').text().trim()
+                const info = $('.info').html().trim()
+
+                Breeds.findOneAndUpdate(breedName, description)
+                .then(elm => console.log(elm))
+                return {
+                  
+                }
+            })
+    }
+
+
+
 }
 
 module.exports = BreedsAPIHandler
