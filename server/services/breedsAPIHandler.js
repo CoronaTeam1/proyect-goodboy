@@ -18,10 +18,12 @@ class BreedsAPIHandler {
                 $('.result-animal-container').each((i, e) => {
                     const div = $(e).children()
                     const name = $(div).find('.results-view-name').text()
-                    arrNames.push(name)
+                    const routeImage = "https://www.purina.es" + $(e).find("img").attr('src')
+                    arrNames.push({name, routeImage})
                 })
                 arrNames.forEach(elm => Breeds.create({
-                    name: elm,
+                    name: elm.name,
+                    image: elm.routeImage,
                     index
                 }))
                 return arrNames
