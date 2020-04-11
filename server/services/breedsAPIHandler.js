@@ -44,16 +44,16 @@ class BreedsAPIHandler {
     getDetails(breed) {
         const breedName = breed.replace(/ /g, '-')
         const nameUrl = this.deleteSimbol(breedName)
+        const info = []
         return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${nameUrl}`)
             .then(response => {
                 const $ = cheerio.load(response.data);
-                const title = $('h1').text().trim()
-                const image = $('.breed-box-image').children().html()
                 const description = $('.col-md-offset-2 p').text().trim()
-                const info = $('.info').html().trim()
+                const character = $('.paragraph__column').find("dd").text().trim()
+                const origen = $('.paragraph--id--30156').find("h3")
 
-                Breeds.findByIdAndUpdate(breed._id, {
-                    description
+                Breeds.update({name: breed}, {
+                    description,
                 })
                     .then(() => console.log("Save in BD"))
                     .catch(err => console.log(err))

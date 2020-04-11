@@ -10,7 +10,11 @@ export default makeStyles({
     },
 
     image: {
-        marginLeft: "-30px"
+        margin: "auto",
+        width: "90%",
+        height: "130px",
+        overflow: "hidden",
+        borderRadius: "50%"
     },
     marker: {
         marginLeft: "-10px",

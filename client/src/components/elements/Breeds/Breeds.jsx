@@ -19,11 +19,11 @@ const Breed = () => {
   };
 
   const [breed, setBreed] = useState();
-  const [index, setIndex] = useState(2);
+  const [index, setIndex] = useState(0);
   const [detailsBreed, setDetailsBreed] = useState("");
   const history = useHistory()
 
-  console.log(detailsBreed);
+  console.log(breed);
   return (
     <>
       <div onClick={() => getBreed(index)}>Obten tus Razas</div>

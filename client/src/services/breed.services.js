@@ -8,18 +8,13 @@ const getBreed = index => axios
     .then(response => response.data)
     .catch(err => console.log(err))
 
-const getDetailsBreed = breed => {
-    console.log(breed)
-    axios
+const getDetailsBreed = breed => axios
         .post('/breed/details', {
             breed
         })
-        .then(response => {
-            console.log(response.data.description)
-            return response.data
-        })
+        .then(response => response.data.description)
         .catch(error => console.log(error))
-}
+
 export default {
     getBreed,
     getDetailsBreed
