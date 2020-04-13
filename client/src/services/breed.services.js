@@ -14,7 +14,7 @@ const getDetailsBreed = breed => axios
         })
         .then(response => response.data.description)
         .catch(error => console.log(error))
-
+    
 export default {
     getBreed,
     getDetailsBreed

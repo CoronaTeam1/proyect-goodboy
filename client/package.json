@@ -19,6 +19,7 @@
     "react-scripts": "3.4.0",
     "react-swipeable-views": "^0.13.9",
     "react-transition-group": "^4.3.0",
+    "react-window": "^1.8.5",
     "redux": "^4.0.5"
   },
   "scripts": {
