@@ -5,7 +5,6 @@ const router = express.Router();
 
 router.post('/', (req, res, next) => {
   console.log(req.body)
-  console.log(req.file)
   const { name, age, genre, breed, photo } = req.body;
   const newdog = {
     name,
