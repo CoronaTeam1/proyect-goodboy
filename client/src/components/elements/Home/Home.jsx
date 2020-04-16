@@ -5,12 +5,14 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Section from "./Sections/Sections";
 import ButtonFooter from "./Footer/Buttons";
+import Breeds from "./Sections/Breeds/Breeds"
 import style from "./Style";
 
 const TransitionsModal = () => {
   const styleClass = style();
   const [open, setOpen] = useState(true);
   const [section, setSection] = useState("index");
+  const [index, setIndex] = useState(0);
 
   const handleClose = () => {
     setOpen(false);
@@ -18,7 +20,6 @@ const TransitionsModal = () => {
 
   const audio = new Audio("../../../../sound/clicker.mp3");
 
-  console.log(section)
   return (
     <div>
       <Modal
@@ -126,21 +127,11 @@ const TransitionsModal = () => {
         )}
         {section === "breed" && (
           <>
-            <Section
-              url="../../../../images/section1.svg"
-              title="Lecciones"
-              event={() => setSection("learn")}
-            />
-            <Section
-              url="../../../../images/section2.svg"
-              title="Tips crianza"
-              event={() => setSection("learn")}
-            />
-            <Section
-              url="../../../../images/section3.svg"
-              title="Biblioteca razas"
-              event={() => setSection("learn")}
-            />
+           <Breeds index={index}/>
+           <div className="flex">
+    <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
+    <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
+         </div>
           </>
         )}
         <div className="center" onClick={() => audio.play()}>

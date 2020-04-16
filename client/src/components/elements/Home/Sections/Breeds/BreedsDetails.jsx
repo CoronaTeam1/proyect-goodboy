@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import BreedsServices from "../../../services/breed.services";
+import BreedsServices from "../../../../../services/breed.services";
 
 const BreedDetails = () => {
   const { breed } = useParams();

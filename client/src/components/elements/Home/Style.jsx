@@ -54,5 +54,13 @@ export default makeStyles(theme => ({
   },
   main:{
     paddingBottom: "30px"
-  }
+  },
+  card: {
+    margin: "20px auto",
+    maxWidth: 345,
+  },
+  contentCard: {
+    display: "flex",
+  },
+  imgCard: { width: "40%", height: "20%" }
 }));
