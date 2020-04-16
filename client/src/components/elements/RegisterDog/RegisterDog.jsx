@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { registerDog } from '../../../redux'
+import { useHistory } from 'react-router-dom'
+
+import { registerDog, setDog } from '../../../redux'
 //Material UI
-import { FormControl,Input, InputLabel,Button, Grid} from "@material-ui/core";
+import { FormControl, Input, InputLabel, Button, Grid } from "@material-ui/core";
 //Styles
 import style from "./Style";
 //Components
@@ -26,6 +28,8 @@ const RegisterDog = () => {
     photo: useSelector(state => state.dog.photo)
   };
 
+  const history = useHistory()
+
   const dispatch = useDispatch();
 
   const handleChange = e => {
@@ -35,7 +39,7 @@ const RegisterDog = () => {
     //   value: e.target.value
     // })
 
-    dispatch(registerDog(e.target.id,e.target.value))
+    dispatch(registerDog(e.target.id, e.target.value))
 
   }
 
@@ -46,7 +50,7 @@ const RegisterDog = () => {
 
     FilesServices.handleUpload(uploadData)
       // .then(response => {dispatch({type: REGISTER_DOG,field: "photo",value: response.secure_url})})
-      .then(response => dispatch(registerDog("photo",response.secure_url)))
+      .then(response => dispatch(registerDog("photo", response.secure_url)))
       .catch(error => console.log(error))
 
   };
@@ -55,18 +59,17 @@ const RegisterDog = () => {
   const handleSubmit = e => {
     e.preventDefault();
     registerDogBack();
-    // userDog.name = "";
   };
 
   const registerDogBack = () => {
-
     RegisterDogServ.createDog(userDog)
       .then(response => {
         console.log('Tus datos están en el back', response)
-
+        // Setear el estado
+        dispatch(setDog())
+        history.push(`/home`)
       })
       .catch(error => console.log(error))
-
   }
 
 
@@ -156,8 +159,8 @@ const RegisterDog = () => {
             onChange={handleChange}
           />
         </FormControl>
-        {/* <button type="submit">ENVIAR</button> */}
-        <div className={styleClass.padding30px}>
+
+        <div className={styleClass.padding30px} onClick={handleSubmit}>
           <ButtonGB text="Continuar"></ButtonGB>
         </div>
       </form>

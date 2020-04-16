@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from 'react-router-dom'
-import { FixedSizeList } from "react-window";
+// import { FixedSizeList } from "react-window";
 import BreedsServices from "../../../services/breed.services";
 
 const Breed = () => {
@@ -11,7 +11,7 @@ const Breed = () => {
       .catch(err => setBreed([err]));
   };
 
-  
+
   // const getDetailsBreed = breed => {
   //   breed.description
   //   ? setDetailsBreed(breed.description)
@@ -19,7 +19,7 @@ const Breed = () => {
   //   .then(details => setDetailsBreed(details))
   //   .catch(err => setDetailsBreed([err]));
   // };
-  
+
   const [breed, setBreed] = useState();
   const [index, setIndex] = useState(0);
   // const [detailsBreed, setDetailsBreed] = useState("");
@@ -28,7 +28,7 @@ const Breed = () => {
 
   return (
     <>
-      <FixedSizeList
+      {/* <FixedSizeList
         height={400}
         width={300}
         itemSize={50}
@@ -36,19 +36,20 @@ const Breed = () => {
         itemCount={users.length}
         overscanCount={5}
         useIsScrolling={true}
-      >
-        {breed &&
-          breed.map((elm, idx) => (
-            <>
-              <h3 key={elm._id}>{elm.name}</h3>
-              <img src={elm.image} alt={elm.name}/>
-              <button onClick={() => history.push(`/${elm.name}`)}>
-                {/* <button onClick={() => getDetailsBreed(elm)}> */}
+      > */}
+      {breed &&
+        breed.map((elm, idx) => (
+          <>
+            <h3 key={elm._id}>{elm.name}</h3>
+            <img src={elm.image} alt={elm.name} />
+            <button onClick={() => history.push(`/${elm.name}`)}>
+              {/* <button onClick={() => getDetailsBreed(elm)}> */}
                 Detalles raza
               </button>
-            </>
-          ))}
-      </FixedSizeList>
+          </>
+        ))}
+      {/* </FixedSizeList> */}
+
       {/* <div>
         <p>{detailsBreed && detailsBreed}</p>
       </div>
