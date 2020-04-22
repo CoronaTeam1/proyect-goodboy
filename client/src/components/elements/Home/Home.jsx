@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Section from "./Sections/Sections";
-import ButtonFooter from "./Footer/Buttons";
+import Footer from '../../ui/Footer/Footer'
 import Breeds from "./Sections/Breeds/Breeds"
-import style from "./Style";
+import HomeStyle from "./HomeStyle";
 
 const TransitionsModal = () => {
-  const styleClass = style();
+  const styleClass = HomeStyle();
+
   const [open, setOpen] = useState(true);
   const [section, setSection] = useState("index");
   const [index, setIndex] = useState(0);
@@ -22,7 +23,7 @@ const TransitionsModal = () => {
 
   return (
     <div>
-      <Modal
+      {/* <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         aria-describedby="transition-modal-text"
@@ -61,13 +62,16 @@ const TransitionsModal = () => {
             </div>
           </div>
         </Fade>
-      </Modal>
-      <Grid>
-        <div className={styleClass.navs}>
-          <h1 className={styleClass.init}>Inicio</h1>
-        </div>
-      </Grid>
-      <Grid className={styleClass.main}>
+
+      </Modal> */}
+      
+      <div className={styleClass.topHeading}>
+        <span> Inicio</span>
+      </div>
+      
+      {/* <Grid className={styleClass.main}> */}
+      {/* <Container> */}
+      <div className={styleClass.mainPanel}>
         {section === "index" && (
           <>
             <Section
@@ -125,21 +129,25 @@ const TransitionsModal = () => {
             />
           </>
         )}
-        {section === "breed" && (
+        </div>
+        {/* {section === "breed" && (
           <>
            <Breeds index={index}/>
            <div className="flex">
-    <div onClick={() => setIndex(index - 1)}><img src="../../../../images/prev.svg" alt="" /></div>
-    <div onClick={() => setIndex(index + 1)}><img src="../../../../images/next.svg" alt="" /></div>
+            <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
+            <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
          </div>
           </>
-        )}
-        <div className="center" onClick={() => audio.play()}>
+        )} */}
+        <div className={styleClass.clicker} onClick={() => audio.play()}>
           <img src="../../../../images/clicker.svg" alt="clicker" />
         </div>
-      </Grid>
-      <Grid>
-        <div className={styleClass.navs}>
+        {/* </Container> */}
+      
+
+        <Footer />
+
+        {/* <div className={styleClass.navs}>
           <div className={`flex ${styleClass.footer}`}>
             <ButtonFooter
               url="../../../../images/buttonHome.svg"
@@ -154,8 +162,8 @@ const TransitionsModal = () => {
               title="Perfil"
             />
           </div>
-        </div>
-      </Grid>
+        </div> */}
+      
     </div>
   );
 };

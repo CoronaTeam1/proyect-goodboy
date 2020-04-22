@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import style from "../../Style"
+import style from "../../HomeStyle"
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
@@ -58,7 +58,7 @@ const Breed = ({index}) => {
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="h2">
                     {elm.name}
-          </Typography>
+                  </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>

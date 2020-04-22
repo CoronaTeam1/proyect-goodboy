@@ -2,9 +2,9 @@ import React from "react";
 
 const Section = ({ url, title, event }) => {
   return (
-    <div onClick={() => event()}>
-      <img src={url} alt={title} />
-    </div>
+    
+      <img src={url} alt='hola' onClick={() => event()}/>
+    
   );
 };
 

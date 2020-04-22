@@ -58,6 +58,12 @@ p{
       /* margin-bottom: 0; */
       margin-top: 0;
 }
+.fixedBottom {
+  position: fixed;
+  bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+}
 .padding{}
 .border{}
 .none{}
