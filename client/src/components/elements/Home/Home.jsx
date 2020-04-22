@@ -129,8 +129,8 @@ const TransitionsModal = () => {
           <>
            <Breeds index={index}/>
            <div className="flex">
-    <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
-    <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
+    <div onClick={() => setIndex(index - 1)}><img src="../../../../images/prev.svg" alt="" /></div>
+    <div onClick={() => setIndex(index + 1)}><img src="../../../../images/next.svg" alt="" /></div>
          </div>
           </>
         )}
