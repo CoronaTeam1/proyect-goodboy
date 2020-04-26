@@ -9,12 +9,12 @@ const getBreed = index => axios
     .catch(err => console.log(err))
 
 const getDetailsBreed = breed => axios
-        .post('/breed/details', {
-            breed
-        })
-        .then(response => response.data.description)
-        .catch(error => console.log(error))
-    
+    .post('/breed/details', {
+        breed
+    })
+    .then(response => response.data)
+    .catch(error => console.log(error))
+
 export default {
     getBreed,
     getDetailsBreed
