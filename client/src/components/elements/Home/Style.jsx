@@ -21,7 +21,7 @@ export default makeStyles(theme => ({
     fontSize: "35px"
   },
   description: {
-    fontSize: "23px"
+    fontSize: "22px"
   },
   text: {
     fontSize: "14px"

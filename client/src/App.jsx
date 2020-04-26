@@ -6,7 +6,10 @@ import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
 import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
+<<<<<<< HEAD
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
+=======
+>>>>>>> ebb441adfbab13fc5369c31914aff54dcaca9801
 import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
 import "./App.css";
 
@@ -30,10 +33,6 @@ function App() {
 
         <Route path="/home">
           <Home />
-        </Route>
-
-        <Route path="/breed">
-          <Breed />
         </Route>
 
         <Route path="/:breed">
