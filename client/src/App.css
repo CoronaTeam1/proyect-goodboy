@@ -28,7 +28,13 @@ p{
   font-weight: 400;
 }
 
-
+.gotoBottom{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
 .index-header{
   text-align: center;
 }
