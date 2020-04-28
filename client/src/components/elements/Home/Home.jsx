@@ -7,6 +7,7 @@ import Section from "./Sections/Sections";
 import Footer from '../../ui/Footer/Footer'
 import Breeds from "./Sections/Breeds/Breeds"
 import HomeStyle from "./HomeStyle";
+import LearnInit from "./Sections/Learn/LearnInit"
 
 const TransitionsModal = () => {
   const styleClass = HomeStyle();
@@ -23,7 +24,7 @@ const TransitionsModal = () => {
 
   return (
     <div>
-      {/* <Modal
+      <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         aria-describedby="transition-modal-text"
@@ -63,7 +64,7 @@ const TransitionsModal = () => {
           </div>
         </Fade>
 
-      </Modal> */}
+      </Modal>
       
       <div className={styleClass.topHeading}>
         <span> Inicio</span>
@@ -130,7 +131,7 @@ const TransitionsModal = () => {
           </>
         )}
         </div>
-        {/* {section === "breed" && (
+        {section === "breed" && (
           <>
            <Breeds index={index}/>
            <div className="flex">
@@ -138,7 +139,12 @@ const TransitionsModal = () => {
             <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
          </div>
           </>
-        )} */}
+        )}
+        {section === "init" && (
+          <>
+          <LearnInit />
+          </>
+        )}
         <div className={styleClass.clicker} onClick={() => audio.play()}>
           <img src="../../../../images/clicker.svg" alt="clicker" />
         </div>
