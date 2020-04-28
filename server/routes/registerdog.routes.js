@@ -1,5 +1,5 @@
 const express = require('express');
-const Dog = require('../models/Dog.model')
+// const Dog = require('../models/Dog.model')
 const User = require('../models/User.model')
 const uploadCloud = require('../configs/cloudinary.config')
 const router = express.Router();
