@@ -19,9 +19,13 @@ router.post('/', (req, res, next) => {
 
 router.post('/details', (req, res, next) => {
     const breedName = req.body.breed
-    console.log(breedName)
-    breedName.description === undefined && breedsAPI.getDetails(breedName)
-        .then(response => res.json(response))
+    console.log('breedName:', breedName)
+    Breeds.find({
+        name: breedName
+    })
+        // breedName.description === undefined && breedsAPI.getDetails(breedName)
+        // .then(res => console.log("response:::::", res[0]))
+        .then(response => res.json(response[0]))
         .catch(error => console.log(error))
 })
 

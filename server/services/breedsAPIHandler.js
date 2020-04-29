@@ -61,33 +61,28 @@ class BreedsAPIHandler {
                 // =========Aparece la info del perrete para meter en un Array=========
                 let points = []
                 $('.info li').each((i, el) => {
-                    console.log(i, $(el).text())
+                    // console.log(i, $(el).text())
                     let contenido = $(el).text()
                     points.push(contenido)
                 })
-                console.log('points', points)
+                // console.log('points', points)
 
                 //ESTA PIEZA DE CODIGO HABILITA EL CHEERIO, UNA VEZ HECHO EL SCRAPPY SE PUEDE COMENTAR
                 // ====== ESTRUCTURA DATOS TIPO BEAGLE =======
                 $('.paragraph--id--30996 .paragraph__column div').each((i, el) => {
-                    const title = $(el).find('h3').each((i, el) => {
-                        // console.log(i, $(el).text())
-                    })
                     let info = []
                     const pepe = $(el).find('p').each((i, el) => {
-                        // console.log(i, $(el).text())
                         let text = $(el).text().replace(/\n/gi, '')
                         info.push(text)
                     })
-                    console.log(info)
-                    // console.log(info.length)
+                    // console.log(info)
+
                 })
                 //HASTA AQUI
 
                 Breeds.update({ name: breed }, {
                     description,
                     info: points
-
                 })
                     .then(() => console.log("Save in BD"))
                     .catch(err => console.log(err))

@@ -22,40 +22,40 @@ const TransitionsModal = () => {
 
     const audio = new Audio("../../../../sound/clicker.mp3");
 
-    return (
-        <div>
-            <Modal
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                aria-describedby="transition-modal-text"
-                className={styleClass.modal}
-                open={open}
-                onClick={handleClose}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout: 500
-                }}
-            >
-                <Fade in={open}>
-                    <div className={styleClass.paper}>
+  return (
+    <div>
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        aria-describedby="transition-modal-text"
+        className={styleClass.modal}
+        open={open}
+        onClick={handleClose}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}
+      >
+        <Fade in={open}>
+          <div className={styleClass.paper}>
 
-                        <h2 className={styleClass.title} id="transition-modal-title">
-                            Este es tu Clicker!
+            <h2 className={styleClass.title} id="transition-modal-title">
+              Este es tu Clicker!
               </h2>
-                        <p
-                            className={styleClass.description}
-                            id="transition-modal-description"
-                        >
-                            Pincha aqui para probarlo
+            <p
+              className={styleClass.description}
+              id="transition-modal-description"
+            >
+              Pincha aqui para probarlo
               </p>
-                        <p className={styleClass.text} id="transition-modal-text">
-                            Asegurate de tener el sonido de tu móvil activado
+            <p className={styleClass.text} id="transition-modal-text">
+              Asegurate de tener el sonido de tu móvil activado
               </p>
-                        <div className={styleClass.arrow}>
-                            <img src="../../../../images/arrow.svg" alt="arrow" />
-                        </div>
-                        {/* <img
+            <div className={styleClass.arrow}>
+              <img src="../../../../images/arrow.svg" alt="arrow" />
+            </div>
+            {/* <img
                 className={styleClass.clicker}
                 src="../../../../images/clicker.svg"
                 alt="clicker"
