@@ -6,7 +6,7 @@ const loginUser = user => axios.post('/auth/login',user).then(response => respon
 
 const logout = () => axios.post('/logout').then(response => response.data).catch(err => console.log(err))
 
-const loggedin = () => axios.get('/loggedin').then(response => response.data).catch(err => console.log(err))
+const loggedin = () => axios.get('/auth/loggedin').then(response => response.data).catch(err => console.log(err))
 
 export default {
     registerUser, loginUser,logout,loggedin

@@ -1,18 +1,33 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import { useSelector } from "react-redux";
+
 
 import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
 import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
-import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
+import authServ from './services/auth.services'
+
+// import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
 // import Breed from "./components/elements/Breeds/Breeds";
 // import BreedsDetails from "./components/elements/Breeds/BreedsDetails";
 import "./App.css";
 
 
 function App() {
+
+  const userRedux = {
+    name: useSelector(state => state.user.name),
+    username: useSelector(state => state.user.username),
+    password: useSelector(state => state.user.password),
+    checkPassword: useSelector(state => state.user.checkPassword)
+  };
+
+  console.log(authServ.loggedin(),'logedin')
+  
+  console.log(userRedux,'ESTO ES APP Y LO QUE HAY EN EL STORE')
   return (
     <Router>
       <Switch>

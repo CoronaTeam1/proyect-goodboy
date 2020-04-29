@@ -11,7 +11,7 @@ const Slice = ({ url, text, hidden }) => {
       timeout={{ enter: 5000, exit: 5000 }}
       classNames="my-node"
     >
-      <Grid xs={4} className="slice center">
+      <Grid item xs={4} className="slice center">
         <img src={url} alt="dog index" className={styleClass.image} />
         <p className={styleClass.p}>{text}</p>
       </Grid>

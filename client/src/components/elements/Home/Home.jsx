@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Grid, Container } from "@material-ui/core";
+// import { Grid, Container } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import Section from "./Sections/Sections";
 import Footer from '../../ui/Footer/Footer'
-import Breeds from "./Sections/Breeds/Breeds"
+// import Breeds from "./Sections/Breeds/Breeds"
 import HomeStyle from "./HomeStyle";
 
 const TransitionsModal = () => {
@@ -13,7 +13,7 @@ const TransitionsModal = () => {
 
   const [open, setOpen] = useState(true);
   const [section, setSection] = useState("index");
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
 
   const handleClose = () => {
     setOpen(false);
