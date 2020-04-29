@@ -10,6 +10,7 @@ import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
 import authServ from './services/auth.services'
 
+import LearnDetails from './components/elements/Home/Sections/Learn/LearnDetails'
 import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
 import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
@@ -48,18 +49,22 @@ function App() {
                     <Home />
                 </Route>
 
+                <Route path="/breed/:breed">
+                    <BreedsDetails />
+                </Route>
+                
                 <Route path="/breed">
                     <Breed />
                 </Route>
 
-                
-                <Route path="/breed/:breed">
-                    <BreedsDetails />
+                <Route path="/init-learn/:learn">
+                    <LearnDetails />
                 </Route>
 
                 <Route path="/init-learn">
                     <LearnInit />
                 </Route>
+
 
             </Switch>
         </Router>
