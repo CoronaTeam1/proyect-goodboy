@@ -66,7 +66,7 @@ const Carousel = () => {
     <>
       <Grid
         container
-        row
+        // row
         justify="space-between"
         alignItems="center"
         className="index-carousel"
