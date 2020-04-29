@@ -6,8 +6,9 @@ import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
 import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
-import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
-// import Breed from "./components/elements/Breeds/Breeds";
+import BreedsDetails from './components/elements/Home/Sections/Breeds/BreedsDetails'
+import Breeds from './components/elements/Home/Sections/Breeds/Breeds'
+
 // import BreedsDetails from "./components/elements/Breeds/BreedsDetails";
 import "./App.css";
 
@@ -34,11 +35,11 @@ function App() {
         </Route>
 
         <Route path="/breed">
-          {/* <Breed /> */}
+          <Breeds />
         </Route>
 
         <Route path="/:breed">
-          {/* <BreedsDetails /> */}
+          <BreedsDetails />
         </Route>
 
       </Switch>
