@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 import { registerDog, setDog } from '../../../redux'
 //Material UI
-import { FormControl, Input, InputLabel, Button, Grid, Container } from "@material-ui/core";
+import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
 //Styles
 import style from "./RegisterDogStyles";
 //Components

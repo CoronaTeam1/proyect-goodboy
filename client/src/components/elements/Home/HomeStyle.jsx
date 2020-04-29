@@ -18,6 +18,7 @@ export default makeStyles(theme => ({
     marginTop: "2em",
     textAlign: 'center'
   },
+<<<<<<< HEAD
   topHeading: {
     backgroundColor: "#6AC3AE",
     color: "#FFFFFF",
@@ -34,6 +35,11 @@ export default makeStyles(theme => ({
   },
   description: {
     fontSize: '1.3em'
+=======
+  mainPanel:{
+    display:'flex',
+    flexDirection:"column",
+>>>>>>> 243c4508bfafb7f802b98a8735bb5521e4579acd
   },
   text: {
     fontSize: '0.9em'
