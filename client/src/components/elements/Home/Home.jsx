@@ -39,37 +39,37 @@ const TransitionsModal = () => {
       >
         <Fade in={open}>
           <div className={styleClass.paper}>
-            
-              <h2 className={styleClass.title} id="transition-modal-title">
-                Este es tu Clicker!
+
+            <h2 className={styleClass.title} id="transition-modal-title">
+              Este es tu Clicker!
               </h2>
-              <p
-                className={styleClass.description}
-                id="transition-modal-description"
-              >
-                Pincha aqui para probarlo
+            <p
+              className={styleClass.description}
+              id="transition-modal-description"
+            >
+              Pincha aqui para probarlo
               </p>
-              <p className={styleClass.text} id="transition-modal-text">
-                Asegurate de tener el sonido de tu móvil activado
+            <p className={styleClass.text} id="transition-modal-text">
+              Asegurate de tener el sonido de tu móvil activado
               </p>
-              <div className={styleClass.arrow}>
-                <img src="../../../../images/arrow.svg" alt="arrow" />
-              </div>
-              {/* <img
+            <div className={styleClass.arrow}>
+              <img src="../../../../images/arrow.svg" alt="arrow" />
+            </div>
+            {/* <img
                 className={styleClass.clicker}
                 src="../../../../images/clicker.svg"
                 alt="clicker"
               /> */}
-            
+
           </div>
         </Fade>
 
       </Modal>
-      
+
       <div className={styleClass.topHeading}>
         <span> Inicio</span>
       </div>
-      
+
       {/* <Grid className={styleClass.main}> */}
       {/* <Container> */}
       <div className={styleClass.mainPanel}>
@@ -130,30 +130,30 @@ const TransitionsModal = () => {
             />
           </>
         )}
-        </div>
-        {section === "breed" && (
-          <>
-           <Breeds index={index}/>
-           <div className="flex">
+      </div>
+      {section === "breed" && (
+        <>
+          <Breeds index={index} />
+          <div className="flex">
             <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
             <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
-         </div>
-          </>
-        )}
-        {section === "init" && (
-          <>
+          </div>
+        </>
+      )}
+      {section === "init" && (
+        <>
           <LearnInit />
-          </>
-        )}
-        <div className={styleClass.clicker} onClick={() => audio.play()}>
-          <img src="../../../../images/clicker.svg" alt="clicker" />
-        </div>
-        {/* </Container> */}
-      
+        </>
+      )}
+      <div className={styleClass.clicker} onClick={() => audio.play()}>
+        <img src="../../../../images/clicker.svg" alt="clicker" />
+      </div>
+      {/* </Container> */}
 
-        <Footer />
 
-        {/* <div className={styleClass.navs}>
+      <Footer />
+
+      {/* <div className={styleClass.navs}>
           <div className={`flex ${styleClass.footer}`}>
             <ButtonFooter
               url="../../../../images/buttonHome.svg"
@@ -169,7 +169,7 @@ const TransitionsModal = () => {
             />
           </div>
         </div> */}
-      
+
     </div>
   );
 };
