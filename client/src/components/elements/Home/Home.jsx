@@ -39,8 +39,8 @@ const TransitionsModal = () => {
       >
         <Fade in={open}>
           <div className={styleClass.paper}>
-            <div>
-              <h2 className={styleClass.tytle} id="transition-modal-title">
+            
+              <h2 className={styleClass.title} id="transition-modal-title">
                 Este es tu Clicker!
               </h2>
               <p
@@ -55,12 +55,12 @@ const TransitionsModal = () => {
               <div className={styleClass.arrow}>
                 <img src="../../../../images/arrow.svg" alt="arrow" />
               </div>
-              <img
+              {/* <img
                 className={styleClass.clicker}
                 src="../../../../images/clicker.svg"
                 alt="clicker"
-              />
-            </div>
+              /> */}
+            
           </div>
         </Fade>
 

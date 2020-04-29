@@ -2,16 +2,17 @@ import { makeStyles } from "@material-ui/core/styles";
 
 export default makeStyles(theme => ({
   modal: {
-    // display: "flex",
-    // alignItems: "center",
-    // justifyContent: "center"
+    display: "flex",
+    
   },
   paper: {
     color: "#FFFFFF",
-    // display: "flex",
-    // justifyContent: "center",
-    // alignItems: "center",
+    display: "flex",
+    flexDirection:'column',
+    justifyContent: "center",
+    textAlign:"center",
     backgroundColor: "transparent",
+    padding:'0em 4em'
   },
   clicker: {
     marginTop: "2em",
@@ -27,5 +28,14 @@ export default makeStyles(theme => ({
   mainPanel:{
     display:'flex',
     flexDirection:"column",
+  },
+  title:{
+    fontWeight:"bold"
+  },
+  description:{
+    fontSize:'1.3em'
+  },
+  text:{
+    fontSize:'0.9em'
   }
 }));

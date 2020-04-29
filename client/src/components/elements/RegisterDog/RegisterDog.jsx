@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom'
 
 import { registerDog, setDog } from '../../../redux'
 //Material UI
-import { FormControl, Input, InputLabel, Button, Grid } from "@material-ui/core";
+import { FormControl, Input, InputLabel, Button, Grid, Container } from "@material-ui/core";
 //Styles
-import style from "./Style";
+import style from "./RegisterDogStyles";
 //Components
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
@@ -75,22 +75,20 @@ const RegisterDog = () => {
 
   return (
 
-    <>
+    <Container styleClass={styleClass.fit}>
+      <div className={styleClass.flexColumnCenter}>
+        <h2 className={styleClass.litMargin}>{userDog.name?userDog.name:'Tu perro'}</h2>
+        <form onSubmit={handleSubmit} noValidate autoComplete="off">
 
-      <h2>Tu perro</h2>
-      <p>{userDog.name}</p>
-      <form onSubmit={handleSubmit} noValidate autoComplete="off">
-
-        {
-          userDog.photo ?
-            (
-              <Grid xs={4} className="slice center">
-                <img src={userDog.photo} alt="dog index" className={styleClass.image} />
-              </Grid>
+          {
+            userDog.photo ?(
+                
+                  <img src={userDog.photo} alt="dog index" className={styleClass.image} />
+                
             )
             :
             (
-              <>
+              <div className={styleClass.flexCenter}>
                 <FormControl>
                   <Input
                     accept="image/*"
@@ -109,62 +107,59 @@ const RegisterDog = () => {
                     </Button>
                   </label>
                 </FormControl>
-              </>
+              </div>
             )
-        }
+          }
+
+          <ToggleButtons />
+          <div className={styleClass.textLeft}>
+
+            <InputLabel htmlFor="dogname" className='bold mt1'> ¿Cuál es el nombre de tu perro? </InputLabel>
+
+            <FormControl fullWidth margin='normal'>
+              <Input
+                id="name"
+                placeholder="Luna"
+                margin="normal"
+                value={userDog.name}
+                onChange={handleChange}
+              />
+            </FormControl>
 
 
+            <InputLabel htmlFor="dogage" className='bold mt1' >¿Cuál es el edad de tu perro?</InputLabel>
+
+            <FormControl fullWidth margin='normal'>
+              <Input
+                id="age"
+                placeholder="1 mes"
+                value={userDog.age}
+                onChange={handleChange}
+              />
 
 
-        <ToggleButtons />
+            </FormControl>
+            <InputLabel htmlFor="dogbreed" className='bold mt1'> ¿Cuál es la raza de tu perro? </InputLabel>
 
-        <InputLabel htmlFor="dogname">
-          ¿Cuál es el nombre de tu perro?
-        </InputLabel>
-        <FormControl fullWidth>
-          <Input
-            id="name"
-            style={{ margin: 8 }}
-            placeholder="Luna"
-            fullWidth
-            margin="normal"
-            value={userDog.name}
-            onChange={handleChange}
-            padding="25px"
-          />
-        </FormControl>
-        <InputLabel htmlFor="dogage">¿Cuál es el edad de tu perro?</InputLabel>
-        <FormControl fullWidth>
-          <Input
-            id="age"
-            style={{ margin: 8 }}
-            placeholder="1 mes"
-            fullWidth
-            margin="normal"
-            value={userDog.age}
-            onChange={handleChange}
-          />
-        </FormControl>
-        <InputLabel htmlFor="dogbreed">
-          ¿Cuál es la raza de tu perro?
-        </InputLabel>
-        <FormControl fullWidth>
-          <Input
-            id="breed"
-            style={{ margin: 8 }}
-            placeholder="Akita inui"
-            fullWidth
-            margin="normal"
-            value={userDog.breed}
-            onChange={handleChange}
-          />
-        </FormControl>
+            <FormControl fullWidth margin='normal'>
+              <Input
+                id="breed"
+                placeholder="Akita inui"
+                value={userDog.breed}
+                onChange={handleChange}
+              />
+            </FormControl>
+          </div>
+         
 
-        <div className={styleClass.padding30px} onClick={handleSubmit}>
-          <ButtonGB text="Continuar"></ButtonGB>
-        </div>
-      </form>
-    </>
+
+          <div className={styleClass.btPadding} onClick={handleSubmit}>
+            <ButtonGB text="Continuar"></ButtonGB>
+          </div>
+        </form>
+      </div>
+      
+    </Container>
   );
 };
 
