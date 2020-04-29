@@ -18,13 +18,6 @@ export default makeStyles(theme => ({
     marginTop: "2em",
     textAlign:'center'
   },
-  topHeading: {
-    backgroundColor: "#6AC3AE",
-    color: "#FFFFFF",
-    textAlign:'center',
-    padding:'12px 0',
-    fontSize: "30px", 
-  },
   mainPanel:{
     display:'flex',
     flexDirection:"column",

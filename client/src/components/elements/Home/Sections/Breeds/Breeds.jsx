@@ -1,34 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import style from "../../HomeStyle"
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
+import style from "../../HomeStyle";
+import Card from "@material-ui/core/Card";
+import CardActionArea from "@material-ui/core/CardActionArea";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
 import BreedsServices from "../../../../../services/breed.services";
+import Footer from '../../../../ui/Footer/Footer'
+import Header from '../../../../ui/Header/Header'
 
-const Breed = ({index}) => {
+
+const Breed = () => {
   const [breed, setBreed] = useState();
+  const [index, setIndex] = useState(0);
 
-  // const [position, setPosition] = useState("center")
-  // const handleScroll = ({ target: {documentElement: { scrollHeight, scrollTop, clientHeight }}}) => {
-  //   scrollHeight - scrollTop === clientHeight + 55 && setPosiRtAlice Guy-Blachétion("end")
-  //   console.log(scrollHeight - scrollTop, clientHeight)
-  //   !scrollTop && setPosition("init")
-  // };
-
-  // useEffect(() => {
-  //   position === "end"  && setIndex(index+1)
-  //   position === "init" && setIndex(index-1)
-  //   setPosition("center")
-  // })
-
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll, { passive: true })
-  // }, []);
-  
-  
   const getBreed = index => {
     BreedsServices.getBreed(index)
       .then(elm => setBreed(elm))
@@ -36,16 +22,22 @@ const Breed = ({index}) => {
   };
 
   const history = useHistory();
-  useEffect(() => {getBreed(index)}, [index]);
+  useEffect(() => {
+    getBreed(index);
+  }, [index]);
 
   const classes = style();
 
   return (
     <>
+    <Header title="Biblioteca de razas"/>
       {breed &&
         breed.map((elm, idx) => (
           <>
-            <Card className={classes.card} onClick={() => history.push(`/${elm.name}`)}>
+            <Card
+              className={classes.card}
+              onClick={() => history.push(`/breed/${elm.name}`)}
+            >
               <CardActionArea className={classes.contentCard}>
                 <CardMedia
                   component="img"
@@ -64,6 +56,11 @@ const Breed = ({index}) => {
             </Card>
           </>
         ))}
+          <div className="flex">
+              <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
+              <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
+          </div>
+        <Footer /> 
     </>
   );
 };

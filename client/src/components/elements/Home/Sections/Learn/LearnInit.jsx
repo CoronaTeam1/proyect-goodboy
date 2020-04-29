@@ -1,11 +1,15 @@
-import React, {useState} from "react"
+import React, { useState } from "react"
 import HomeStyle from "../../HomeStyle";
 import Section from "../Sections";
+import Footer from '../../../../ui/Footer/Footer'
+import Header from '../../../../ui/Header/Header'
 
 const LearnInit = () => {
-const styleClass = HomeStyle();
+    const styleClass = HomeStyle();
 
     return (
+        <>
+        <Header title="Lecciones básicas"/>
         <div className={styleClass.mainPanel}>
             <Section
                 url="../../../../images/learn1.svg"
@@ -24,6 +28,8 @@ const styleClass = HomeStyle();
                 title="Tumbarse"
             />
         </div>
+    <Footer />
+    </>
     )
 }
 

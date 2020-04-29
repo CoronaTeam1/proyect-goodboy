@@ -10,55 +10,60 @@ import Home from "./components/elements/Home/Home";
 import AuthIndex from "./components/elements/Auth/AuthIndex";
 import authServ from './services/auth.services'
 
-// import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
-// import Breed from "./components/elements/Breeds/Breeds";
-// import BreedsDetails from "./components/elements/Breeds/BreedsDetails";
+import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDetails";
+import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
+import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
 import "./App.css";
 
 
 function App() {
 
-  const userRedux = {
-    name: useSelector(state => state.user.name),
-    username: useSelector(state => state.user.username),
-    password: useSelector(state => state.user.password),
-    checkPassword: useSelector(state => state.user.checkPassword)
-  };
+    const userRedux = {
+        name: useSelector(state => state.user.name),
+        username: useSelector(state => state.user.username),
+        password: useSelector(state => state.user.password),
+        checkPassword: useSelector(state => state.user.checkPassword)
+    };
 
-  console.log(authServ.loggedin(),'logedin')
-  
-  console.log(userRedux,'ESTO ES APP Y LO QUE HAY EN EL STORE')
-  return (
-    <Router>
-      <Switch>
+    console.log(authServ.loggedin(), 'logedin')
 
-        <Route exact path="/">
-          <OnBoarding />
-        </Route>
+    console.log(userRedux, 'ESTO ES APP Y LO QUE HAY EN EL STORE')
+    return (
+        <Router>
+            <Switch>
 
-        <Route path="/register-dog">
-          <RegisterDog />
-        </Route>
+                <Route exact path="/">
+                    <OnBoarding />
+                </Route>
 
-        <Route path="/auth">
-          <AuthIndex />
-        </Route>
+                <Route path="/register-dog">
+                    <RegisterDog />
+                </Route>
 
-        <Route path="/home">
-          <Home />
-        </Route>
+                <Route path="/auth">
+                    <AuthIndex />
+                </Route>
 
-        <Route path="/breed">
-          {/* <Breed /> */}
-        </Route>
+                <Route path="/home">
+                    <Home />
+                </Route>
 
-        <Route path="/:breed">
-          {/* <BreedsDetails /> */}
-        </Route>
+                <Route path="/breed">
+                    <Breed />
+                </Route>
 
-      </Switch>
-    </Router>
-  );
+                
+                <Route path="/breed/:breed">
+                    <BreedsDetails />
+                </Route>
+
+                <Route path="/init-learn">
+                    <LearnInit />
+                </Route>
+
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
