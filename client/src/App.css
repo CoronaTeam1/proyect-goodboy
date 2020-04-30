@@ -119,6 +119,11 @@ p{
 
 }
 
+.overflow{
+  overflow-y: scroll;
+  height: 300px;
+}
+
 /* TOGGLE BUTTON DE REGISTER DOG */
 .MuiToggleButtonGroup-grouped:not(:first-child){
 color: #6AC3AE;
