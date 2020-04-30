@@ -20,6 +20,8 @@ app.use('/api/registerdog', require('./routes/registerdog.routes'))
 app.use('/api/auth', require('./routes/auth.routes'))
 app.use('/api/files', require('./routes/files.routes'))
 app.use('/api/breed', require('./routes/breed.routes'))
+app.use('/api/training', require('./routes/training.routes'))
+
 
 
 
