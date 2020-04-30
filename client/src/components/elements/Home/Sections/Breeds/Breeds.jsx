@@ -22,6 +22,7 @@ const Breed = () => {
   };
 
   const history = useHistory();
+  
   useEffect(() => {
     getBreed(index);
   }, [index]);
