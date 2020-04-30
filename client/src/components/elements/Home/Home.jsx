@@ -61,7 +61,6 @@ const TransitionsModal = () => {
                 alt="clicker"
               /> */}
 
-<<<<<<< HEAD
           </div>
         </Fade>
 
@@ -120,65 +119,5 @@ const TransitionsModal = () => {
       <Footer />
     </div>
   );
-=======
-                    </div>
-                </Fade>
-
-            </Modal>
-
-          <Header title="Inicio"/>
-
-            <div className={styleClass.mainPanel}>
-                {section === "index" && (
-                    <>
-                        <Section
-                            url="../../../../images/section1.svg"
-                            title="Lecciones"
-                            event={() => setSection("learn")}
-                        />
-                        <Section
-                            url="../../../../images/section2.svg"
-                            title="Tips crianza"
-                            event={() => setSection("tips")}
-                        />
-                        <Link to="/breed" className={styleClass.mainPanel}>
-                        <Section
-                            url="../../../../images/section3.svg"
-                            title="Biblioteca razas"
-                            event={() => setSection("breed")}
-                        />
-                        </Link>
-                    </>
-                )}
-                {section === "learn" && (
-                    <>
-                        <Link to="/init-learn" className={styleClass.mainPanel}>
-                        <Section
-                            url="../../../../images/sectionInit.svg"
-                            title="Inicio"
-                            event={() => setSection("init")}
-                        />
-                        </Link>
-                        <Section
-                            url="../../../../images/sectionBasic.svg"
-                            title="Básicas"
-                            event={() => setSection("basic")}
-                        />
-                        <Section
-                            url="../../../../images/sectionAdvance.svg"
-                            title="Avanzadas"
-                            event={() => setSection("advance")}
-                        />
-                    </>
-                )}
-            </div>
-            <div className={styleClass.clicker} onClick={() => audio.play()}>
-                <img src="../../../../images/clicker.svg" alt="clicker" />
-            </div>
-
-            <Footer />
-        </div>
-    );
->>>>>>> a6ab8f3e2eae5120f8af5695f243675f873d913d
 };
 export default TransitionsModal;

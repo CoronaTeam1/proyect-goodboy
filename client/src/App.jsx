@@ -52,28 +52,18 @@ function App() {
                 <Route path="/breed/:breed">
                     <BreedsDetails />
                 </Route>
-                
+
                 <Route path="/breed">
                     <Breed />
                 </Route>
 
-<<<<<<< HEAD
-
-                <Route path="/breed/:breed">
-                    <BreedsDetails />
-=======
                 <Route path="/init-learn/:learn">
                     <LearnDetails />
->>>>>>> a6ab8f3e2eae5120f8af5695f243675f873d913d
                 </Route>
 
                 <Route path="/init-learn">
                     <LearnInit />
                 </Route>
-<<<<<<< HEAD
-=======
-
->>>>>>> a6ab8f3e2eae5120f8af5695f243675f873d913d
 
             </Switch>
         </Router>
