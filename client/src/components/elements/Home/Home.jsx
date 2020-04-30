@@ -61,63 +61,63 @@ const TransitionsModal = () => {
                 alt="clicker"
               /> */}
 
-                    </div>
-                </Fade>
+          </div>
+        </Fade>
 
-            </Modal>
+      </Modal>
 
-          <Header title="Inicio"/>
+      <Header title="Inicio" />
 
-            <div className={styleClass.mainPanel}>
-                {section === "index" && (
-                    <>
-                        <Section
-                            url="../../../../images/section1.svg"
-                            title="Lecciones"
-                            event={() => setSection("learn")}
-                        />
-                        <Section
-                            url="../../../../images/section2.svg"
-                            title="Tips crianza"
-                            event={() => setSection("tips")}
-                        />
-                        <Link to="/breed" className={styleClass.mainPanel}>
-                        <Section
-                            url="../../../../images/section3.svg"
-                            title="Biblioteca razas"
-                            event={() => setSection("breed")}
-                        />
-                        </Link>
-                    </>
-                )}
-                {section === "learn" && (
-                    <>
-                        <Link to="/init-learn" className={styleClass.mainPanel}>
-                        <Section
-                            url="../../../../images/sectionInit.svg"
-                            title="Inicio"
-                            event={() => setSection("init")}
-                        />
-                        </Link>
-                        <Section
-                            url="../../../../images/sectionBasic.svg"
-                            title="Básicas"
-                            event={() => setSection("basic")}
-                        />
-                        <Section
-                            url="../../../../images/sectionAdvance.svg"
-                            title="Avanzadas"
-                            event={() => setSection("advance")}
-                        />
-                    </>
-                )}
-            </div>
-            <div className={styleClass.clicker} onClick={() => audio.play()}>
-                <img src="../../../../images/clicker.svg" alt="clicker" />
-            </div>
+      <div className={styleClass.mainPanel}>
+        {section === "index" && (
+          <>
+            <Section
+              url="../../../../images/section1.svg"
+              title="Lecciones"
+              event={() => setSection("learn")}
+            />
+            <Section
+              url="../../../../images/section2.svg"
+              title="Tips crianza"
+              event={() => setSection("tips")}
+            />
+            <Link to="/breed" className={styleClass.mainPanel}>
+              <Section
+                url="../../../../images/section3.svg"
+                title="Biblioteca razas"
+                event={() => setSection("breed")}
+              />
+            </Link>
+          </>
+        )}
+        {section === "learn" && (
+          <>
+            <Link to="/init-learn" className={styleClass.mainPanel}>
+              <Section
+                url="../../../../images/sectionInit.svg"
+                title="Inicio"
+                event={() => setSection("init")}
+              />
+            </Link>
+            <Section
+              url="../../../../images/sectionBasic.svg"
+              title="Básicas"
+              event={() => setSection("basic")}
+            />
+            <Section
+              url="../../../../images/sectionAdvance.svg"
+              title="Avanzadas"
+              event={() => setSection("advance")}
+            />
+          </>
+        )}
+      </div>
+      <div className={styleClass.clicker} onClick={() => audio.play()}>
+        <img src="../../../../images/clicker.svg" alt="clicker" />
+      </div>
 
-            <Footer />
-        </div>
-    );
+      <Footer />
+    </div>
+  );
 };
 export default TransitionsModal;

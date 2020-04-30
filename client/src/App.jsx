@@ -52,7 +52,7 @@ function App() {
                 <Route path="/breed/:breed">
                     <BreedsDetails />
                 </Route>
-                
+
                 <Route path="/breed">
                     <Breed />
                 </Route>

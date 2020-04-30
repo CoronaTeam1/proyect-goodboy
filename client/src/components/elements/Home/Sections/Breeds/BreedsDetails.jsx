@@ -38,10 +38,14 @@ const BreedDetails = () => {
 
             <div className={styleClass.mainPanel}>
               <img src={details && details.image} alt={details.breed} className={styleClass.image100}></img>
+              <hr></hr>
+              <h3>Acerca del {breed}</h3>
               <p>{details && details.description}</p>
             </div>
             <div className={styleClass.mainPanel}>
-              <p>{details && details.info.map(elm => <li>{elm}</li>)}</p>
+              <hr></hr>
+              <h3>Caracteristicas</h3>
+              <p>{details && details.info.map(elm => <p>{elm}</p>)}</p>
 
 
               <p>TERELERE</p>
