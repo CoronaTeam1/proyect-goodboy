@@ -8,7 +8,7 @@ const InstructionBar = ({ text }) => {
     return (
 <div className={styleClass.center}>
     <img src="../../../../images/footGreen.svg" />
-    <p>Cinco pasos para enseñar andar a tu perro con correa</p>
+    <p>{text}</p>
     <img src="../../../../images/arrowDown.svg" />
 </div>
     );

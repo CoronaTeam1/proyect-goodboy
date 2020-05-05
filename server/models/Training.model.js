@@ -7,7 +7,7 @@ const TrainingSchema = new Schema({
     url: String,
     text: {
         description: String,
-        points: String,
+        points: Array,
         elements: String,
         chip: String
     },
