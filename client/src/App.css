@@ -8,9 +8,10 @@ color: #ABADAD
 color: #F0F0F0  */
 
 /* ESTILOS GENERALES */
+
 body {
   font-family: Montserrat, Arial, Helvetica, sans-serif;
-  margin:0px
+  margin: 0px
 }
 
 h1 {
@@ -27,24 +28,25 @@ h3 {
   margin: 3pt 0;
 }
 
-p{
+p {
   font-size: 14pt;
   font-weight: 400;
   margin: 0;
 }
 
-.gotoBottom{
+.gotoBottom {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
 }
-.index-header{
+
+.index-header {
   text-align: center;
 }
 
-.index-header h1{
+.index-header h1 {
   font-family: Helvetica;
   font-size: 33px;
   color: #6B6B6B;
@@ -52,47 +54,59 @@ p{
   text-align: center;
   font-weight: 100;
 }
+
 .logo {
- width: 40%;
+  width: 40%;
 }
 
-.index-carousel{
+.index-carousel {
   text-align: center;
   height: 450px
 }
 
-.flex{
-  display:flex;
+.flex {
+  display: flex;
   justify-content: space-between;
 }
-.no-margin{
-      /* margin-bottom: 0; */
-      margin-top: 0;
+
+.no-margin {
+  /* margin-bottom: 0; */
+  margin-top: 0;
 }
+
 .fixedBottom {
   position: fixed;
   bottom: 0px;
   margin-right: auto;
   margin-left: auto;
 }
-.padding{}
-.border{}
-.none{}
-.center{
-  margin: auto;
-  text-align:center
+
+.margin {
+  margin:20px
 }
-.bold{
-  font-weight: bold;
-}
-.mt1{
-  margin-top: 1rem;
-}
-.mt2{
-  margin-top:2rem
+.margin-right {
+  margin-right: 20px
 }
 
-/* ANIMACIONES */ 
+
+.center {
+  margin: auto;
+  text-align: center
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mt1 {
+  margin-top: 1rem;
+}
+
+.mt2 {
+  margin-top: 2rem
+}
+
+/* ANIMACIONES */
 .my-node-enter {
   opacity: 0;
   transform: translateX(100%);
@@ -100,59 +114,73 @@ p{
 }
 
 .my-node-enter-active {
- transform: translateX(0%);
- transition: transform 1000ms ease-in-out,
- opacity 1000ms;
+  transform: translateX(0%);
+  transition: transform 1000ms ease-in-out,
+    opacity 1000ms;
   opacity: 1;
 
 
 }
 
 .my-node-exit {
-  opacity:0;
- transform: translateX(100%);
+  opacity: 0;
+  transform: translateX(100%);
 
 
 }
 
 .my-node-exit-active {
-    transform: translateX(0%);
-    transition: transform 1000ms ease-in-out,
+  transform: translateX(0%);
+  transition: transform 1000ms ease-in-out,
     opacity 1000ms;
-     opacity: 1;
+  opacity: 1;
 
 
 }
 
-.overflow{
+.overflow {
   overflow-y: scroll;
-  height: 300px;
+  height: 340px;
+}
+
+.text {
+  font-family: Helvetica;
+  font-size: 15px;
+  color: #6A6A6A;
+  line-height: 20px;
 }
 
 /* TOGGLE BUTTON DE REGISTER DOG */
-.MuiToggleButtonGroup-grouped:not(:first-child){
-color: #6AC3AE;
-border-color: #6AC3AE
+.MuiToggleButtonGroup-grouped:not(:first-child) {
+  color: #6AC3AE;
+  border-color: #6AC3AE
 }
-.MuiToggleButtonGroup-grouped:not(:last-child){
-color: #6AC3AE;
-border-color: #6AC3AE
 
+.MuiToggleButtonGroup-grouped:not(:last-child) {
+  color: #6AC3AE;
+  border-color: #6AC3AE
 }
+
 .MuiToggleButton-root.Mui-selected:hover {
   background-color: #6AC3AE;
-  color:white
-}  
+  color: white
+}
+
 .MuiToggleButtonGroup-groupedSizeSmall {
   border-radius: 20px;
   padding: 0px 13px
 }
+
 .MuiToggleButton-root {
   text-transform: none;
   font-size: 0.95rem;
 }
+
 .MuiToggleButton-root.Mui-selected {
   background-color: #6AC3AE;
-  color:white
+  color: white
 }
 
+.margin-negative {
+  margin-bottom: -4px;
+}

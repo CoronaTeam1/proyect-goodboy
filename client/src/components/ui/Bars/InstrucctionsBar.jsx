@@ -1,16 +1,30 @@
 import React, { useState } from "react";
 import DifficultyBarStyle from "./DifficultyBarStyle";
+import ExpansionPanel from '@material-ui/core/ExpansionPanel';
+import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
+import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
+import Typography from '@material-ui/core/Typography';
 
 
-const InstructionBar = ({ text }) => {
+const InstructionBar = ({ text, idx }) => {
     const styleClass = DifficultyBarStyle();
 
     return (
-<div className={styleClass.center}>
-    <img src="../../../../images/footGreen.svg" />
-    <p>{text}</p>
-    <img src="../../../../images/arrowDown.svg" />
-</div>
+        <ExpansionPanel>
+            <ExpansionPanelSummary
+                expandIcon={<img src="../../../../images/arrowDown.svg" />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+            >
+                <img src="../../../../images/footGreen.svg" className="margin-right"/>
+                <Typography className="text">Paso {idx}</Typography>
+            </ExpansionPanelSummary>
+            <ExpansionPanelDetails>
+                <Typography className="text">
+                    {text}
+          </Typography>
+            </ExpansionPanelDetails>
+        </ExpansionPanel>
     );
 };
 
