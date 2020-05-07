@@ -5,11 +5,12 @@ import Footer from "../../../../ui/Footer/Footer";
 import DifficultyBar from "../../../../ui/Bars/DifficultyBar";
 import InstrucctionsBar from "../../../../ui/Bars/InstrucctionsBar";
 import getTraining from "../../../../../services/training.services";
+import ChipBar from '../../../../ui/Bars/otherInstrucctiosnBar'
 
 const LearnDetails = () => {
   const [training, setTraining] = useState();
   const { learn } = useParams();
-  console.log(training);
+
   useEffect(
     () =>
       getTraining(learn)
@@ -24,6 +25,7 @@ const LearnDetails = () => {
         <>
           <Header title={training.title} />
           <iframe
+            className="margin-negative"
             width="100%"
             height="200px"
             src={training.url}
@@ -31,14 +33,13 @@ const LearnDetails = () => {
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <DifficultyBar level={training.level}/>
+          <DifficultyBar level={training.level} />
           <div className="overflow">
-            <p>{training.text.description}</p>
-            {training.text.points.map((elm) => (
-              <InstrucctionsBar text={elm} />
+            <p className="text margin">{training.text.description}</p>
+            {training.text.points.map((elm, idx) => (
+              <InstrucctionsBar text={elm} idx={idx + 1} />
             ))}
-            <p>{training.text.chip}</p>
-            <p>{training.text.elements}</p>
+       <ChipBar chip={training.text.chip} elements={training.text.elements}/>
           </div>
           <Footer />
         </>
