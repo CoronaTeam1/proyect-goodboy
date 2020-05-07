@@ -1,7 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import React , { useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
-import { useSelector } from "react-redux";
+import { useSelector , useDispatch} from "react-redux";
+import { fetchUser } from './redux'
+
 
 
 import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
@@ -18,34 +20,41 @@ import "./App.css";
 
 function App() {
 
-  const userRedux = {
-    name: useSelector(state => state.user.name),
-    username: useSelector(state => state.user.username),
-    password: useSelector(state => state.user.password),
-    checkPassword: useSelector(state => state.user.checkPassword)
-  };
-
-  console.log(authServ.loggedin(),'logedin')
+  const user = useSelector(state => state.user)
+  const dispatch = useDispatch()
   
-  console.log(userRedux,'ESTO ES APP Y LO QUE HAY EN EL STORE')
+  useEffect(() => {
+    // code to run on component mount
+    authServ.loggedin()
+    .then(userz => dispatch(fetchUser({...userz})))
+    .then( x => console.log(x,'action redux'))
+    .catch(err => console.log(err))
+  }, [])
+  
+  
+  console.log(user,'ESTO ES APP Y LO QUE HAY EN EL STORE')
+  let loggedin = user.name
+
   return (
     <Router>
       <Switch>
 
         <Route exact path="/">
-          <OnBoarding />
+        {loggedin ? <Redirect to="/home" />:<OnBoarding /> }
         </Route>
 
         <Route path="/register-dog">
-          <RegisterDog />
+          
+          {loggedin ? <Redirect to="/home" />:<RegisterDog /> }
         </Route>
 
         <Route path="/auth">
-          <AuthIndex />
+        {loggedin ? <Redirect to="/home" />:<AuthIndex /> }
+          
         </Route>
 
         <Route path="/home">
-          <Home />
+          {!loggedin ? <Redirect to="/auth" />:<Home /> }
         </Route>
 
         <Route path="/breed">

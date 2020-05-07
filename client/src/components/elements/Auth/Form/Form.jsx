@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from '../../../../redux'
+import { registerUser,fetchUser } from '../../../../redux'
 
 import { useHistory } from "react-router-dom";
 
@@ -32,6 +32,8 @@ const Form = ({termState}) => {
     const history = useHistory()
 
     //--- REDUX ---
+
+    const userMK = useSelector(state => state.user)
 
     const userRedux = {
         name: useSelector(state => state.user.name),
@@ -82,9 +84,13 @@ const Form = ({termState}) => {
       }
 
       const loginUser = () => {
-          authServ.loginUser(userRedux).then(response => console.log("he enviado esto al back",response))
+          authServ.loginUser(userRedux)
+          .then(response => dispatch(fetchUser(response),console.log(response,'esto es lo que hay en la response')))
+          .then(x => console.log('Esto lo que hay en en store',userMK))
           .then(x => history.push('/home'))
           .catch(err => console.log(err))
+
+
       }
 
       const handleClickShowPassword = () => {

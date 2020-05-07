@@ -1,10 +1,11 @@
-import {REGISTER_USER} from './userTypes'
+import {REGISTER_USER,FETCH_USER} from './userTypes'
 
 const initialState = {
     name:'',
     username:'',
     password:'',
-    checkPassword:''
+    checkPassword:'',
+    dog:{},
 }
 
 // declaramos el estado inicial del usuario
@@ -16,7 +17,14 @@ const userReducer = (state=initialState,action) => {
             return {...state, [action.field]: action.value}
 
             //Esto es como el anterior reducer
-    
+        case FETCH_USER:
+            const newState = {...state}
+            newState.name=action.payload.name
+            newState.username=action.payload.username
+            newState.dog=action.payload.dog
+            newState.password=action.payload.password
+            return {...newState}
+
         default:
             return state
     }

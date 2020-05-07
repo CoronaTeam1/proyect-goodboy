@@ -114,11 +114,11 @@ authRoutes.post('/logout', (req, res, next) => {
 authRoutes.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated()) {
     console.log("--Esto es lo que hay en req.user",req.user)
-    res.status(200).json(req.user);
+    res.json(req.user);
     return;
   }
-  res.status(403).json({
-    message: 'Unauthorized'
+  res.json({
+    message: 'Unauthorized, please login'
   });
 });
 
