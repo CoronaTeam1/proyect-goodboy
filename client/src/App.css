@@ -64,6 +64,7 @@ p{
 .flex{
   display:flex;
   justify-content: space-between;
+top: 50%;
 }
 .no-margin{
       /* margin-bottom: 0; */
@@ -75,9 +76,10 @@ p{
   margin-right: auto;
   margin-left: auto;
 }
-.padding{}
-.border{}
-.none{}
+.flex-col {
+  display: flex;
+  flex-direction: column
+}
 .center{
   margin: auto;
   text-align:center
@@ -127,6 +129,11 @@ p{
 .overflow{
   overflow-y: scroll;
   height: 300px;
+}
+
+.vh{
+scroll-margin-top: 25rem;
+margin-bottom: 280px;
 }
 
 /* TOGGLE BUTTON DE REGISTER DOG */

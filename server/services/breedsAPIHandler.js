@@ -63,6 +63,7 @@ class BreedsAPIHandler {
                 $('.info li').each((i, el) => {
                     // console.log(i, $(el).text())
                     let contenido = $(el).text()
+                    // console.log('contenido::::::', contenido)
                     points.push(contenido)
                 })
                 // console.log('points', points)
@@ -73,23 +74,20 @@ class BreedsAPIHandler {
                     let info = []
                     const pepe = $(el).find('p').each((i, el) => {
                         let text = $(el).text().replace(/\n/gi, '')
+                        // console.log('text:', text)
                         info.push(text)
                     })
-                    // console.log(info)
 
                 })
                 //HASTA AQUI
 
-                Breeds.update({ name: breed }, {
+                return Breeds.update({ name: breed }, {
                     description,
                     info: points
                 })
-                    .then(() => console.log("Save in BD"))
+                    .then(() => Breeds.find({ name: breed }))
+                    .then(response => response)
                     .catch(err => console.log(err))
-                return {
-                    description,
-                    points,
-                }
             })
     }
 

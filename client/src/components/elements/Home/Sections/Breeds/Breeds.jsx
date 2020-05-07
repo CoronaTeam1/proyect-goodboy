@@ -9,11 +9,15 @@ import Typography from "@material-ui/core/Typography";
 import BreedsServices from "../../../../../services/breed.services";
 import Footer from '../../../../ui/Footer/Footer'
 import Header from '../../../../ui/Header/Header'
-
+// import HomeStyle from "./HomeStyle";
+import HomeStyle from '../../HomeStyle'
 
 const Breed = () => {
+  const styleClass = HomeStyle();
+
   const [breed, setBreed] = useState();
   const [index, setIndex] = useState(0);
+  const [scrollY, setScrollY] = useState(0)
 
   const getBreed = index => {
     BreedsServices.getBreed(index)
@@ -22,46 +26,64 @@ const Breed = () => {
   };
 
   const history = useHistory();
-  
+
+
+  console.log(scrollY)
+
   useEffect(() => {
+    // if (window.scrollY >= (document.querySelector('.clase').clientHeight - 1000)) {
+    //   console.log("sdSDFSADF")
+    // }
     getBreed(index);
-  }, [index]);
+  }, [index, scrollY]);
 
   const classes = style();
 
+
   return (
+
     <>
-    <Header title="Biblioteca de razas"/>
-      {breed &&
-        breed.map((elm, idx) => (
-          <>
-            <Card
-              className={classes.card}
-              onClick={() => history.push(`/breed/${elm.name}`)}
-            >
-              <CardActionArea className={classes.contentCard}>
-                <CardMedia
-                  component="img"
-                  alt="Contemplative Reptile"
-                  height="100"
-                  image={elm.image}
-                  title="Contemplative Reptile"
-                  className={classes.imgCard}
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {elm.name}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </>
-        ))}
-          <div className="flex">
-              <div onClick={() => setIndex(index + 1)}><img src="../../../../images/prev.svg" alt="" /></div>
-              <div onClick={() => setIndex(index - 1)}><img src="../../../../images/next.svg" alt="" /></div>
-          </div>
-        <Footer /> 
+      <Header title="Biblioteca de razas" />
+
+      <div className={styleClass.mainWrapper}>
+        {breed &&
+          breed.map((elm, idx) => (
+            <>
+              <Card
+                className={classes.card}
+                onClick={() => history.push(`/breed/${elm.name}`)}
+              >
+                <CardActionArea className={classes.contentCard}>
+                  <CardMedia
+                    component="img"
+                    alt="Contemplative Reptile"
+                    height="auto"
+                    image={elm.image}
+                    title="Contemplative Reptile"
+                    className={classes.imgCard}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {elm.name}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </>
+          ))}
+
+
+        <div className="flex">
+
+          <div onClick={() => setIndex(index - 1)}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
+
+
+          <div onClick={() => setIndex(index + 1)}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
+
+        </div>
+      </div>
+
+      <Footer />
     </>
   );
 };

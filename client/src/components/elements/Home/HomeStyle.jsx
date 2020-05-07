@@ -36,5 +36,14 @@ export default makeStyles(theme => ({
   },
   margin0: {
     margin: '0'
+  },
+  mainWrapper: {
+    margin: '45px 0 60px 0',
+    padding: '8%'
+  },
+  card: {
+    marginBottom: '20px'
   }
 }));
+
+//FLECHITAS-> Position Fixed, top: 90%, 

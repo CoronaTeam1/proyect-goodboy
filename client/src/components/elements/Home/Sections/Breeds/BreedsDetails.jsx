@@ -4,6 +4,7 @@ import HomeStyle from "../../HomeStyle";
 
 import BreedsServices from "../../../../../services/breed.services";
 
+import Header from '../../../../ui/Header/Header'
 import Footer from '../../../../ui/Footer/Footer'
 
 const BreedDetails = () => {
@@ -14,41 +15,42 @@ const BreedDetails = () => {
   const [details, setDetailsBreed] = useState();
 
 
-  useEffect(() => { BreedsServices.getDetailsBreed(breed).then(details => setDetailsBreed(details)).catch(err => setDetailsBreed([err])) }, [])
+  useEffect(() => { BreedsServices.getDetailsBreed(breed).then(details => setDetailsBreed(details[0])).catch(err => setDetailsBreed([err])) }, [])
 
   // const getDetailsBreed = breed => {
   //   console.log(breed);
   //   BreedsServices.getDetailsBreed(breed)
-  //     .then(response => setDetailsBreed(response))
+  //     .then(response => setDetailsBreed(response[0]))
   //     .catch(err => setDetailsBreed([err]));
   // };
 
   console.log(details)
   return (
     <div>
+      {/* <button onClick={() => getDetailsBreed(breed)}>Detalles raza</button> */}
       {details ?
         (
           <>
-            <div className={styleClass.topHeading} >
-              <h2 className={`${styleClass.margin0}`}>{breed}</h2 >
-            </div>
+            <Header title={breed} />
+            {/* <h2 className={`${styleClass.margin0}`}>{breed}</h2 > */}
 
 
-            {/* <button onClick={() => getDetailsBreed(breed)}>Detalles raza</button> */}
 
-            <div className={styleClass.mainPanel}>
-              <img src={details && details.image} alt={details.breed} className={styleClass.image100}></img>
-              <hr></hr>
-              <h3>Acerca del {breed}</h3>
-              <p>{details && details.description}</p>
-            </div>
-            <div className={styleClass.mainPanel}>
-              <hr></hr>
-              <h3>Caracteristicas</h3>
-              <p>{details && details.info.map(elm => <p>{elm}</p>)}</p>
+            <div className={styleClass.mainWrapper}>
+              <div className={styleClass.mainPanel}>
+                <img src={details && details.image} alt={details.breed} className={styleClass.image100}></img>
+                <hr></hr>
+                <h3>Acerca del {breed}</h3>
+                <p>{details && details.description}</p>
+              </div>
+              <div className={styleClass.mainPanel}>
+                <hr></hr>
+                <h3>Caracteristicas</h3>
+                <p>{details && details.info.map(elm => <p>{elm}</p>)}</p>
 
 
-              <p>TERELERE</p>
+                <p>TERELERE</p>
+              </div>
             </div>
           </>
         )
