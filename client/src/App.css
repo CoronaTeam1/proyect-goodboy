@@ -81,13 +81,11 @@ top: 50%;
   margin-right: auto;
   margin-left: auto;
 }
-<<<<<<< HEAD
 .flex-col {
   display: flex;
   flex-direction: column
 }
 .center{
-=======
 
 .margin {
   margin:20px
@@ -98,7 +96,6 @@ top: 50%;
 
 
 .center {
->>>>>>> 4635fe145b0a942d70d6fd416dd63bc7905678be
   margin: auto;
   text-align: center
 }
