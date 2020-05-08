@@ -1,0 +1,1 @@
+export const REGISTER_INDEX = 'REGISTER_INDEX'

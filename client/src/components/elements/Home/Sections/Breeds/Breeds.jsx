@@ -13,12 +13,18 @@ import BreedsServices from "../../../../../services/breed.services";
 import Header from '../../../../ui/Header/Header'
 import Footer from '../../../../ui/Footer/Footer'
 
+import { useDispatch, useSelector } from 'react-redux'
+import { registerIndex } from '../../../../../redux/index/indexAction'
+
 const Breed = () => {
   const styleClass = HomeStyle();
 
   const [breed, setBreed] = useState();
-  const [index, setIndex] = useState(0);
 
+  const index = useSelector(state => state.index.index)
+
+  const dispatch = useDispatch()
+  const history = useHistory();
 
   const getBreed = index => {
     BreedsServices.getBreed(index)
@@ -26,11 +32,9 @@ const Breed = () => {
       .catch(err => setBreed([err]));
   };
 
-  const history = useHistory();
-
-
   useEffect(() => {
     getBreed(index);
+
   }, [index]);
 
 
@@ -38,7 +42,7 @@ const Breed = () => {
   return (
 
     <>
-      <Header title="Biblioteca de razas" route="home"/>
+      <Header title="Biblioteca de razas" route="home" />
 
       <div className={styleClass.mainWrapper}>
         {breed &&
@@ -70,10 +74,10 @@ const Breed = () => {
 
         <div className="flex">
 
-          <div onClick={() => setIndex(index - 1)}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index - 1))}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
 
 
-          <div onClick={() => setIndex(index + 1)}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index + 1))}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
 
         </div>
       </div>
