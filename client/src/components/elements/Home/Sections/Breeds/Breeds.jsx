@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import style from "../../HomeStyle";
+
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import BreedsServices from "../../../../../services/breed.services";
-import Footer from '../../../../ui/Footer/Footer'
-import Header from '../../../../ui/Header/Header'
 import HomeStyle from '../../HomeStyle'
+
+import BreedsServices from "../../../../../services/breed.services";
+
+import Header from '../../../../ui/Header/Header'
+import Footer from '../../../../ui/Footer/Footer'
 
 const Breed = () => {
   const styleClass = HomeStyle();
@@ -31,7 +33,6 @@ const Breed = () => {
     getBreed(index);
   }, [index]);
 
-  const classes = style();
 
 
   return (
@@ -44,17 +45,17 @@ const Breed = () => {
           breed.map((elm, idx) => (
             <>
               <Card
-                className={classes.card}
+                className={styleClass.card}
                 onClick={() => history.push(`/breed/${elm.name}`)}
               >
-                <CardActionArea className={classes.contentCard}>
+                <CardActionArea className={styleClass.contentCard}>
                   <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
                     height="auto"
                     image={elm.image}
                     title="Contemplative Reptile"
-                    className={classes.imgCard}
+                    className={styleClass.image65w}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
