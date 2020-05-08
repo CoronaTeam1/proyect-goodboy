@@ -13,7 +13,7 @@ Proyecto basado en la idea y diseños originales de Ruth de Blas, diseñadora UX
 "*Mucha gente no sabe que el 15% de los perros abandonados son a causa de un comportamiento problemático del animal.
 Partiendo de este problema sacamos datos de encuestas y entrevistas como que todas las personas con perro tienen algún tipo de problema de conducta con su mascota, muchos no saben como mejorar ese tipo de conducta y por último no pueden pagar un adiestrador que les ayude con este tipo de problemas. Así nace Goodboy.*"
 
-https://medium.com/@ruth.deblas/case-study-wellness-goodboy-ba57cd7f81ba
+Enlace al post en Medium: https://medium.com/@ruth.deblas/case-study-wellness-goodboy-ba57cd7f81ba
 
 <p align="center"><img src="https://i.ibb.co/N6y4wjp/Screenshot-2020-05-08-at-18-06-57.png" /></p>
 
