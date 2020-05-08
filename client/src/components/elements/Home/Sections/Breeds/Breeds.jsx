@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+/* ----- Redux ----- */
+import { useDispatch, useSelector } from 'react-redux'
+import { registerIndex } from '../../../../../redux/index/indexAction'
 /* ----- MaterialUI ----- */
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
+/* ----- UI components ----- */
 import Footer from '../../../../ui/Footer/Footer'
 import Header from '../../../../ui/Header/Header'
 /* ----- Styles ----- */
@@ -16,8 +20,11 @@ import BreedsServices from "../../../../../services/breed.services";
 const Breed = () => {
   const styleClass = HomeStyle();
 
+  const index = useSelector(state => state.index.index)
+
+  const dispatch = useDispatch()
+
   const [breed, setBreed] = useState();
-  const [index, setIndex] = useState(0);
 
   const getBreed = index => {
     BreedsServices.getBreed(index)
@@ -30,6 +37,7 @@ const Breed = () => {
   useEffect(() => getBreed(index), [index]);
 
   return (
+
     <>
       <Header title="Biblioteca de razas" route="home" />
 
