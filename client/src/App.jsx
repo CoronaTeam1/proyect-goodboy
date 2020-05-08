@@ -15,6 +15,7 @@ import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDeta
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
 import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
 import "./App.css";
+import SectionsLearn from "./components/elements/Home/Sections/Learn/SectionsLearn";
 
 
 function App() {
@@ -47,6 +48,10 @@ function App() {
 
                 <Route path="/home">
                     <Home />
+                </Route>
+
+                <Route path="/home-learn">
+                    <SectionsLearn />
                 </Route>
 
                 <Route path="/breed/:breed">

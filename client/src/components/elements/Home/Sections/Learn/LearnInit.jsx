@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import HomeStyle from "../../HomeStyle";
-import Section from "../Sections";
+import Section from "../../../../ui/Sections/Sections";
 import Footer from "../../../../ui/Footer/Footer";
 import Header from "../../../../ui/Header/Header";
 import { useHistory } from "react-router-dom";
@@ -12,7 +12,7 @@ const LearnInit = () => {
 
   return (
     <>
-      <Header title="Lecciones básicas" />
+      <Header title="Lecciones básicas" route="home" />
       <div className={styleClass.mainPanel}>
         <Section
           url="../../../../images/learn1.svg"

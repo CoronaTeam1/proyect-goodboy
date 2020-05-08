@@ -31,7 +31,7 @@ const BreedDetails = () => {
       {details ?
         (
           <>
-            <Header title={breed} />
+            <Header title={breed} route="breed" />
             {/* <h2 className={`${styleClass.margin0}`}>{breed}</h2 > */}
 
 

@@ -2,6 +2,7 @@ import { makeStyles } from "@material-ui/styles"
 
 export default makeStyles({
     topHeading: {
+        padding: "10px 0",
         position: 'fixed',
         top: '0',
         left: '0',
