@@ -9,7 +9,6 @@ import Typography from "@material-ui/core/Typography";
 import BreedsServices from "../../../../../services/breed.services";
 import Footer from '../../../../ui/Footer/Footer'
 import Header from '../../../../ui/Header/Header'
-// import HomeStyle from "./HomeStyle";
 import HomeStyle from '../../HomeStyle'
 
 const Breed = () => {
@@ -17,7 +16,7 @@ const Breed = () => {
 
   const [breed, setBreed] = useState();
   const [index, setIndex] = useState(0);
-  const [scrollY, setScrollY] = useState(0)
+
 
   const getBreed = index => {
     BreedsServices.getBreed(index)
@@ -28,14 +27,9 @@ const Breed = () => {
   const history = useHistory();
 
 
-  console.log(scrollY)
-
   useEffect(() => {
-    // if (window.scrollY >= (document.querySelector('.clase').clientHeight - 1000)) {
-    //   console.log("sdSDFSADF")
-    // }
     getBreed(index);
-  }, [index, scrollY]);
+  }, [index]);
 
   const classes = style();
 

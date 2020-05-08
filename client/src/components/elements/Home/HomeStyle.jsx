@@ -45,5 +45,3 @@ export default makeStyles(theme => ({
     marginBottom: '20px'
   }
 }));
-
-//FLECHITAS-> Position Fixed, top: 90%, 
