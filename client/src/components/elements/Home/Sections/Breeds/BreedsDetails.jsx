@@ -27,17 +27,23 @@ const BreedDetails = () => {
 
             <div className={styleClass.mainWrapper}>
               <div className={styleClass.mainPanel}>
-                <img src={details && details.image} alt={details.breed} className={styleClass.image100}></img>
+                <img src={details && details.image} alt={details.breed} className={styleClass.image65w}></img>
                 <hr></hr>
-                <h3>Acerca del {breed}</h3>
-                <p>{details && details.description}</p>
+                <Divider />
+                <div className={`${styleClass.modal} ${styleClass.margin5updw}`}>
+                  <img src="../../../../images/footGreen.svg" className="margin-right" /><h3 className="text">Acerca del {breed}</h3>
+
+                </div>
+                <p className="text">{details && details.description}</p>
               </div>
               <div className={styleClass.mainPanel}>
                 <hr></hr>
-                <h3>Caracteristicas</h3>
-                <p>{details && details.info.map(elm => <p>{elm}</p>)}</p>
+                <Divider />
+                <div className={`${styleClass.modal} ${styleClass.margin5updw}`}>
+                  <img src="../../../../images/footGreen.svg" className="margin-right" /><h3 className="text">Caracteristicas</h3>
+                </div>
+                <p className="text">{details && details.info.map(elm => <p className="text">{elm}</p>)}</p>
 
-                <p>TERELERE</p>
               </div>
             </div>
           </>

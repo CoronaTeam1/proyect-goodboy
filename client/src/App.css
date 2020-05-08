@@ -87,6 +87,7 @@ p {
   flex-direction: column
 }
 
+
 .margin {
   margin: 20px;
 }
@@ -104,7 +105,15 @@ p {
   font-weight: bold;
 }
 
-.mt1 {
+
+.margin {
+  margin: 20px;
+}
+
+.margin-right {
+  margin-right: 20px
+}
+.mt1{
   margin-top: 1rem;
 }
 
@@ -124,15 +133,11 @@ p {
   transition: transform 1000ms ease-in-out,
     opacity 1000ms;
   opacity: 1;
-
-
 }
 
 .my-node-exit {
-  opacity: 0;
-  transform: translateX(100%);
-
-
+  opacity:0;
+ transform: translateX(100%);
 }
 
 .my-node-exit-active {

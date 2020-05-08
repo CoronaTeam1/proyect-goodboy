@@ -14,29 +14,32 @@ const LearnInit = () => {
 
   return (
     <>
-      <Header title="Lecciones básicas" route="home" />
-      <div className={styleClass.mainPanel}>
-        <Section
-          url="../../../../images/learn1.svg"
-          title="Andar con correa"
-          event={() => history.push(`/init-learn/walk`)}
-        />
-        <Section
-          url="../../../../images/learn2.svg"
-          title="Quieto"
-          event={() => history.push(`/init-learn/stop`)}
-        />
-        <Section
-          url="../../../../images/learn3.svg"
-          title="Sentarse"
-          event={() => history.push(`/init-learn/sit`)}
-        />
-        <Section
-          url="../../../../images/learn4.svg"
-          title="Tumbarse"
-          event={() => history.push(`/init-learn/tumb`)}
-        />
+      <Header title="Lecciones básicas" />
+      <div className={styleClass.mainWrapper}>
+        <div className={styleClass.mainPanel}>
+          <Section
+            url="../../../../images/learn1.svg"
+            title="Andar con correa"
+            event={() => history.push(`/init-learn/walk`)}
+          />
+          <Section
+            url="../../../../images/learn2.svg"
+            title="Quieto"
+            event={() => history.push(`/init-learn/stop`)}
+          />
+          <Section
+            url="../../../../images/learn3.svg"
+            title="Sentarse"
+            event={() => history.push(`/init-learn/sit`)}
+          />
+          <Section
+            url="../../../../images/learn4.svg"
+            title="Tumbarse"
+            event={() => history.push(`/init-learn/tumb`)}
+          />
+        </div>
       </div>
+
       <Footer />
     </>
   );

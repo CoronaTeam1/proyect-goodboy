@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-/* ----- RRD components ----- */
-/* ----- UI components ----- */
 /* ----- MaterialUI ----- */
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -32,9 +30,8 @@ const Breed = () => {
   useEffect(() => getBreed(index), [index]);
 
   return (
-
     <>
-      <Header title="Biblioteca de razas" route="home"/>
+      <Header title="Biblioteca de razas" route="home" />
 
       <div className={styleClass.mainWrapper}>
         {breed &&
@@ -51,7 +48,7 @@ const Breed = () => {
                     height="auto"
                     image={elm.image}
                     title="Contemplative Reptile"
-                    className={styleClass.imgCard}
+                    className={styleClass.image65w}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -66,10 +63,10 @@ const Breed = () => {
 
         <div className="flex">
 
-          <div onClick={() => setIndex(index - 1)}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index - 1))}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
 
 
-          <div onClick={() => setIndex(index + 1)}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index + 1))}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
 
         </div>
       </div>
