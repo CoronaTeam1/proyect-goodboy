@@ -1,13 +1,12 @@
 import React, { useState } from "react";
+/* ----- Redux ----- */
 import { useDispatch } from "react-redux";
-
-
+/* ----- Components MaterialUI ----- */
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
-
-
-
+/* ----- Styles ----- */
 import style from './Style'
 
+/* ----- Actions Redux ----- */
 const REGISTER_DOG = "REGISTER_DOG";
 
 const ToggleButtons = () => {
@@ -30,8 +29,6 @@ const ToggleButtons = () => {
 
 
     return (
-
-        // <Grid item xs={12} >
         <div>
             <ToggleButtonGroup
                 className={styleClass.padding30px}

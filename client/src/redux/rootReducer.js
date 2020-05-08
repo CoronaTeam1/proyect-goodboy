@@ -8,6 +8,3 @@ const rootReducer = combineReducers({
 })
 
 export default rootReducer
-
-
-//Combinamos los reducers

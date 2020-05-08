@@ -1,4 +1,5 @@
 import React from "react";
+/* ----- Styles ----- */
 import FooterStyle from './FooterStyle'
 
 const ButtonFooter = ({ url, title }) => {

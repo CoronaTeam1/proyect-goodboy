@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "@material-ui/core";
-import Slice from "./Slice";
+/* ----- UI components ----- */
+import Slice from "../../../ui/Slice/Slice";
+/* ----- Styles ----- */
 import style from "./Style";
+/* ----- MaterialUI ----- */
+import { Grid } from "@material-ui/core";
 
 const Carousel = () => {
 

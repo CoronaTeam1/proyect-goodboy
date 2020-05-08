@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
+/* ----- UI components ----- */
 import Section from "../../../../ui/Sections/Sections";
 import Footer from "../../../../ui/Footer/Footer";
 import Header from "../../../../ui/Header/Header";
-import { Link } from "react-router-dom";
+/* ----- Styles ----- */
 import HomeStyle from "../../HomeStyle";
 
 

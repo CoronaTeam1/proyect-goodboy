@@ -1,5 +1,7 @@
 import React from "react";
+/* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
+/* ----- Styles ----- */
 import FooterStyle from './FooterStyle'
 
 const Footer = () => {

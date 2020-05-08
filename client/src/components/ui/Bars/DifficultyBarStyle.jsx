@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/styles";
-import { findByLabelText } from "@testing-library/react";
 
 export default makeStyles({
   topHeading: {

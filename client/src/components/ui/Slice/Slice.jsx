@@ -1,7 +1,10 @@
 import React from "react";
+/* ----- MaterialUI----- */
 import { Grid } from "@material-ui/core";
-import style from "./Style";
+/* ----- NPM ----- */
 import {CSSTransition } from "react-transition-group";
+/* ----- Styles ----- */
+import style from "../../elements/OnBoarding/Carousel/Style";
 
 const Slice = ({ url, text, hidden }) => {
   const styleClass = style();

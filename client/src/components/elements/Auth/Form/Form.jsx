@@ -1,26 +1,20 @@
-import React from 'react'
-import { useDispatch, useSelector } from "react-redux";
-import { registerUser } from '../../../../redux'
-
+import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
-
-//Material UI
+/* ----- Redux ----- */
+import { registerUser } from '../../../../redux'
+import { useDispatch, useSelector } from "react-redux";
+/* ----- Material UI ----- */
 import {FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-//Styles
-import FormStyle from './FormStyle'
-import '../../../../App.css'
-//Services
+/* ----- Services ----- */
 import authServ from '../../../../services/auth.services'
-//Components
+/* ----- UI components ----- */
 import ButtonGB from '../../../ui/ButtonGB/Button'
-
-// const REGISTER_USER = "REGISTER_USER"; Esto no hace falta porque ya lo importamos en la linea 3
+/* ----- Styles ----- */
+import FormStyle from './FormStyle'
 
 const Form = ({termState}) => {
-
-    // ---- HOOKS ----
     const styleForm = FormStyle();
 
     const initialState = {
@@ -28,10 +22,8 @@ const Form = ({termState}) => {
         showError:false
       }
 
-    const [values, setValues] = React.useState(initialState);
+    const [values, setValues] = useState(initialState);
     const history = useHistory()
-
-    //--- REDUX ---
 
     const userRedux = {
         name: useSelector(state => state.user.name),
@@ -42,19 +34,7 @@ const Form = ({termState}) => {
 
       const dispatch = useDispatch();
     
-      const handleChange = e => {
-              
-        // dispatch({
-        //   type: REGISTER_USER,
-        //   field: e.target.name,
-        //   value: e.target.value
-        // });
-
-        dispatch(registerUser(e.target.name,e.target.value))
-
-        //Como ahora action es una funcion, mandamos en primera posicion el field, en segunda el value porque lo hemos definido asi
-
-      };
+      const handleChange = e => dispatch(registerUser(e.target.name,e.target.value))
     
       const handleSubmit = e => {
 
@@ -64,8 +44,6 @@ const Form = ({termState}) => {
                 setValues({ ...values, showError: true })
             }else{
                 setValues({ ...values, showError: false })
-                console.log('WORK')
-                console.log("Esto es lo que hay en redux : ", userRedux)
                 registerUserBack()
             }  
         }else{
@@ -87,13 +65,9 @@ const Form = ({termState}) => {
           .catch(err => console.log(err))
       }
 
-      const handleClickShowPassword = () => {
-        setValues({ ...values, showPassword: !values.showPassword });
-      };
+      const handleClickShowPassword = () => setValues({ ...values, showPassword: !values.showPassword })
 
-      const handleMouseDownPassword = (event) => {
-        event.preventDefault();
-      };
+      const handleMouseDownPassword = event => event.preventDefault()
 
       
 
@@ -175,13 +149,6 @@ const Form = ({termState}) => {
                         <ButtonGB  text="Registrate Ahora" link={'/home'}/>
                     </div>
                     
-                    {/* <p className={styleForm.socialLoginP}>También puedes registrarte con</p>
-
-                    <div className={styleForm.socialLoginDiv}>
-                        <div>Logo 1</div>
-                        <div>Logo 2</div>
-                    </div> */}
-
                 </form>
             </div>
         )
@@ -231,14 +198,6 @@ const Form = ({termState}) => {
                     <div className="mt2" onClick={handleSubmit}>
                         <ButtonGB type='submit' text="Inicia Sesión"/>
                     </div>
-                    
-                    {/* <p className={styleForm.socialLoginP}>También puedes iniciar sesión con</p>
-
-                    <div className={styleForm.socialLoginDiv}>
-                        <div>Logo 1</div>
-                        <div>Logo 2</div>
-                    </div> */}
-
                 </form>
             </div>
         )

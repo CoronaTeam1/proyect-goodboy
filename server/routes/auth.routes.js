@@ -1,14 +1,13 @@
 const express = require('express');
+// AUTH
 const authRoutes = express.Router();
-
 const passport = require('passport');
 const bcrypt = require('bcryptjs');
-
+// MODELS
 const User = require('../models/User.model')
 
 
 authRoutes.post('/signup', (req, res, next) => {
-  console.log("----PAYLOAD EN DESTINO ---- ", req.body)
   const name = req.body.name
   const username = req.body.username
   const password = req.body.password
@@ -113,7 +112,6 @@ authRoutes.post('/logout', (req, res, next) => {
 
 authRoutes.get('/loggedin', (req, res, next) => {
   if (req.isAuthenticated()) {
-    console.log("--Esto es lo que hay en req.user",req.user)
     res.status(200).json(req.user);
     return;
   }

@@ -1,8 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+/* ----- Redux ----- */
 import { Provider } from "react-redux";
-import store from './redux/store' // Aqui importamos el store que vamos a usar y se lo pasamos al provider
+import store from './redux/store'
+/* ----- Styles ----- */
 import { StylesProvider } from '@material-ui/core/styles'
+/* ----- RRD components ----- */
 import App from './App';
 
 ReactDOM.render(

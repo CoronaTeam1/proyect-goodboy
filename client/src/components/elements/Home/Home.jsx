@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+/* ----- MaterialUI Componets ----- */
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+/* ----- UI components ----- */
 import Section from "../../ui/Sections/Sections";
 import Footer from '../../ui/Footer/Footer'
-import HomeStyle from "./HomeStyle";
-import { Link } from "react-router-dom";
 import Header from '../../ui/Header/Header'
+/* ----- Styles ----- */
+import HomeStyle from "./HomeStyle";
+/* ----- Router Components ----- */
+import { Link } from "react-router-dom";
 
 
 const TransitionsModal = () => {
@@ -24,8 +28,7 @@ const TransitionsModal = () => {
     <div>
       <Modal
         aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        aria-describedby="transition-modal-text"
+        aria-describedby="transition-modal-description transition-modal-text"
         className={styleClass.modal}
         open={open}
         onClick={handleClose}

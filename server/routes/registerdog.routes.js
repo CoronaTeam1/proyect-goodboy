@@ -1,12 +1,10 @@
 const express = require('express');
-const User = require('../models/User.model')
-const uploadCloud = require('../configs/cloudinary.config')
 const router = express.Router();
+// MODELS
+const User = require('../models/User.model')
 
 router.post('/', (req, res, next) => {
-  console.log(req.body)
   const { name, age, genre, breed, photo } = req.body;
-  console.log(req.user._id+'AAAAA')
   const newdog = {
     name,
     age,
@@ -17,7 +15,7 @@ router.post('/', (req, res, next) => {
 
   User.findByIdAndUpdate(req.user._id,{dog:newdog})
     .then(newDog => res.json(newDog))
-    .catch(error => console.log(error))
+    .catch(error => next(error))
 })
 
 

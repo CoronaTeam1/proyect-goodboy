@@ -1,26 +1,25 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
-
+/* ----- Redux ----- */
 import { registerDog, setDog } from '../../../redux'
-//Material UI
+/* ----- MaterialUI Compoennts ----- */
 import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
-//Styles
-import style from "./RegisterDogStyles";
-//Components
+/* ----- UI components ----- */
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
-//Services
+/* ----- Services ----- */
 import RegisterDogServ from '../../../services/registerdog.services'
 import FilesServices from '../../../services/files.services'
+/* ----- Styles ----- */
+import style from "./RegisterDogStyles";
 
-// const REGISTER_DOG = "REGISTER_DOG";
 
 const RegisterDog = () => {
 
   const styleClass = style();
 
-  const userDog = { //Ahora es state.algo
+  const userDog = {
     name: useSelector(state => state.dog.name),
     age: useSelector(state => state.dog.age),
     breed: useSelector(state => state.dog.breed),
@@ -32,16 +31,7 @@ const RegisterDog = () => {
 
   const dispatch = useDispatch();
 
-  const handleChange = e => {
-    // dispatch({
-    //   type: REGISTER_DOG,
-    //   field: e.target.id,
-    //   value: e.target.value
-    // })
-
-    dispatch(registerDog(e.target.id, e.target.value))
-
-  }
+  const handleChange = e =>  dispatch(registerDog(e.target.id, e.target.value))
 
   const handleFileUpload = e => {
 
@@ -49,7 +39,6 @@ const RegisterDog = () => {
     uploadData.append("imageUrl", e.target.files[0])
 
     FilesServices.handleUpload(uploadData)
-      // .then(response => {dispatch({type: REGISTER_DOG,field: "photo",value: response.secure_url})})
       .then(response => dispatch(registerDog("photo", response.secure_url)))
       .catch(error => console.log(error))
 
@@ -64,8 +53,6 @@ const RegisterDog = () => {
   const registerDogBack = () => {
     RegisterDogServ.createDog(userDog)
       .then(response => {
-        console.log('Tus datos están en el back', response)
-        // Setear el estado
         dispatch(setDog())
         history.push(`/home`)
       })

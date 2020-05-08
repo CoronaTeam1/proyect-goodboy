@@ -8,12 +8,10 @@ const initialState = {
     photo: ''
 }
 
-// declaramos el estado inicial del usuario
-
 const dogReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        //Esto es como el anterior reducer
+
         case REGISTER_DOG:
 
             return { ...state, [action.field]: action.value }
