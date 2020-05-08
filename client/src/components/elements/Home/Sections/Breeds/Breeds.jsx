@@ -38,7 +38,7 @@ const Breed = () => {
   return (
 
     <>
-      <Header title="Biblioteca de razas" />
+      <Header title="Biblioteca de razas" route="home"/>
 
       <div className={styleClass.mainWrapper}>
         {breed &&
