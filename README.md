@@ -41,9 +41,10 @@ Las contribuciones son las que hacen que la comunidad de código abierto sea un 
 ## Thanks! 💖
 
 ## Contacto
-Ruth de Blas - [ruth.deblas7@gmail.com](ruth.deblas7@gmail.com).
-Juan Antonio Martín Bermejo - [juanantoniomartinb@gmail.com](juanantoniomartinb@gmail.com).
-Miguel de Mora - [miguel.uni.demora@gmail.com](miguel.uni.demora@gmail.com).
-Alejandro García Rodríguez - [alejandro.garci.rodr@gmail.com](alejandro.garci.rodr@gmail.com).
+
+- Ruth de Blas - [ruth.deblas7@gmail.com](ruth.deblas7@gmail.com).
+- Juan Antonio Martín Bermejo - [juanantoniomartinb@gmail.com](juanantoniomartinb@gmail.com).
+- Miguel de Mora - [miguel.uni.demora@gmail.com](miguel.uni.demora@gmail.com).
+- Alejandro García Rodríguez - [alejandro.garci.rodr@gmail.com](alejandro.garci.rodr@gmail.com).
 
 Project Link: [https://github.com/CoronaTeam1/proyect-goodboy](https://github.com/CoronaTeam1/proyect-goodboy)
