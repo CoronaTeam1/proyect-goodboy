@@ -8,7 +8,6 @@ const initialState = {
     dog:{},
 }
 
-// declaramos el estado inicial del usuario
 
 const userReducer = (state=initialState,action) => {
     switch (action.type) {
@@ -23,6 +22,7 @@ const userReducer = (state=initialState,action) => {
             newState.username=action.payload.username
             newState.dog=action.payload.dog
             newState.password=action.payload.password
+            newState.isLogged=action.payload.isLogged
             return {...newState}
 
         default:

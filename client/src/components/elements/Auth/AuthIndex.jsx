@@ -1,19 +1,20 @@
 import React, {useState} from 'react'
-import AuthIndexStyle from './AuthIndexStyle'
+/* ----- MaterialUI ----- */
 import Container from "@material-ui/core/Container";
-
-import ChoserBtn from './ChoserBtn/ChoserBtn'
+/* ----- RRD components ----- */
+import ChoserBtn from '../../ui/ChoserBtn/ChoserBtn'
 import Form from './Form/Form'
+/* ----- Styles ----- */
+import AuthIndexStyle from './AuthIndexStyle'
+
+
 const AuthIndex = () => {
     
     const [term,setTerm] = useState("signup")
     const styleClass = AuthIndexStyle();
 
-    
-
     return(
         <>
-
         <div className={styleClass.choser}>
             <ChoserBtn textBtn="Registrarse" setTerm={()=> setTerm('signup')} termState={term} term={"signup"}/>
             <ChoserBtn textBtn="Iniciar Sesion" setTerm={()=> setTerm('login')} termState={term} term={"login"}/>

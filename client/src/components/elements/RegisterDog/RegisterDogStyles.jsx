@@ -40,13 +40,5 @@ export default makeStyles({
     btPadding:{
         paddingTop:'56px'
     }
-    
-    // p: {
-    //     fontFamily: "AvenirNext-Regular",
-    //     fontSize: "15px",
-    //     color: "#343434",
-    //     lineHeight: "20px"
-    // },
-    
 
 });

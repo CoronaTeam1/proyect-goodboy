@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 export default makeStyles(theme => ({
   modal: {
     display: "flex",
-
   },
   paper: {
     color: "#FFFFFF",
@@ -31,19 +30,21 @@ export default makeStyles(theme => ({
   text: {
     fontSize: '0.9em'
   },
-  image100: {
-    width: '100%'
+  image65w: {
+    width: '65%',
+    margin: '0 auto'
   },
   margin0: {
     margin: '0'
   },
+  margin5updw: {
+    margin: '5px 0'
+  },
   mainWrapper: {
     margin: '45px 0 60px 0',
-    padding: '8%'
+    padding: '5%'
   },
   card: {
     marginBottom: '20px'
   }
 }));
-
-//FLECHITAS-> Position Fixed, top: 90%, 

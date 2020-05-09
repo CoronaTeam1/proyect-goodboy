@@ -1,7 +1,8 @@
 import React from "react";
+/* ----- Components MaterialUI ----- */
 import Button from '@material-ui/core/Button';
+/* ----- Styles ----- */
 import style from './Style'
-// import { useHistory } from "react-router-dom";
 
 
 const ButtonGB = ({text,link}) => {

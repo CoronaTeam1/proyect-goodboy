@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+//CLOUDINARY
 const uploader = require('../configs/cloudinary.config')
 
 router.post('/', uploader.single("imageUrl"), (req, res, next) => {

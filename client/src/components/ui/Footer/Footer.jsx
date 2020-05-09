@@ -1,5 +1,7 @@
 import React from "react";
+/* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
+/* ----- Styles ----- */
 import FooterStyle from './FooterStyle'
 import authServ from '../../../services/auth.services'
 import { useHistory } from "react-router-dom";
@@ -18,7 +20,7 @@ const Footer = () => {
 
   const logout = () =>{
     authServ.logout()
-    dispatch(fetchUser({name:undefined,username:undefined,dog:undefined,password:undefined}))
+    dispatch(fetchUser({name:undefined,username:undefined,dog:undefined,password:undefined,isLogged:false}))
     history.push('/auth')
   }
 

@@ -1,23 +1,30 @@
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import style from "../../HomeStyle";
+/* ----- Redux ----- */
+import { useDispatch, useSelector } from 'react-redux'
+import { registerIndex } from '../../../../../redux/index/indexAction'
+/* ----- MaterialUI ----- */
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import BreedsServices from "../../../../../services/breed.services";
+/* ----- UI components ----- */
 import Footer from '../../../../ui/Footer/Footer'
 import Header from '../../../../ui/Header/Header'
-// import HomeStyle from "./HomeStyle";
+/* ----- Styles ----- */
 import HomeStyle from '../../HomeStyle'
+/* ----- Services ----- */
+import BreedsServices from "../../../../../services/breed.services";
 
 const Breed = () => {
   const styleClass = HomeStyle();
 
+  const index = useSelector(state => state.index.index)
+
+  const dispatch = useDispatch()
+
   const [breed, setBreed] = useState();
-  const [index, setIndex] = useState(0);
-  const [scrollY, setScrollY] = useState(0)
 
   const getBreed = index => {
     BreedsServices.getBreed(index)
@@ -27,40 +34,29 @@ const Breed = () => {
 
   const history = useHistory();
 
-
-  console.log(scrollY)
-
-  useEffect(() => {
-    // if (window.scrollY >= (document.querySelector('.clase').clientHeight - 1000)) {
-    //   console.log("sdSDFSADF")
-    // }
-    getBreed(index);
-  }, [index, scrollY]);
-
-  const classes = style();
-
+  useEffect(() => getBreed(index), [index]);
 
   return (
 
     <>
-      <Header title="Biblioteca de razas" />
+      <Header title="Biblioteca de razas" route="home" />
 
       <div className={styleClass.mainWrapper}>
         {breed &&
           breed.map((elm, idx) => (
             <>
               <Card
-                className={classes.card}
+                className={styleClass.card}
                 onClick={() => history.push(`/breed/${elm.name}`)}
               >
-                <CardActionArea className={classes.contentCard}>
+                <CardActionArea className={styleClass.contentCard}>
                   <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
                     height="auto"
                     image={elm.image}
                     title="Contemplative Reptile"
-                    className={classes.imgCard}
+                    className={styleClass.image65w}
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -75,10 +71,10 @@ const Breed = () => {
 
         <div className="flex">
 
-          <div onClick={() => setIndex(index - 1)}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index - 1))}>{index === 0 ? null : (<img src="../../../../images/prev.svg" alt="previous" />)}</div>
 
 
-          <div onClick={() => setIndex(index + 1)}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
+          <div onClick={() => dispatch(registerIndex(index + 1))}>{index === 15 ? null : (<img src="../../../../images/next.svg" alt="next" />)}</div>
 
         </div>
       </div>

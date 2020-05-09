@@ -12,14 +12,16 @@ class BreedsAPIHandler {
     getBreeds(index) {
         return axios.create().get(`https://www.purina.es/perros/razas-de-perro/tipos-de-razas-de-perro?breed_name=&page=${index}`)
             .then(response => {
-                console.log("SCRAPPING WEB")
                 const $ = cheerio.load(response.data);
                 const arrNames = []
                 $('.result-animal-container').each((i, e) => {
                     const div = $(e).children()
                     const name = $(div).find('.results-view-name').text()
                     const routeImage = "https://www.purina.es" + $(e).find("img").attr('src')
-                    arrNames.push({ name, routeImage })
+                    arrNames.push({
+                        name,
+                        routeImage
+                    })
                 })
                 arrNames.forEach(elm => Breeds.create({
                     name: elm.name,
@@ -44,51 +46,39 @@ class BreedsAPIHandler {
     getDetails(breed) {
         const breedName = breed.replace(/ /g, '-')
         const nameUrl = this.deleteSimbol(breedName)
-        const info = []
         return axios.create().get(`https://www.purina.es/perros/razas-de-perro/${nameUrl}`)
             .then(response => {
                 const $ = cheerio.load(response.data);
-                // =========Descripcion de la raza=========
                 const description = $('.col-md-offset-2 p').text().trim()
-
-                // Esto saca el div que contiene Grupo, Otras mascotas, adecuado para estar solo, muda y guardian:
                 const character = $('.paragraph--id--30976').html()
-
-                // =========Aparece la info del perrete pero todo en un texto=========
                 const info = $('.info li').text()
-                // console.log('info:', info)
-
-                // =========Aparece la info del perrete para meter en un Array=========
                 let points = []
                 $('.info li').each((i, el) => {
-                    // console.log(i, $(el).text())
                     let contenido = $(el).text()
-                    // console.log('contenido::::::', contenido)
                     points.push(contenido)
                 })
-                // console.log('points', points)
 
-                //ESTA PIEZA DE CODIGO HABILITA EL CHEERIO, UNA VEZ HECHO EL SCRAPPY SE PUEDE COMENTAR
-                // ====== ESTRUCTURA DATOS TIPO BEAGLE =======
                 $('.paragraph--id--30996 .paragraph__column div').each((i, el) => {
                     let info = []
                     const pepe = $(el).find('p').each((i, el) => {
                         let text = $(el).text().replace(/\n/gi, '')
-                        // console.log('text:', text)
                         info.push(text)
                     })
 
                 })
-                //HASTA AQUI
 
-                return Breeds.update({ name: breed }, {
+                return Breeds.update({
+                    name: breed
+                }, {
                     description,
                     info: points
                 })
-                    .then(() => Breeds.find({ name: breed }))
-                    .then(response => response)
-                    .catch(err => console.log(err))
             })
+            .then(() => Breeds.find({
+                name: breed
+            }))
+            .then(response => response)
+            .catch(err => console.log(err))
     }
 
 

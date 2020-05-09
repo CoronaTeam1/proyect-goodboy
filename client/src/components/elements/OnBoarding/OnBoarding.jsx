@@ -1,8 +1,11 @@
 import React from "react";
-import { Grid } from "@material-ui/core";
-import Carousel from "./Carousel/Carousel";
-import ButtonGB from "../../ui/ButtonGB/Button";
 import { useHistory } from "react-router-dom";
+/* ----- RRD components ----- */
+import Carousel from "./Carousel/Carousel";
+/* ----- UI components ----- */
+import ButtonGB from "../../ui/ButtonGB/Button";
+/* ----- MaterialUI ----- */
+import { Grid } from "@material-ui/core";
 
 const Onboarding = () => {
 
