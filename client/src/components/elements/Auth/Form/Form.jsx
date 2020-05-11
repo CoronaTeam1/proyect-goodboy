@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { registerUser,fetchUser } from '../../../../redux'
 import { useDispatch, useSelector } from "react-redux";
 /* ----- Material UI ----- */
-import {FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
+import {FormControl, Input, InputLabel, IconButton,InputAdornment, InputBase } from "@material-ui/core";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 /* ----- Services ----- */
@@ -20,31 +20,38 @@ const Form = ({termState}) => {
     const initialState = {
         showPassword: false,
         showError:false
-      }
+    }
+    const userForm={
+        name:"",
+        username:"",
+        password:'',
+        checkPassword:''
+    }
 
     const [values, setValues] = useState(initialState);
+    const [formValues, setFormValues] = useState(userForm)
     const history = useHistory()
 
     //--- REDUX ---
 
     const userMK = useSelector(state => state.user)
 
-    const userRedux = {
-        name: useSelector(state => state.user.name),
-        username: useSelector(state => state.user.username),
-        password: useSelector(state => state.user.password),
-        checkPassword: useSelector(state => state.user.checkPassword)
-      };
+    // const userRedux = {
+    //     name: useSelector(state => state.user.name),
+    //     username: useSelector(state => state.user.username),
+    //     password: useSelector(state => state.user.password),
+    //     checkPassword: useSelector(state => state.user.checkPassword)
+    //   };
 
       const dispatch = useDispatch();
     
-      const handleChange = e => dispatch(registerUser(e.target.name,e.target.value))
+      const handleChange = e => setFormValues({...formValues,[e.target.name]:e.target.value})
     
       const handleSubmit = e => {
 
         if(termState==='signup'){
 
-            if(userRedux.password!==userRedux.checkPassword){
+            if(formValues.password!==formValues.checkPassword){
                 setValues({ ...values, showError: true })
             }else{
                 setValues({ ...values, showError: false })
@@ -57,15 +64,18 @@ const Form = ({termState}) => {
       };
 
       const registerUserBack = () => {
-        authServ.registerUser(userRedux)
-            .then(response => console.log("He enviado esto al back", response))
+        console.log(formValues)
+
+        authServ.registerUser(formValues)
+            .then(response => console.log("Esta es la response del back", response))
             .then(x => history.push('/register-dog'))
             .catch(err => console.log(err))
       }
 
       const loginUser = () => {
-          authServ.loginUser(userRedux)
-          .then(response => dispatch(fetchUser(response),console.log(response,'esto es lo que hay en la response')))
+          console.log(formValues)
+          authServ.loginUser(formValues)
+          .then(response => dispatch(fetchUser(response,{isLogged:true}),console.log(response,'esto es lo que hay en la response')))
           .then(x => console.log('Esto lo que hay en en store',userMK))
           .then(x => history.push('/home'))
           .catch(err => console.log(err))
@@ -91,7 +101,7 @@ const Form = ({termState}) => {
                         id="name"
                         name="name"
                         placeholder="Luna"
-                        value={userRedux.name}
+                        value={formValues.name}
                         onChange={handleChange}
                     />
                     </FormControl>
@@ -104,7 +114,7 @@ const Form = ({termState}) => {
                         id="username"
                         name="username"
                         placeholder="example@myemail.com"
-                        value={userRedux.username}
+                        value={formValues.username}
                         onChange={handleChange}
                     />
                     </FormControl>
@@ -118,7 +128,7 @@ const Form = ({termState}) => {
                         name="password"
                         type={values.showPassword? 'text': 'password'}
                         placeholder=""
-                        value={userRedux.password}
+                        value={formValues.password}
                         onChange={handleChange}
                         endAdornment={
                             <InputAdornment position="end">
@@ -144,7 +154,7 @@ const Form = ({termState}) => {
                         name="checkPassword"
                         type={values.showPassword? 'text': 'password'}
                         placeholder=""
-                        value={userRedux.checkPassword}
+                        value={formValues.checkPassword}
                         onChange={handleChange}
                     />
                     </FormControl>
@@ -172,7 +182,7 @@ const Form = ({termState}) => {
                         id="username"
                         name="username"
                         placeholder="example@myemail.com"
-                        value={userRedux.email}
+                        value={formValues.username}
                         onChange={handleChange}
                     />
                     </FormControl>
@@ -186,7 +196,7 @@ const Form = ({termState}) => {
                         name="password"
                         type={values.showPassword? 'text': 'password'}
                         placeholder=""
-                        value={userRedux.password}
+                        value={formValues.password}
                         onChange={handleChange}
                         endAdornment={
                             <InputAdornment position="end">

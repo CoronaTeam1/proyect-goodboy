@@ -1,11 +1,12 @@
 import {REGISTER_USER,FETCH_USER} from './userTypes'
 
 const initialState = {
-    name:'',
-    username:'',
-    password:'',
-    checkPassword:'',
+    name:undefined,
+    username:undefined,
+    password:undefined,
+    checkPassword:undefined,
     dog:{},
+    isLogged:false,
 }
 
 

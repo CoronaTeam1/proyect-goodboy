@@ -26,16 +26,24 @@ function App() {
 
   const [isLogged, setIsLogged] = useState(false);
 
-  const user = useSelector(state => state.user)
+  const userz = useSelector(state => state.user)
   const dispatch = useDispatch()
-  
 
-  useEffect(async() => {
+
+
+  useEffect( () => {
     // code to run on component mount
+    // await authServ.loggedin()
+    // .then(userz => dispatch(fetchUser({...userz})))
+    // .then(x => user.username?setIsLogged(true):setIsLogged(false))
+    // .then(console.log('Esta logeado?',isLogged))
+    // .catch(() => setIsLogged(false))
+
     authServ.loggedin()
     .then(user => dispatch(fetchUser({...user})))
-    .then( x =>  x.payload.name?setIsLogged(true):setIsLogged(false))
-    .catch(err => console.log(err))
+    // .then(x=>x.payload.username&&dispatch(fetchUser({...userz,isLogged:true})))
+    .catch(()=> console.log('Error'))
+    
     
   },[])
   
@@ -47,36 +55,36 @@ function App() {
       <Switch>
 
         <Route exact path="/">
-          {isLogged ? <Redirect to="/home" />:<OnBoarding /> }
-        </Route>
-
-        <Route path="/register-dog">
-          {isLogged ? <Redirect to="/home" />:<RegisterDog /> }
+          {userz.isLogged ? <Redirect to="/home" />:<OnBoarding /> }
         </Route>
 
         <Route path="/auth">
-          {isLogged ? <Redirect to="/home" />:<AuthIndex /> }  
+          {userz.isLogged ? <Redirect to="/home" />:<AuthIndex /> }  
+        </Route>
+
+        <Route path="/register-dog">
+          {userz.isLogged ? <Redirect to="/home" />:<RegisterDog /> }
         </Route>
 
         <Route path="/home">
           
-          {!user.isLogged ? <Redirect to="/auth" />:<Home /> }
+          {userz.isLogged ? <Home />: <Redirect to="/auth" /> }
         </Route>
 
         <Route path="/breed/:breed">
-          {!isLogged ? <Redirect to="/auth" />:<BreedsDetails /> } 
+          {userz.isLogged ?<BreedsDetails /> :<Redirect to="/auth" /> } 
         </Route>
 
         <Route path="/breed">
-          {!isLogged ? <Redirect to="/auth" />:<Breed /> }
+          {userz.isLogged ? <Breed />: <Redirect to="/auth" />}
         </Route>
 
-        <Route path="/init-learn/:learn">
-          {!isLogged ? <Redirect to="/auth" />:<LearnDetails /> }
+        <Route path="/home-learn/:learn">
+          {userz.isLogged ? <LearnDetails />:<Redirect to="/auth" /> }
         </Route>
 
-        <Route path="/init-learn">
-          {!isLogged ? <Redirect to="/auth" />:<LearnInit /> }
+        <Route path="/home-learn">
+          {userz.isLogged ? <LearnInit />: <Redirect to="/auth" /> }
         </Route>
 
       </Switch>

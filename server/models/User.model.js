@@ -5,6 +5,7 @@ const userSchema = new Schema({
   name:String,
   username: String,
   password: String,
+  isLogged:{type:Boolean,default:true},
   dog: {
     name: String,
     age: Number,

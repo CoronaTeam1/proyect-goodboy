@@ -52,10 +52,8 @@ const RegisterDog = () => {
 
   const registerDogBack = () => {
     RegisterDogServ.createDog(userDog)
-      .then(response => {
-        dispatch(setDog())
-        history.push(`/home`)
-      })
+      .then(response => dispatch(setDog()))
+      .then(x => history.push('/home'))
       .catch(error => console.log(error))
   }
 
