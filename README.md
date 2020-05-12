@@ -21,8 +21,8 @@ Enlace al post en Medium: https://medium.com/@ruth.deblas/case-study-wellness-go
 
 El proyecto se ha construido con React en el front haciendo uso de Hooks y Redux para la gestión del estado. Para la elaboración de CSS se ha utilizado los estilos de Material UI basados en JSS. En el back se ha utilizado NodeJS, AJAX y MongoDB adémas de Cheerio para extración de información.
 
-## Mas información
-Puedes testar aquí: 
+## Mas información: 
+Puedes testear aqui: [GoodBoyApp](https://goodboyapp.herokuapp.com/)
 <p align="center"><img src="https://i.ibb.co/ZNPWTxQ/Screenshot-2020-05-08-at-18-07-21.png" /></p>
 
 ### Instalación
