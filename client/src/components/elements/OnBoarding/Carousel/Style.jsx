@@ -21,6 +21,11 @@ export default makeStyles({
     fontFamily: "AvenirNext-Regular",
     fontSize: "15px",
     color: "#343434",
-    lineHeight: "20px"
+    lineHeight: "20px",
+    width: 270,
+    marginLeft: -70
+  },
+  button: {
+    margin: 10
   }
 });

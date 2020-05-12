@@ -161,9 +161,9 @@ const Form = ({termState}) => {
 
                     {values.showError===false?<p></p>:<p className={styleForm.socialLoginP}>Las Contraseñas no coinciden</p>}
 
-                    <p className={styleForm.continueDiclaimer}>Al continuar aceptas los Términos y Política de privacidad</p>
                     
-                    <div onClick={()=> handleSubmit()}>
+                    <div className={styleForm.button} onClick={()=> handleSubmit()}>
+                    <p className={styleForm.continueDiclaimer}>Al continuar aceptas los Términos y Política de privacidad</p>
                         <ButtonGB  text="Registrate Ahora" link={'/home'}/>
                     </div>
                     

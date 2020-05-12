@@ -63,7 +63,7 @@ const TransitionsModal = () => {
       </Modal>
 
       <Header title="Inicio" route="" />
-
+      <div className={styleClass.mainWrapper}>
       <div className={styleClass.mainPanel}>
           <>
           <Link to="/home-learn" className={styleClass.mainPanel}>
@@ -83,10 +83,10 @@ const TransitionsModal = () => {
               />
             </Link>
           </>
-
-      </div>
+        </div>
       <div className={styleClass.clicker} onClick={() => audio.play()}>
         <img src="../../../../images/clicker.svg" alt="clicker" />
+      </div>
       </div>
 
       <Footer />

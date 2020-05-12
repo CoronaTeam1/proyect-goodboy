@@ -3,9 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 
 import { useSelector , useDispatch} from "react-redux";
 import { fetchUser } from './redux'
-
-
-
+/* ----- RRD components ----- */
 import RegisterDog from "./components/elements/RegisterDog/RegisterDog";
 import OnBoarding from "./components/elements/OnBoarding/OnBoarding";
 import Home from "./components/elements/Home/Home";
@@ -15,7 +13,6 @@ import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDeta
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
 import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
 import SectionsLearn from "./components/elements/Home/Sections/Learn/SectionsLearn";
-
 /* ----- Services ----- */
 import authServ from './services/auth.services'
 /* ----- Styles ----- */
@@ -32,19 +29,9 @@ function App() {
 
 
   useEffect( () => {
-    // code to run on component mount
-    // await authServ.loggedin()
-    // .then(userz => dispatch(fetchUser({...userz})))
-    // .then(x => user.username?setIsLogged(true):setIsLogged(false))
-    // .then(console.log('Esta logeado?',isLogged))
-    // .catch(() => setIsLogged(false))
-
     authServ.loggedin()
     .then(user => dispatch(fetchUser({...user})))
-    // .then(x=>x.payload.username&&dispatch(fetchUser({...userz,isLogged:true})))
     .catch(()=> console.log('Error'))
-    
-    
   },[])
   
   
@@ -67,8 +54,11 @@ function App() {
         </Route>
 
         <Route path="/home">
-          
           {userz.isLogged ? <Home />: <Redirect to="/auth" /> }
+        </Route>
+
+        <Route path="/home-learn">
+          {userz.isLogged ? <SectionsLearn /> : <Redirect to="/auth" />}
         </Route>
 
         <Route path="/breed/:breed">
@@ -79,11 +69,11 @@ function App() {
           {userz.isLogged ? <Breed />: <Redirect to="/auth" />}
         </Route>
 
-        <Route path="/home-learn/:learn">
+        <Route path="/init-learn/:learn">
           {userz.isLogged ? <LearnDetails />:<Redirect to="/auth" /> }
         </Route>
 
-        <Route path="/home-learn">
+        <Route path="/init-learn">
           {userz.isLogged ? <LearnInit />: <Redirect to="/auth" /> }
         </Route>
 

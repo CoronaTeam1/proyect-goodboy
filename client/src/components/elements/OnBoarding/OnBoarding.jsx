@@ -14,6 +14,7 @@ const Onboarding = () => {
   return(
 
   <Grid item xs={12} className="index-header">
+    <h1>Bienvenido!</h1>
     <img className="logo" src="../../../../images/logo.png" alt="Logo" />
     <Carousel/>
     

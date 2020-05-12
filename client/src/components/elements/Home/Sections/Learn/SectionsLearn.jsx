@@ -13,7 +13,8 @@ const SectionsLearn = () => {
 
     return (
         <>
-            <Header title="Lecciones básicas" route="home" />
+            <Header title="Lecciones" route="home" />
+            <div className={styleClass.mainWrapper}>
             <div className={styleClass.mainPanel}>
                     <Link to="/init-learn" className={styleClass.mainPanel}>
                         <Section
@@ -29,6 +30,7 @@ const SectionsLearn = () => {
                         url="../../../../images/sectionAdvance.svg"
                         title="Avanzadas"
                     />
+                </div>
             </div>
             <Footer />
         </>

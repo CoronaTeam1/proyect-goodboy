@@ -6,7 +6,8 @@ export default makeStyles({
     color: "white",
     backgroundColor: "#6AC3AE",
     border: "none",
-    width:'100%',
+    width:'80%',
+    margin: "auto",
     padding:'16px 0px'
     
   },

@@ -14,7 +14,6 @@ export default makeStyles(theme => ({
     padding: '0em 4em'
   },
   clicker: {
-    marginTop: "2em",
     textAlign: 'center'
   },
   mainPanel: {
@@ -41,7 +40,7 @@ export default makeStyles(theme => ({
     margin: '5px 0'
   },
   mainWrapper: {
-    margin: '45px 0 60px 0',
+    margin: '65px 0 60px 0',
     padding: '5%'
   },
   card: {

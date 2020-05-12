@@ -32,6 +32,9 @@ export default makeStyles({
         display:'flex',
         flexDirection:'column',
         justifyContent:'center',
+    },
+    button:{
+        marginTop:30
     }
     
 })

@@ -30,7 +30,7 @@ const LearnDetails = () => {
             title="videoLection"
             className="margin-negative"
             width="100%"
-            height="200px"
+            height="300px"
             src={training.url}
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
