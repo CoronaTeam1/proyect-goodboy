@@ -25,7 +25,7 @@ const LearnDetails = () => {
     <>
       {training && (
         <>
-          <Header title={training.title} route="init-learn" />
+          <Header title={training.title} route="home" />
           <iframe
             title="videoLection"
             className="margin-negative"

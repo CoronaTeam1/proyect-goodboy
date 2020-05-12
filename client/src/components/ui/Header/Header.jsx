@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import HeaderStyle from "./HeaderStyle";
 
 
-const Footer = ({ title, route}) => {
+const Header = ({ title, route}) => {
 
   const styleClass = HeaderStyle();
 
@@ -18,4 +18,4 @@ const Footer = ({ title, route}) => {
   );
 };
 
-export default Footer;
+export default Header;

@@ -14,7 +14,7 @@ const LearnInit = () => {
 
   return (
     <>
-      <Header title="Lecciones iniciales" />
+      <Header title="Lecciones iniciales" route="home"  />
       <div className={styleClass.mainWrapper}>
         <div className={styleClass.mainPanel}>
           <Section
