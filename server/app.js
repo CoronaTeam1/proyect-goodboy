@@ -21,7 +21,8 @@ app.use('/api/files', require('./routes/files.routes'))
 app.use('/api/breed', require('./routes/breed.routes'))
 app.use('/api/training', require('./routes/training.routes'))
 
-
-
+app.use((req, res) => {
+    res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;
