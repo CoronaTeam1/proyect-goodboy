@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 /* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
 /* ----- Styles ----- */
@@ -16,6 +16,8 @@ const Footer = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
+  const [term,setTerm] = useState('/home')
+
 
 
   const logout = () =>{
@@ -26,19 +28,27 @@ const Footer = () => {
 
     return (
         <div className={styleClass.footer}>
-            <ButtonFooter
-              url="../../../../images/buttonHome.svg"
-              title="Inicio"
-            />
-            <ButtonFooter
-              url="../../../../images/buttonPet.svg"
-              title="Mascota"
-            />
-            <ButtonFooter
-              url="../../../../images/buttonProfile.svg"
-              title="Perfil"
-            />
-            <div onClick={()=> logout()}>LgOut {user.name}</div>
+        
+          <ButtonFooter
+            selectedImg="../../../../images/buttonHome.svg"
+            deselectedImg='../../../../images/clicker.svg'
+            title="Inicio"
+            term={term}
+            uri='/home'
+            setTerm={()=>setTerm('/home')}
+          />
+          <ButtonFooter
+            selectedImg='../../../../images/footWhite.svg'
+            deselectedImg="../../../../images/buttonPet.svg"
+            title="Mascota"
+            term={term}
+            uri='/breed'
+            setTerm={()=>setTerm('/breed')}
+
+          />
+          
+          <div onClick={()=> logout()}>Log Out<br/> {user.name}</div>
+            
           </div>
     );
 };
