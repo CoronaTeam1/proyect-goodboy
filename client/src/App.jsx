@@ -1,4 +1,4 @@
-import React , { useState,useEffect } from "react";
+import React , {useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { useSelector , useDispatch} from "react-redux";
@@ -21,8 +21,6 @@ import "./App.css";
 
 function App() {
 
-  const [isLogged, setIsLogged] = useState(false);
-
   const userz = useSelector(state => state.user)
   const dispatch = useDispatch()
 
@@ -32,7 +30,7 @@ function App() {
     authServ.loggedin()
     .then(user => dispatch(fetchUser({...user})))
     .catch(()=> console.log('Error'))
-  },[])
+  },[dispatch])
   
   
  

@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
 /* ----- Redux ----- */
-import { registerUser,fetchUser } from '../../../../redux'
-import { useDispatch, useSelector } from "react-redux";
+import { fetchUser } from '../../../../redux'
+import { useDispatch} from "react-redux";
 /* ----- Material UI ----- */
-import {FormControl, Input, InputLabel, IconButton,InputAdornment, InputBase } from "@material-ui/core";
+import {FormControl, Input, InputLabel, IconButton,InputAdornment } from "@material-ui/core";
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 /* ----- Services ----- */
@@ -34,15 +34,6 @@ const Form = ({termState}) => {
 
     //--- REDUX ---
 
-    const userMK = useSelector(state => state.user)
-
-    // const userRedux = {
-    //     name: useSelector(state => state.user.name),
-    //     username: useSelector(state => state.user.username),
-    //     password: useSelector(state => state.user.password),
-    //     checkPassword: useSelector(state => state.user.checkPassword)
-    //   };
-
       const dispatch = useDispatch();
     
       const handleChange = e => setFormValues({...formValues,[e.target.name]:e.target.value})
@@ -64,22 +55,17 @@ const Form = ({termState}) => {
       };
 
       const registerUserBack = () => {
-        console.log(formValues)
-
         authServ.registerUser(formValues)
-            .then(response => console.log("Esta es la response del back", response))
-            .then(x => history.push('/register-dog'))
+            .then(response => history.push('/register-dog'))
             .catch(err => console.log(err))
       }
 
       const loginUser = () => {
-          console.log(formValues)
+         
           authServ.loginUser(formValues)
-          .then(response => dispatch(fetchUser(response,{isLogged:true}),console.log(response,'esto es lo que hay en la response')))
-          .then(x => console.log('Esto lo que hay en en store',userMK))
+          .then(response => dispatch(fetchUser(response,{isLogged:true})))
           .then(x => history.push('/home'))
           .catch(err => console.log(err))
-
 
       }
 

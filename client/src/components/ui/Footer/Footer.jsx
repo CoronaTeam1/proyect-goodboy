@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React,{useState} from "react";
 /* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
 /* ----- Styles ----- */
@@ -6,7 +6,7 @@ import FooterStyle from './FooterStyle'
 import authServ from '../../../services/auth.services'
 import { useHistory } from "react-router-dom";
 import { useSelector,useDispatch} from "react-redux";
-import { fetchUser } from '../../../redux'
+import { fetchUser,changeTerm} from '../../../redux'
 
 
 
@@ -16,8 +16,8 @@ const Footer = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
-  const [term,setTerm] = useState('/home')
-
+  const term = useSelector(state => state.term)
+  console.log(term,'Aqui tiene que haber algo')
 
 
   const logout = () =>{
@@ -31,19 +31,19 @@ const Footer = () => {
         
           <ButtonFooter
             selectedImg="../../../../images/buttonHome.svg"
-            deselectedImg='../../../../images/clicker.svg'
+            deselectedImg='../../../../images/homeDeselected.svg'
             title="Inicio"
             term={term}
             uri='/home'
-            setTerm={()=>setTerm('/home')}
+            setTerm={()=> dispatch(changeTerm('/home'))}
           />
           <ButtonFooter
-            selectedImg='../../../../images/footWhite.svg'
+            selectedImg='../../../../images/footSelected.svg'
             deselectedImg="../../../../images/buttonPet.svg"
             title="Mascota"
             term={term}
             uri='/breed'
-            setTerm={()=>setTerm('/breed')}
+            setTerm={()=> dispatch(changeTerm('/breed'))}
 
           />
           

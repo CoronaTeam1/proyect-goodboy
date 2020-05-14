@@ -10,8 +10,9 @@ const ButtonFooter = ({ selectedImg,deselectedImg,title,uri,setTerm,term }) => {
 //   console.log("SOY :",uri,' y el term es:',term)
 
   const handleClick = () => {
+        redirect()
         setTerm()
-        // redirect()
+        
         
         console.log('The term:',term,'my uri',uri)
     }
@@ -21,7 +22,7 @@ const ButtonFooter = ({ selectedImg,deselectedImg,title,uri,setTerm,term }) => {
 
     return (
         <div className={styleClass.btPadding} onClick={handleClick} >
-            <img src={term===uri?selectedImg:deselectedImg} alt={title} />
+            <img src={term.term===uri?selectedImg:deselectedImg} alt={title} />
             <p className="no-margin">{title}</p>
         </div>
     );

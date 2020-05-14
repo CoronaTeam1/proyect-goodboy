@@ -29,11 +29,11 @@ const BreedDetails = () => {
 
             <div className={styleClass.mainWrapper}>
               <div className={styleClass.mainPanel}>
-                <img alt="details" src={details && details.image} alt={details.breed} className={styleClass.image65w}></img>
+                <img src={details && details.image} alt={details.breed} className={styleClass.image65w}></img>
                 <hr></hr>
                 <Divider />
                 <div className={`${styleClass.modal} ${styleClass.margin5updw}`}>
-                  <img src="../../../../images/footGreen.svg" className="margin-right" /><h3 className="text">Acerca del {breed}</h3>
+                  <img src="../../../../images/footGreen.svg" className="margin-right" alt=""/><h3 className="text">Acerca del {breed}</h3>
 
                 </div>
                 <p className="text">{details && details.description}</p>
