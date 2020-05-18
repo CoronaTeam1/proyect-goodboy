@@ -8,7 +8,7 @@ const userSchema = new Schema({
   isLogged:{type:Boolean,default:true},
   dog: {
     name: String,
-    age: Number,
+    age: String,
     breed: String,
     genre: String,
     photo: String,

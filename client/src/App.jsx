@@ -13,6 +13,7 @@ import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDeta
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
 import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
 import SectionsLearn from "./components/elements/Home/Sections/Learn/SectionsLearn";
+import Profile from "./components/elements/Profile/Profile"
 /* ----- Services ----- */
 import authServ from './services/auth.services'
 /* ----- Styles ----- */
@@ -73,6 +74,10 @@ function App() {
 
         <Route path="/init-learn">
           {userz.isLogged ? <LearnInit />: <Redirect to="/auth" /> }
+        </Route>
+
+        <Route path="/profile">
+          {userz.isLogged ? <Profile />: <Redirect to="/auth" /> }
         </Route>
 
       </Switch>

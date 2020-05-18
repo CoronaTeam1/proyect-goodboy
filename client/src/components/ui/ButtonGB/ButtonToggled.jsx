@@ -38,10 +38,10 @@ const ToggleButtons = () => {
                 aria-label="text alignment"
                 size="small"
             >
-                <ToggleButton className={styleClass.ToggleButtons} value="macho" >
+                <ToggleButton className={styleClass.ToggleButtons} value="Macho" >
                     Macho
                     </ToggleButton>
-                <ToggleButton className={styleClass.ToggleButtons} value="hembra">
+                <ToggleButton className={styleClass.ToggleButtons} value="Hembra">
                     Hembra
                     </ToggleButton>
             </ToggleButtonGroup>

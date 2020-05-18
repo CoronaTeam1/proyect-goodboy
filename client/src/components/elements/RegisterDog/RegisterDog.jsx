@@ -20,11 +20,11 @@ const RegisterDog = () => {
   const styleClass = style();
 
   const userDog = {
-    name: useSelector(state => state.dog.name),
-    age: useSelector(state => state.dog.age),
-    breed: useSelector(state => state.dog.breed),
-    genre: useSelector(state => state.dog.genre),
-    photo: useSelector(state => state.dog.photo)
+    name: useSelector(state => state.user.dog.name),
+    age: useSelector(state => state.user.dog.age),
+    breed: useSelector(state => state.user.dog.breed),
+    genre: useSelector(state => state.user.dog.genre),
+    photo: useSelector(state => state.user.dog.photo)
   };
 
   const history = useHistory()

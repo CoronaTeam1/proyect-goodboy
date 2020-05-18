@@ -17,7 +17,6 @@ const Footer = () => {
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
   const term = useSelector(state => state.term)
-  console.log(term,'Aqui tiene que haber algo')
 
 
   const logout = () =>{
@@ -42,8 +41,8 @@ const Footer = () => {
             deselectedImg="../../../../images/buttonPet.svg"
             title="Mascota"
             term={term}
-            uri='/breed'
-            setTerm={()=> dispatch(changeTerm('/breed'))}
+            uri='/profile'
+            setTerm={()=> dispatch(changeTerm('/profile'))}
 
           />
           
