@@ -17,6 +17,12 @@ export default makeStyles({
         borderRadius:'20px',
         display:'inline-block',
         margin:'20px 0px',
-        
+    },
+    imgWrapper:{
+        margin: "auto",
+        width: "90%",
+        height: "130px",
+        overflow: "hidden",
+        borderRadius: "50%"
     }
 })

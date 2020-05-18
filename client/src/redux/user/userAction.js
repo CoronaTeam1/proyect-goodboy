@@ -1,4 +1,4 @@
-import {REGISTER_USER,FETCH_USER} from './userTypes'
+import {REGISTER_USER,FETCH_USER,FETCH_PHOTO} from './userTypes'
 
 
 export const registerUser = (field,value) =>{
@@ -12,8 +12,13 @@ export const registerUser = (field,value) =>{
 export const fetchUser = (theuser) =>{
     return{
         type: FETCH_USER,
-        payload: theuser
-        
+        payload: theuser   
     }
+}
 
+export const fetchPhoto= (photoUrl) => {
+    return{
+        type:  FETCH_PHOTO,
+        payload: photoUrl
+    }
 }

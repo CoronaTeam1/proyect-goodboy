@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState}from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
 /* ----- Redux ----- */
-import { registerDog, setDog } from '../../../redux'
+// import { registerDog, setDog } from '../../../redux'
 /* ----- MaterialUI Compoennts ----- */
 import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
+import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
+
 /* ----- UI components ----- */
 import ButtonGB from '../../ui/ButtonGB/Button'
 import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
@@ -19,19 +21,17 @@ const RegisterDog = () => {
 
   const styleClass = style();
 
-  const userDog = {
-    name: useSelector(state => state.user.dog.name),
-    age: useSelector(state => state.user.dog.age),
-    breed: useSelector(state => state.user.dog.breed),
-    genre: useSelector(state => state.user.dog.genre),
-    photo: useSelector(state => state.user.dog.photo)
-  };
+  const [userDog,setDog] = useState({name:'',age:'',breed:'',genre:'',photo:''})
 
   const history = useHistory()
 
-  const dispatch = useDispatch();
+  const [alignment, setAlignment] = useState('');
 
-  const handleChange = e =>  dispatch(registerDog(e.target.id, e.target.value))
+  const handleAlignment = (e, newAlignment) => {
+      setAlignment(newAlignment);
+  };
+
+  const handleChange = e => setDog({...userDog,[e.target.id]:e.target.value})
 
   const handleFileUpload = e => {
 
@@ -39,20 +39,20 @@ const RegisterDog = () => {
     uploadData.append("imageUrl", e.target.files[0])
 
     FilesServices.handleUpload(uploadData)
-      .then(response => dispatch(registerDog("photo", response.secure_url)))
+      .then(response => setDog({...userDog,photo:response.secure_url}))
       .catch(error => console.log(error))
-
-  };
+  }
 
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log(userDog)
     registerDogBack();
   };
 
   const registerDogBack = () => {
     RegisterDogServ.createDog(userDog)
-      .then(response => dispatch(setDog()))
+      // .then(response => dispatch(userDog)
       .then(x => history.push('/home'))
       .catch(error => console.log(error))
   }
@@ -96,7 +96,24 @@ const RegisterDog = () => {
             )
           }
 
-          <ToggleButtons />
+            <div>
+              <ToggleButtonGroup
+                  className={styleClass.padding30px}
+                  value={alignment}
+                  exclusive
+                  onChange={handleAlignment}
+                  aria-label="text alignment"
+                  size="small"
+              >
+                  <ToggleButton className={styleClass.ToggleButtons} value='Macho' onClick={()=>setDog({...userDog,genre:'Macho'})}>
+                      Macho
+                      </ToggleButton>
+                  <ToggleButton className={styleClass.ToggleButtons} value='Hembra' onClick={()=>setDog({...userDog,genre:'Hembra'})}>
+                      Hembra
+                      </ToggleButton>
+              </ToggleButtonGroup>
+            </div>
+
           <div className={styleClass.textLeft}>
 
             <InputLabel htmlFor="dogname" className='bold mt1'> ¿Cuál es el nombre de tu perro? </InputLabel>

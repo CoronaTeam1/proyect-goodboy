@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector,useDispatch} from "react-redux";
 import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
 
-import { registerDog, setDog } from '../../../redux'
+import { fetchPhoto } from '../../../redux'
 
 
 import Header from '../../ui/Header/Header'
@@ -19,6 +19,7 @@ const Profile = () => {
 
    const styleProfile = ProfileStyle()
    const userz = useSelector(state => state.user)
+   const userDog =useSelector(state => state.user.dog)
    const dispatch = useDispatch();
 
    console.log(userz)
@@ -29,7 +30,7 @@ const Profile = () => {
       uploadData.append("imageUrl", e.target.files[0])
   
       FilesServices.handleUpload(uploadData)
-        .then(response => dispatch(registerDog("photo", response.secure_url)))
+        .then(response => dispatch(fetchPhoto(response.secure_url)))
         .catch(error => console.log(error))
   
    };
@@ -46,7 +47,7 @@ const Profile = () => {
 
                   <figure>
                      {userz.dog.photo?
-                        <img src={userz.dog.photo} alt='your dog'/>
+                        <img className={styleProfile.imgWrapper} src={userz.dog.photo} alt='your dog'/>
                      :
                         <div className=''>
                            <FormControl>
