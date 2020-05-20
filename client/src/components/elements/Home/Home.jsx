@@ -64,13 +64,13 @@ const TransitionsModal = () => {
 
       <Header title="Inicio" route="" />
       <div className={styleClass.mainWrapper}>
-      <div className={styleClass.mainPanel}>
+        <div className={styleClass.mainPanel}>
           <>
-          <Link to="/home-learn" className={styleClass.mainPanel}>
-            <Section
-              url="../../../../images/section1.svg"
-              title="Lecciones"
-            />
+            <Link to="/home-learn" className={styleClass.mainPanel}>
+              <Section
+                url="../../../../images/section1.svg"
+                title="Lecciones"
+              />
             </Link>
             <Section
               url="../../../../images/section2.svg"
@@ -87,9 +87,9 @@ const TransitionsModal = () => {
       <div className={styleClass.clicker} onClick={() => audio.play()}>
         <img src="../../../../images/clicker.svg" alt="clicker" />
       </div>
-      </div>
+    </div>
 
-      <Footer />
+      <Footer/>
     </div>
   );
 };

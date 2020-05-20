@@ -10,7 +10,7 @@ import AuthIndexStyle from './AuthIndexStyle'
 
 const AuthIndex = () => {
     
-    const [term,setTerm] = useState("signup")
+    const [term,setTerm] = useState("login")
     const styleClass = AuthIndexStyle();
 
     return(

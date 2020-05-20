@@ -44,9 +44,10 @@ const Breed = () => {
       <div className={styleClass.mainWrapper}>
         {breed &&
           breed.map((elm, idx) => (
-            <>
+          
               <Card
                 className={styleClass.card}
+                key={idx}
                 onClick={() => history.push(`/breed/${elm.name}`)}
               >
                 <CardActionArea className={styleClass.contentCard}>
@@ -57,6 +58,7 @@ const Breed = () => {
                     image={elm.image}
                     title="Contemplative Reptile"
                     className={styleClass.image65w}
+                    
                   />
                   <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
@@ -65,7 +67,7 @@ const Breed = () => {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </>
+            
           ))}
 
 

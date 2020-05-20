@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 /* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
 /* ----- Styles ----- */
@@ -6,7 +6,7 @@ import FooterStyle from './FooterStyle'
 import authServ from '../../../services/auth.services'
 import { useHistory } from "react-router-dom";
 import { useSelector,useDispatch} from "react-redux";
-import { fetchUser } from '../../../redux'
+import { fetchUser,changeTerm} from '../../../redux'
 
 
 
@@ -16,6 +16,7 @@ const Footer = () => {
   const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.user)
+  const term = useSelector(state => state.term)
 
 
   const logout = () =>{
@@ -26,19 +27,27 @@ const Footer = () => {
 
     return (
         <div className={styleClass.footer}>
-            <ButtonFooter
-              url="../../../../images/buttonHome.svg"
-              title="Inicio"
-            />
-            <ButtonFooter
-              url="../../../../images/buttonPet.svg"
-              title="Mascota"
-            />
-            <ButtonFooter
-              url="../../../../images/buttonProfile.svg"
-              title="Perfil"
-            />
-            <div onClick={()=> logout()}>LgOut {user.name}</div>
+        
+          <ButtonFooter
+            selectedImg="../../../../images/buttonHome.svg"
+            deselectedImg='../../../../images/homeDeselected.svg'
+            title="Inicio"
+            term={term}
+            uri='/home'
+            setTerm={()=> dispatch(changeTerm('/home'))}
+          />
+          <ButtonFooter
+            selectedImg='../../../../images/footSelected.svg'
+            deselectedImg="../../../../images/buttonPet.svg"
+            title="Mascota"
+            term={term}
+            uri='/profile'
+            setTerm={()=> dispatch(changeTerm('/profile'))}
+
+          />
+          
+          <div onClick={()=> logout()}>Log Out<br/> {user.name}</div>
+            
           </div>
     );
 };

@@ -39,6 +39,12 @@ export default makeStyles({
 
     btPadding:{
         paddingTop:'56px'
-    }
+    },
+
+    padding30px: {
+        padding: '30px',
+      }
+
+    
 
 });

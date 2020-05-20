@@ -1,4 +1,4 @@
-import React , { useState,useEffect } from "react";
+import React , {useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 import { useSelector , useDispatch} from "react-redux";
@@ -13,6 +13,7 @@ import BreedsDetails from "./components/elements/Home/Sections/Breeds/BreedsDeta
 import Breed from "./components/elements/Home/Sections/Breeds/Breeds";
 import LearnInit from './components/elements/Home/Sections/Learn/LearnInit'
 import SectionsLearn from "./components/elements/Home/Sections/Learn/SectionsLearn";
+import Profile from "./components/elements/Profile/Profile"
 /* ----- Services ----- */
 import authServ from './services/auth.services'
 /* ----- Styles ----- */
@@ -20,8 +21,6 @@ import "./App.css";
 
 
 function App() {
-
-  const [isLogged, setIsLogged] = useState(false);
 
   const userz = useSelector(state => state.user)
   const dispatch = useDispatch()
@@ -32,7 +31,7 @@ function App() {
     authServ.loggedin()
     .then(user => dispatch(fetchUser({...user})))
     .catch(()=> console.log('Error'))
-  },[])
+  },[dispatch])
   
   
  
@@ -75,6 +74,10 @@ function App() {
 
         <Route path="/init-learn">
           {userz.isLogged ? <LearnInit />: <Redirect to="/auth" /> }
+        </Route>
+
+        <Route path="/profile">
+          {userz.isLogged ? <Profile />: <Redirect to="/auth" /> }
         </Route>
 
       </Switch>

@@ -9,9 +9,7 @@ const ChipBar = ({ title, text }) => {
     
   const [expanded, setExpanded] = useState("panel1");
 
-  const handleChange = (panel) => (event, newExpanded) => {
-    setExpanded(newExpanded ? panel : false);
-  };
+  const handleChange = (panel) => (event, newExpanded) => setExpanded(newExpanded ? panel : false)
 
   return (
     <>
@@ -26,6 +24,7 @@ const ChipBar = ({ title, text }) => {
           <Typography className="text">{text}</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
+      {console.log(expanded,'Has encontrado un easter Egg!!!, enhorabuena mi pana')}
     </>
   );
 };

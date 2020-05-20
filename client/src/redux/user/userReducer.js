@@ -1,4 +1,4 @@
-import {REGISTER_USER,FETCH_USER} from './userTypes'
+import {REGISTER_USER,FETCH_USER, FETCH_PHOTO} from './userTypes'
 
 const initialState = {
     name:undefined,
@@ -25,6 +25,12 @@ const userReducer = (state=initialState,action) => {
             newState.password=action.payload.password
             newState.isLogged=action.payload.isLogged
             return {...newState}
+        
+        case FETCH_PHOTO:
+            const newPhoto = {...state}
+            newPhoto.dog.photo= action.payload
+
+            return { ...newPhoto }
 
         default:
             return state
