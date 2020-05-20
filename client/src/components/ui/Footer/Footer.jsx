@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 /* ----- RRD components ----- */
 import ButtonFooter from "./ButtonFooter"
 /* ----- Styles ----- */

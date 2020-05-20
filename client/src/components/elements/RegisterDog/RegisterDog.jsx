@@ -1,15 +1,11 @@
 import React, {useState}from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom'
-/* ----- Redux ----- */
-// import { registerDog, setDog } from '../../../redux'
 /* ----- MaterialUI Compoennts ----- */
 import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
 import { ToggleButtonGroup, ToggleButton } from '@material-ui/lab';
 
 /* ----- UI components ----- */
 import ButtonGB from '../../ui/ButtonGB/Button'
-import ToggleButtons from '../../ui/ButtonGB/ButtonToggled'
 /* ----- Services ----- */
 import RegisterDogServ from '../../../services/registerdog.services'
 import FilesServices from '../../../services/files.services'
@@ -46,7 +42,6 @@ const RegisterDog = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(userDog)
     registerDogBack();
   };
 

@@ -1,6 +1,6 @@
 import React from "react"
 import { useSelector,useDispatch} from "react-redux";
-import { FormControl, Input, InputLabel, Button, Container } from "@material-ui/core";
+import { FormControl, Input, Button} from "@material-ui/core";
 
 import { fetchPhoto } from '../../../redux'
 
@@ -19,10 +19,7 @@ const Profile = () => {
 
    const styleProfile = ProfileStyle()
    const userz = useSelector(state => state.user)
-   const userDog =useSelector(state => state.user.dog)
    const dispatch = useDispatch();
-
-   console.log(userz)
 
    const handleFileUpload = e => {
 
@@ -78,7 +75,7 @@ const Profile = () => {
                </div>
 
 
-               <div className={styleProfile.userInfo, 'text'}>
+               <div className={styleProfile.userInfo + 'text'}>
                   
                   <p>Nombre de usuario: {userz.name}</p>
                   <p className='mt2'>E-mail: {userz.username}</p>

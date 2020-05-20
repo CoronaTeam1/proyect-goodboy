@@ -24,7 +24,6 @@ const ChipBar = ({ title, text }) => {
           <Typography className="text">{text}</Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
-      {console.log(expanded,'Has encontrado un easter Egg!!!, enhorabuena mi pana')}
     </>
   );
 };

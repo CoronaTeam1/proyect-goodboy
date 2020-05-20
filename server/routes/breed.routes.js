@@ -23,7 +23,6 @@ router.post('/details', (req, res, next) => {
         name: breedName
     })
         .then(response => {
-            console.log('resssss:', response)
             return response[0].description ? response : breedsAPI.getDetails(breedName)
         })
         .then(response => { console.log('res22:', response); res.json(response) })

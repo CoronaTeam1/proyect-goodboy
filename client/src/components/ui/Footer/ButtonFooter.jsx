@@ -7,14 +7,10 @@ import FooterStyle from './FooterStyle'
 const ButtonFooter = ({ selectedImg,deselectedImg,title,uri,setTerm,term }) => {
   const styleClass = FooterStyle();
   const history = useHistory()
-//   console.log("SOY :",uri,' y el term es:',term)
 
   const handleClick = () => {
         redirect()
         setTerm()
-        
-        
-        console.log('The term:',term,'my uri',uri)
     }
 
     const redirect = () => history.push(uri)
